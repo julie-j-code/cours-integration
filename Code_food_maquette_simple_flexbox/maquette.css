@@ -84,7 +84,7 @@ header {
     background-repeat: no-repeat;
     background-position: top center;
     background-size: cover;
-    /* padding-bottom: 100px; */
+
 }
 
 nav {
@@ -96,13 +96,14 @@ nav {
     background-color: white;
     display: flex;
     flex-wrap: wrap;
-    /* margin: auto; ne sert à rien si on a une largeur de 100% !*/
     justify-content: space-between;
     box-shadow: 0px 5px 5px rgb(196, 196, 196);
     align-items: center;
 }
 
-header img{width: 100%;}
+header img {
+    width: 100%;
+}
 
 section .container {
     /* mieux que sur l'initiale */
@@ -162,19 +163,60 @@ footer .container {
 
 /* pas abordés mais si vous êtes curieux vous pouvez tenter :
 de faire en sorte que tous les .container div passent à 90 ou 100% sur mobiles
-pour qu'il n'y en ait qu'un par ligne
-autre option : virer le display:flex partout puisqu'on souhaitera revenir à une disposition par défaut des blocs sur version mobiles
-RESTE à faire donc...
-*/
-
-/* il en faudrait un pour écran sous 1024 avec un gap réduit et des largeur des éléments enfants différents
+pour qu'il n'y en ait qu'un par ligne.
 mais vous ne serez en aucun cas évaluer sur ces points que seul le cours aborde */
 @media screen and (max-width:1024px) {
+    header .container {
+        height: 700px;
+    }
+
     .gallery .container .box {
-    width:48%;
+        width: 48%;
+    }
+
+    footer .container {
+        gap: 5px;
+    }
+
 }
-footer .container{
-    gap:5px;
-}
-    
+
+@media screen and (max-width:650px) {
+
+    header {
+        min-height: 900px;
+        text-align: center;
+    }
+
+    nav {
+        position: static;
+    }
+
+    .container,
+    nav {
+        flex-direction: column;
+    }
+
+    .container {
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: 50px;
+    }
+
+    h1 {
+        margin-top: 100px;
+    }
+
+    .gallery .container .box,
+    header .container div,
+    .speciality .container div,
+    .gallery .container .box:last-child {
+        width: 90%;
+    }
+
+    footer {
+        height: auto;
+        padding-bottom: 50px;
+    }
+
+
 }
