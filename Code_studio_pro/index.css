@@ -296,7 +296,7 @@ input[type=text] {
 }
 
 input[type=submit] {
-    width: 25%;
+    width: 200;
     background-color: #058a99;
     color: white;
     padding: 14px 20px;
@@ -387,6 +387,11 @@ footer img {
 
     .card-50 h2 {
         font-size: 2.5rem;
+    }
+
+    form {
+        text-align: center;
+        padding: 4%;
     }
 
 
