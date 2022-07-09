@@ -1,0 +1,187 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Gill Sans", sans-serif;
+    box-sizing: border-box;
+}
+
+header,
+main {
+    width: 98%;
+    margin: 0 auto;
+}
+
+/* méthode avancée pour forcer l'annulation des espaces automatiquement ajoutés par le navigateur
+navigateur qui considère les blocs en ligne comme des lettres... si ces "lettres" font 0, leur espacement fait 0 !
+mais si vous ne visez  pas 50% de largeur sur les sections contenues dans main, ce n'est pas nécessaire de recourir à cette astuce */
+main {
+    font-size: 0;
+}
+
+img,
+header div,
+section {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+img {
+    width: 180px;
+    padding: 10px 20px;
+    border-bottom: 1px solid #A98BDD;
+}
+
+p {
+    margin: 20px 0;
+}
+
+p,
+section {
+    font-size: 1rem;
+    line-height: 0;
+}
+
+h1,
+h3 span {
+    color: #36063B;
+}
+
+span {
+    letter-spacing: 2px;
+    margin-left: 10px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    /* parce que je déteste le gras par défaut */
+    font-weight: 500;
+    color: #fff;
+    background-color: #36063B;
+    padding: 40px 40px 40px 120px;
+    margin-top: 0;
+
+}
+
+h3 {
+
+    color: #A98BDD;
+    font-weight: 400;
+}
+
+h3:nth-child(2) {
+    margin-top: 60px;
+}
+
+section p,
+section h3 {
+    padding-left: 50px;
+}
+
+
+strong {
+    color: #36063B;
+    margin: 0;
+    padding: 0;
+
+}
+
+header div {
+    padding-left: 50px;
+    width: 60%;
+    vertical-align: middle;
+}
+
+
+
+section {
+    padding: 0;
+    /* si vous n'avez pas mis font-size:0 sur le parent (main), opter pour 48% */
+    width: 50%;
+    vertical-align: top;
+
+}
+
+/* c'est un sélécteur avancé. pour avoir un fond et une marge à droite différente pour la première + troisième sections
+ceux qui ne connaissent pas, y a qu'à rajouter une classe pour ces 2 là */
+section:nth-child(2n+1) {
+    background-color: #EDF5F7;
+    height: 400px;
+    padding-right: 1%;
+}
+
+.competences li {
+    padding-left: 60px;
+}
+
+ul,
+h3,
+p,
+div {
+    line-height: normal;
+}
+
+/* div {
+    clear: both;
+} */
+
+ul {
+    padding: 25px 40px;
+    margin: 25px;
+    border: 1px dashed #A98BDD;
+    border-radius: 5px;
+    list-style-type: square;
+}
+
+.info,
+.skills,
+.experiences,
+.formations {
+    background-size: 5%;
+    background-position: 40px;
+    background-repeat: no-repeat;
+}
+
+.info {
+    background-image: url("SVG/info.svg");
+}
+
+.skills {
+    background-image: url("SVG/competences.svg");
+}
+
+.experiences {
+    background-image: url("SVG/experiences.svg");
+}
+
+.formations {
+    background-image: url("SVG/formations.svg");
+}
+
+/* à partir de ces lignes, vous ne l'avez  pas vu. Il s'agit d'ajuster le rendu sur les  petits écrans */
+
+@media screen and (max-width:1400px) {
+    ul {
+        padding-left: 40px;
+        padding-right: 10px;
+    }
+
+    ul li {
+        padding-left: 0;
+    }
+
+}
+
+@media screen and (max-width:699px) {
+    section {
+        width: 100%;
+    }
+
+    h2 {
+        text-align: center;
+        padding: 30px;
+    }
+
+    section:nth-child(2n+1) {
+        height: auto;
+    }
+}
