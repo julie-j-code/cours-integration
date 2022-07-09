@@ -1,0 +1,611 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+header,
+.wrapper,
+header nav ul,
+aside {
+  display: flex;
+}
+
+header,
+.wrapper {
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+main {
+  margin: 10px;
+}
+
+header,
+.grey {
+  width: 100%;
+}
+
+section {
+  padding: 3rem 0;
+}
+
+.header {
+  margin-top: 3rem;
+}
+
+.wrapper,
+.title {
+  /* width: 1380px; d'après maquette */
+  width: 80%;
+  margin: 2rem auto;
+}
+
+header {
+  justify-content: space-between;
+  background-color: #c9c9c9;
+  padding: 50px 10%;
+}
+
+header nav ul,
+button,
+section h2::before,
+input {
+  border-radius: 40px;
+  /* height: 45px; d'après maquette mais j'aime pas*/
+}
+
+button,
+input {
+  padding: 1rem 2rem;
+  border: 0;
+}
+
+header div {
+  width: 20%;
+  font-size: 3rem;
+}
+
+header div,
+header nav {
+  color: white;
+}
+
+header nav ul,
+section h2::before,
+button,
+section div.card:nth-child(2) {
+  background-color: #ecb715;
+}
+
+header nav {
+  width: 80%;
+  padding: 0;
+  margin-bottom: 100px;
+}
+
+header nav ul {
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+}
+
+header nav ul li {
+  flex: 1;
+  /* moins que d'après maquette car c'est moche */
+  padding: 1.5rem 0;
+  text-align: center;
+}
+
+header nav ul li:last-child {
+  background-color: black;
+  flex: 1;
+  border-radius: 0 40px 40px 0;
+}
+
+h1 {
+  /* font-size: 42pt; */
+  font-size: 3.8rem;
+}
+
+h1,
+section h2,
+h3 span,
+button,
+.card h4 {
+  font-weight: 800;
+}
+
+header div,
+footer h5,
+header li,
+aside p {
+  font-weight: 700;
+}
+
+h1,
+header p {
+  /* parce que je n'utilise AUCUN br AUCUN
+  partant de l'idée que si le texte se dispose ainsi, 
+  c'est l'effet d'un rétrécissement */
+  margin-right: 40%;
+}
+
+header p {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+h3 {
+  margin: 3rem 0;
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+header button {
+  /* d'après maquette */
+  width: 220px;
+}
+
+section button {
+  width: 180px;
+}
+
+section h2 {
+  margin: 3rem 0;
+}
+
+section h2,
+section div.card h4 {
+  /* font-size: 11pt;  d'apèrs maquette */
+  font-size: 1.2rem;
+}
+
+/* si vous ne connaissiez pas ce selecteur avancé
+on pouvait comme le CV que je vous ai envoyé
+utiliser tout simplement un background-image dans le h2 */
+section h2::before {
+  content: "";
+  height: 2rem;
+  vertical-align: middle;
+  display: inline-block;
+  margin-right: 2em;
+  width: 5em;
+  background-image: url("img/Ellipse.png");
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+section strong {
+  /* pour ceux qui m'énoncent que ça ne sert à rien 
+  la preuve que si. je n'utilise AUCUN br AUCUN */
+  display: block;
+}
+
+h4 {
+  margin: 20px 0;
+}
+
+p,
+section div.card:nth-child(2),
+section div.card:nth-child(2) p {
+  color: #fff;
+}
+
+h1 span,
+li:last-child,
+aside p,
+h3 span,
+span.calendar,
+aside,
+.cta button:nth-child(2),
+section div.card_studies div h4,
+.card_members h6 {
+  color: #ecb715;
+}
+
+aside div p:first-of-type {
+  font-size: 8rem;
+}
+
+/* parce que selon la maquette le  premier fait 830px */
+div.wrapper div {
+  /* width: 830px; */
+  /* on aurait aussi pu faire flex:1; */
+  width: 50%;
+}
+
+article p {
+  /* color: #000; */
+  margin-right: 80px;
+}
+
+/* section 3 */
+.grey {
+  width: 100%;
+  background-color: #878787;
+}
+.cta {
+  width: 100%;
+  display: block;
+}
+
+.cta button:nth-child(2) {
+  background-color: black;
+  margin-left: 20px;
+}
+
+aside {
+  /* width:550px; d'après maquette */
+  /* on aurait aussi pu faire flex:1; */
+  width: 40%;
+  font-weight: 500;
+  background-image: url("img/aside.png");
+  /* juste pour obliger le texte à se mettre en bas au lieu de faire un position absolute */
+  /* display: flex; */
+  flex-direction: column;
+  justify-content: flex-end;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+aside p {
+  letter-spacing: 0.3rem;
+}
+
+aside p:first-of-type {
+  font-size: 2.5rem;
+}
+
+.wrapper aside div {
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+}
+
+aside span {
+  color: white;
+  font-weight: 500;
+}
+
+section div.card {
+  background-color: white;
+  /* height: 295px; d'après maquette mais pas flexible */
+  border-radius: 10px;
+}
+
+section div.card:nth-child(2) {
+  box-shadow: 5px 5px 10px #333;
+}
+
+section div.card p,
+section div.card_blog p,
+.card_members p,
+article p {
+  color: #000;
+  margin: 10px;
+}
+
+section div.card,
+section div.card_members,
+section div.card_studies div {
+  /* ou 430px d'après maquette */
+  width: 30%;
+  text-align: center;
+  padding: 20px 0;
+  margin-bottom: 20px;
+}
+
+/* section blog */
+
+section div.card_blog {
+  /* d'après maquette width: 306px; */
+  width: 22%;
+  text-align: center;
+  padding: 20px 0;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+section div.card_blog p:first-of-type {
+  font-weight: bold;
+}
+
+section div.card_blog span.calendar {
+  height: 46px;
+  line-height: 46px;
+  display: block;
+  background-color: #282828;
+  background-image: url("img/calendar_blog.png");
+  background-repeat: no-repeat;
+  background-position: 20px 10px;
+  background-size: 10%;
+  padding-left: 30px;
+  margin: 0;
+  font-size: small;
+  /* d'après maquette width:230px; */
+  width: 77%;
+  position: absolute;
+  box-sizing: border-box;
+  left: 20%;
+  top: 60px;
+}
+
+div.card_blog h4 {
+  padding-left: 50px;
+  background-image: url("img/blog_author.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  /* text-transform: uppercase; */
+  margin: 20px;
+}
+div.card_blog img {
+  width: 100%;
+}
+
+div.card_blog p {
+  margin: 0 20px;
+}
+
+.shape19 {
+  width: 200px;
+}
+
+/* section study */
+
+.header {
+  background-color: #282828;
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+}
+
+.header p:first-child {
+  font-size: 2rem;
+}
+/* aucun input ni formulaire n'était requis, juste pour le fun
+vous, vous pouviez utiliser un simple div */
+.header input {
+  padding: 0.3rem;
+  /* 490 px d'après maquette */
+  width: 380px;
+  height: 50px;
+  margin-top: 20px;
+  padding-left: 70px;
+  background: url("img/Shape\ 22.png") no-repeat 30px center white;
+}
+
+div.header form {
+  position: relative;
+  width: 380px;
+  margin: 0 auto;
+}
+
+.header button {
+  position: absolute;
+  right: 0;
+  margin-top: 20px;
+}
+
+/* section our team */
+.card_members img {
+  width: 95%;
+}
+
+.card_members p,
+.card_members img {
+  margin-bottom: 20px;
+}
+
+.card_members h5 {
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.card_members h6 {
+  font-size: 1.3rem;
+  margin: 20px 0;
+}
+
+/* section case study */
+
+/* juste avant les card_studies, y a un paragraphe seul
+comme c'est la seule section où on a ce cas de figure
+pas la peine de créer de classe */
+.wrapper > p {
+  color: #000;
+  margin-bottom: 2rem;
+}
+
+/* ici, on imagine que les éléments textuels sont des items qu'on souhait  basuler en flex-end */
+section div.card_studies {
+  height: 274px;
+  background-image: url("img/square.png");
+  padding: 0;
+  /* d'après maquette width: 433px; */
+  width: 30%;
+}
+section div.card_studies div {
+  margin-top: 180px;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* d'après maquette */
+  height: 95px;
+  padding: 0;
+  width: 100%;
+}
+
+section div.card_studies div h5 {
+  color: white;
+  font-size: 1.3rem;
+}
+
+header div,
+button,
+aside p,
+section div.card_studies div h5,
+section div.card_studies div h4,
+div.card_blog h4,
+section h2,
+h5,
+h6 {
+  text-transform: uppercase;
+}
+
+section div.card_studies div h4 {
+  padding-top: 20px;
+  /* width: 433px; */
+}
+
+section:last-of-type {
+  background-color: #e6e6e6;
+}
+
+/* footer */
+footer {
+  background-color: #4b4b4b;
+  padding: 30px;
+}
+
+footer input {
+  width: 100%;
+}
+
+footer div.card_footer {
+  text-align: left;
+  /* width: 340px; d'après maquette */
+  width: 30%;
+}
+
+footer h5 {
+  color: white;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ecb715;
+}
+
+footer input {
+  background-image: url("img/Shape\ 21.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: contain;
+  margin-top: 30px;
+}
+
+footer p,
+.card_blog p {
+  text-align: justify;
+}
+
+/* à venir pour  la version 1024...
+mais tant que vos fichiers css ne sont pas optimisés, je me refuse à vous initier au RWD */
+@media (max-width: 1024px) {
+  html{font-size: 12px;}
+  
+}
+
+@media (max-width: 768px) {
+  header div:first-child {
+    display: none;
+  }
+  /* voilà pourquoi faut comprendre le display sous TOUTES ses formes ! */
+  header,
+  .wrapper,
+  header nav ul {
+    display: block;
+  }
+
+  header nav ul li:last-child {
+    background-color: inherit;
+  }
+
+  article p {
+    padding: 1rem 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  header,
+  section,
+  footer,
+  .wrapper,
+  .title,
+  nav,
+  article,
+  div,
+  h1,
+  h2,
+  h3,
+  h4,
+  section div.card,
+  section div.card_blog,
+  section div.card_members,
+  div.wrapper div,
+  header p,
+  header h1,
+  .header,
+  div.header form,
+  div.header form input,
+  section div.card_studies,
+  footer div.card_footer {
+    width: 95%;
+    margin: auto;
+    padding: 0;
+    text-align: center;
+  }
+
+  aside {
+    display: none;
+  }
+
+  section div.card,
+  section div.card_members,
+  section div.card_blog {
+    padding: 2rem 0.5rem;
+    margin-top: 2rem;
+  }
+
+  .header button {
+    display: none;
+  }
+
+  .grey,
+  .header,
+  header {
+    padding: 2rem 1rem;
+  }
+  .cta button:nth-child(2) {
+    margin-left: 0;
+    margin-bottom: 3rem;
+  }
+
+  section div.card_studies div {
+    margin-top: 2rem;
+  }
+
+  section div.card_blog span.calendar {
+    width: 60%;
+    top:100px;
+  }
+
+  section:last-of-type{
+    padding-top: 2rem;
+    margin-top: 2rem;
+  }
+
+  div.header form input {
+    margin-top: 2rem;
+  }
+
+  header nav ul li:last-child {
+    background-color: transparent;
+  }
+
+  footer {
+    padding-bottom: 2rem;
+  }
+}
