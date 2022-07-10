@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Bootstrap Example</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+	<header class="bg-secondary">
+
+		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+			<div class="container">
+				<a class="navbar-brand" href="#">Logo</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+					data-bs-target="#collapsibleNavbar">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="collapsibleNavbar">
+					<ul class="navbar-nav ms-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="#">Menu</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Boites</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Buffet</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Livraison</a>
+						</li>
+						<li class="nav-item">
+							<a class="btn btn-primary nav-link" href="#">Contact</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<hr color="red">
+		</nav>
+
+
+
+
+		<section class="container px-3">
+			<div class="card bg-secondary border-0 my-3 pb-5">
+				<div class="row justify-content-between gx-5">
+					<div class="col-md-6 col-lg-8">
+						<h1 class="card-title mt-5">Des brunchs avant tout</h1>
+						<p class="my-lg-5">Nous faisons travailler les petits commerces de proximité. Nos produits locaux sont choisis
+							en fonction de leurs qualités gustatives et sélectionnés aux halles Castellane ainsi que
+							dans les boulangeries Montpelliéraines.
+							Nos brunchs sont imaginés et préparés entièrement dans notre cuisine, avec une attention
+							particulière portée à la gourmandise et la richesse de nos boites</p>
+						<button type="button" class="btn btn-dark m-2">Commander</button>
+
+					</div >
+					<div class="col-md-6 col-lg-4 my-3">
+						<img src="assets/boites.webp" class="img-fluid mt-5"  />
+					</div>
+				</div>
+			</div>
+			</div>
+		</section>
+	</header>
+	<section class="container px-3 mt-5">
+		<div class="row gx-5">
+			<div class="col-lg-4">
+				<div class="card bg-dark text-light p-4 mb-5">
+					<div class="card-header">
+						<h5 class="card-title">Les fournisseurs</h5>
+					</div>
+					<div class="card-body">
+						<p>Marquant la limite du centre piétonnier de Montpellier, tout en haut de la jolie rue de la
+							loge,
+							les Halles Castellane sont l'un de nos endroits préférés à Montpellier. On y trouve en effet
+							toutes sortes de produits frais proposés par des producteurs locaux. Les Montpelliérains
+							disent
+							d'ailleurs que c'est la que l'on trouve les plus beaux produits du coin..</p>
+						<button type="button" class="btn btn-secondary mt-5">Commander</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-4">
+				<div class="card bg-dark text-light p-4 mb-5">
+					<div class="card-header">
+						<h5 class="card-title">Les produits</h5>
+					</div>
+					<div class="card-body">
+						<p>Marquant la limite du centre piétonnier de Montpellier, tout en haut de la jolie rue de la
+							loge,
+							les Halles Castellane sont l'un de nos endroits préférés à Montpellier. On y trouve en effet
+							toutes sortes de produits frais proposés par des producteurs locaux. Les Montpelliérains
+							disent
+							d'ailleurs que c'est la que l'on trouve les plus beaux produits du coin..</p>
+						<button type="button" class="btn btn-secondary mt-5">Commander</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="card bg-dark text-light p-4 mb-5">
+					<div class="card-header">
+						<h5 class="card-title">Les livraisons</h5>
+					</div>
+					<div class="card-body">
+						<p>Marquant la limite du centre piétonnier de Montpellier, tout en haut de la jolie rue de la
+							loge,
+							les Halles Castellane sont l'un de nos endroits préférés à Montpellier. On y trouve en effet
+							toutes sortes de produits frais proposés par des producteurs locaux. Les Montpelliérains
+							disent
+							d'ailleurs que c'est la que l'on trouve les plus beaux produits du coin..</p>
+						<button type="button" class="btn btn-secondary mt-5">Commander</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="container px-3">
+		<div class="card bg-secondary border border-0 m-3 p-3">
+			<div class="row gx-5">
+				<!-- c'est un peu tordu, mais pas trouvé une classe spécifique pour rendre la iframe responsive. 
+					alors voilà je passe la col qui la contient en row et la vidéo occupe 12 colonne de cette row-->
+				<div class="col-md-6 p-4 row">
+					<iframe class="col-lg-12 col-md-12 col-sm-12" src="https://www.youtube.com/embed/zhfWVjFQ1hU"
+						title="YouTube video player" frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen class="col-4"></iframe>
+				</div>
+
+				<div class="col-md-6 p-4">
+					<h1 class="card-title mt-5">Des brunchs avant tout</h1>
+					<p>Nous faisons travailler les petits commerces de proximité. Nos produits locaux sont choisis en
+						fonction de leurs qualités gustatives et sélectionnés aux halles Castellane ainsi que dans les
+						boulangeries Montpelliéraines.
+						Nos brunchs sont imaginés et préparés entièrement dans notre cuisine, avec une attention
+						particulière portée à la gourmandise et la richesse de nos boites</p>
+					<button type="button" class="btn btn-dark m-2">Commander</button>
+				</div>
+			</div>
+		</div>
+		</div>
+	</section>
+
+	<section class="container-fluid bg-primary my-5">
+		<div class="container px-3">
+			<div class="card border border-0 m-3 bg-transparent py-5">
+				<div class="row">
+					<div class="col-md-12 col-lg-8">
+						<h5 class="card-title mt-5">Des brunchs avant tout</h5>
+						<p>Nous faisons travailler les petits commerces de proximité. Nos produits locaux sont choisis
+							en fonction de leurs qualités gustatives et sélectionnés aux halles Castellane ainsi que
+							dans les boulangeries Montpelliéraines.
+
+						<h5 class="card-title mt-5">Des brunchs avant tout</h5>
+						<p>Nous faisons travailler les petits commerces de proximité. Nos produits locaux sont choisis
+							en fonction de leurs qualités gustatives et sélectionnés aux halles Castellane ainsi que
+							dans les boulangeries Montpelliéraines.
+						<h5 class="card-title mt-5">Des brunchs avant tout</h5>
+						<p>Nous faisons travailler les petits commerces de proximité. Nos produits locaux sont choisis
+							en fonction de leurs qualités gustatives et sélectionnés aux halles Castellane ainsi que
+							dans les boulangeries Montpelliéraines.
+					</div>
+					<div class="col-md-12 col-lg-4 ">
+						<img src="assets/boites.webp" class="m-2 img-fluid" />
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</section>
+	<section class="container my-5 px-3">
+		<div class="row justify-content-center gx-5">
+			<h3>Galerie photo</h3>
+		</div>
+		<div class="row justify-content-center">
+			<img src="assets/boites.webp" class="col-sm-6 col-md-4 img-fluid my-2" />
+			<img src="assets/boites.webp" class="col-sm-6 col-md-4 img-fluid my-2" />
+			<img src="assets/boites.webp" class="col-sm-6 col-md-4 img-fluid my-2" />
+			<img src="assets/boites.webp" class="col-sm-6 col-md-4 img-fluid my-2" />
+			<img src="assets/boites.webp" class="col-sm-6 col-md-4 img-fluid my-2" />
+			<img src="assets/boites.webp" class="col-sm-6 col-md-4 img-fluid my-2" />
+		</div>
+
+	</section>
+
+	<section class="container-fluid bg-dark my-5">
+		<div class="container py-5">
+			<h3 class="text-white text-center">Subscribe</h3>
+			<div class="row justify-content-center">
+				<input type="text" name="mail" size="30" class="m-2">
+				<button class="btn btn-light m-2">Envoyer</button>
+			</div>
+			<p class="row justify-content-center txt-muted pb-5">Inscrivez-vous pour recevoir la newsletter</p>
+		</div>
+	</section>
+
+</body>
+
+</html>
