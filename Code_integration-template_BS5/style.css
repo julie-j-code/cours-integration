@@ -85,14 +85,6 @@ section p {
 /* --- buttons */
 /* sauf à utiliser les classes bootstrap disponibles... */
 .main-btn {
-  /* border-radius: 0;
-  color: #fff;
-  padding: 0 40px;
-  font-size: 16px;
-  height: 55px;
-  line-height: 55px;
-  cursor: pointer;
-  z-index: 5; */
   transition: all 0.4s ease-out;
   background-color: #E84E4E;
 }
@@ -454,22 +446,6 @@ h1 {
   height: 100%;
   background-color: rgba(43, 42, 61, 0.9);
   z-index: -1;
-}
-
-p.form-message.success,
-p.form-message.error {
-  font-size: 16px;
-  color: #2B2A3D;
-  background: #F9F9F9;
-  padding: 10px 15px;
-  margin-top: 30px;
-  background-color: #fff;
-  margin-left: 15px;
-}
-
-p.form-message.success.form-message.error,
-p.form-message.error.form-message.error {
-  color: #f00;
 }
 
 .single_form {
