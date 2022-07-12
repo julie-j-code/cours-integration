@@ -19,9 +19,8 @@ footer {
 header {
     height: 100vh;
     /* formule racourcie  */
-    background: url(./images/header.svg) no-repeat right -20vw;
-    background-size: 90vw;
-
+    background: url(./images/header.svg) no-repeat right -300px;
+    background-size: 80vw;
 }
 
 /* logo et nav étant l'un à côté de l'autre, on a le compte 20 + 80 */
@@ -35,7 +34,7 @@ nav {
 
 nav,
 nav a,
-button1 {
+.bouton1 {
     color: #fff;
 }
 
@@ -45,7 +44,8 @@ section {
 
 button {
     border-radius: 30px;
-    padding: 5px 30px;
+    padding: 10px 30px;
+    margin-top: 50px;
 }
 
 .bouton1 {
@@ -60,22 +60,16 @@ button {
 }
 
 /* pour le background des différentes sections sans ajouter de id ! */
-section:first-of-type {
-    background: url("/images/section1.svg") no-repeat -50vh center;
-    background-size: 70vw;
+section:first-of-type, section:nth-child(3)  {
+    background: url(./images/section1.svg) no-repeat -30vh center;
+    background-size: 100vh;
 }
-
+/* attention : contrairement aux images format standard, il ne faut pas utiliser de "" dans le chemin de l'image */
 section:nth-child(2) {
-    background: url("/images/section2.svg") no-repeat 80vh center;
-    background-size: 50vw;
-
+    background: url(./images/section2.svg) no-repeat 120vh center;
+    background-size: 100vh;
 }
 
-section:nth-child(3) {
-    background: url("/images/section3.svg") no-repeat -50vh center;
-    background-size: 70vw;
-
-}
 
 h2,
 h1 {
@@ -87,6 +81,10 @@ h2 strong,
 h1 strong {
     font-weight: 800;
     display: block;
+}
+
+.right h2{
+    margin-bottom: 100px;
 }
 
 a {
@@ -137,15 +135,20 @@ img {
     background-color: #fff;
 }
 
+footer, section{
+    padding: 100px 50px;
+}
+
 footer {
-    background: url("/images/section4.svg") no-repeat center 20vh;
-    background-size: 100vw;
+    background: url(./images/section4.svg) no-repeat center 30vh;
+    background-size: 120vw;
+    height:100vh
 }
 
 /* pour éviter de créer un selecteur juste  pour cette image */
-footer>img {
+footer img {
     /* parce que vous n'avez pas encore vu propriétés avancées flexbox flex:1 vous  pouvez utiliser width */
-    /* width: 25vw; */
+    width: 100%;
     flex: 1;
     flex-grow: 1;
 }
