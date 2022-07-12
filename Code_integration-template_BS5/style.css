@@ -6,19 +6,11 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
-  font-weight: normal;
-  font-style: normal;
-  /* color: #5A5872; */
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
 
 header {
   background-image: url('images/hero.jpg')!important;
+  background-size: cover;
 }
 
 .contact_area {
@@ -60,7 +52,6 @@ h6 {
 h2 {
   font-size: 42px;
 }
-
 
 h3 {
   color: #E84E4E;
@@ -204,7 +195,6 @@ h1 {
   transition: all 0.3s ease-out 0s;
 }
 
-
 .features:hover i {
   color: #E84E4E;
 }
@@ -313,13 +303,11 @@ h1 {
   opacity: 0;
 }
 
-
 .portfolio:hover::before {
   opacity: 1;
 }
 
 .portfolio:hover .portfolio_over .meta li {
-  /* transform: translateX(0); */
   transition-delay: 0.2s;
   opacity: 1;
 }
@@ -334,7 +322,6 @@ h1 {
 /* pricing ***************/
 .pricing_area {
   /* faut en rajouter à cause de la couleur de fond */
-  padding-top: 50px;
   background-color: #F9F9F9;
 }
 
@@ -514,15 +501,12 @@ h1 {
 
 .footer_social ul li a {
   font-size: 26px;
-  color: rgba(255, 255, 255, 0.8);
-  transition: all 0.3s ease-out 0s;
+  color: rgba(255s.3s ease-out 0s;
 }
 
 .footer_social ul li a:hover {
   color: #fff;
 }
-
-
 
 /* back to top ****************/
 .back-to-top {
