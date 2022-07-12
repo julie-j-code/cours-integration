@@ -1,0 +1,220 @@
+body {
+    font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;
+}
+
+header,
+nav,
+.container,
+/* je rajoute aussi .box juste pour que l'image et le h3 à l'intérieur de box se mettent l'un à côté de l'autre
+vous pourriez si vous trouvez ça plus compréhensible ajouter un div.container juste pour entourer la vignette et le h3 */
+.box,
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* pour donner de la hauteur forcée à header */
+header {
+    height: 100vh;
+    /* formule racourcie  */
+    background: url(./images/header.svg) no-repeat right -20vw;
+    background-size: 90vw;
+
+}
+
+/* logo et nav étant l'un à côté de l'autre, on a le compte 20 + 80 */
+#logo {
+    width: 30%;
+}
+
+nav {
+    width: 40%;
+}
+
+nav,
+nav a,
+button1 {
+    color: #fff;
+}
+
+section {
+    margin-top: 60px;
+}
+
+button {
+    border-radius: 30px;
+    padding: 5px 30px;
+}
+
+.bouton1 {
+    background-image: linear-gradient(to bottom right, #FF6456, #F4347B);
+    border: none;
+}
+
+.bouton2 {
+    border: dashed 1px #F4347B;
+    background-color: white;
+    color: #F4347B;
+}
+
+/* pour le background des différentes sections sans ajouter de id ! */
+section:first-of-type {
+    background: url("/images/section1.svg") no-repeat -50vh center;
+    background-size: 70vw;
+}
+
+section:nth-child(2) {
+    background: url("/images/section2.svg") no-repeat 80vh center;
+    background-size: 50vw;
+
+}
+
+section:nth-child(3) {
+    background: url("/images/section3.svg") no-repeat -50vh center;
+    background-size: 70vw;
+
+}
+
+h2,
+h1 {
+    font-weight: 200;
+}
+
+/* ça, c'est pour faire la cassure dans un même titre avec un "effet" grossissant */
+h2 strong,
+h1 strong {
+    font-weight: 800;
+    display: block;
+}
+
+a {
+    color: darkslategray;
+    text-decoration: none;
+}
+
+/* ça se sont nos blocs de contenus types avec un h2 + p + button */
+.content {
+    width: 40%;
+    padding: 30px;
+    /* border: 1px solid black;
+    border-radius: 30px; */
+    margin: 50px 0;
+    /* align-content: center; */
+}
+
+img {
+    width: 40%;
+}
+
+/* une section sur 2 a ses éléments allignés sur la droite donc pourquoi pas */
+.right {
+    text-align: right;
+    padding-right: 30px;
+}
+
+.right h2 {
+    margin-right: 60px;
+}
+
+/* puisque j'ai rajouté .box à la liste des éléments qui rendent leur intérieur "flexible", faut faire attention à ce que le p lui, occupe toute la largeur de la  boxe */
+.box p {
+    width: 100%;
+}
+
+.box img {
+    width: 80px;
+}
+
+.box {
+    /* et en tant qu'élément de .container, on doit leur donner une largeur */
+    width: 25%;
+    padding: 30px;
+    border: 1px solid lightgray;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+
+footer {
+    background: url("/images/section4.svg") no-repeat center 20vh;
+    background-size: 100vw;
+}
+
+/* pour éviter de créer un selecteur juste  pour cette image */
+footer>img {
+    /* parce que vous n'avez pas encore vu propriétés avancées flexbox flex:1 vous  pouvez utiliser width */
+    /* width: 25vw; */
+    flex: 1;
+    flex-grow: 1;
+}
+
+footer .container {
+    /* parce que vous n'avez pas encore vu propriétés avancées flexbox flex:1 vous pouvez utiliser width */
+    /* width: 60vw; */
+    flex: 1;
+    flex-grow: 2;
+}
+
+
+
+@media screen AND (max-width:575px) {
+
+    header {
+        background-size: 100vh;
+        background-position-x: center;
+    }
+
+    /* pour être conforme à la maquette version mobiles */
+    #logo {
+        display: none;
+    }
+
+    /* même si nous n'avons pas encore évoqué cette  partie en séance, elle figure dan mon cours */
+    nav {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+    /* à défaut de flex-direction column, vous pouviez, comme déjà vu faire :border: border:     /* 
+    nav, nav a{ display:block;}     */
+
+    nav a {
+        margin-bottom: 20px;
+    }
+
+    .box,
+    .content {
+        width: 100%;
+    }
+
+    ul {
+        list-style: none;
+        margin-left: 0;
+        padding-left: 0;
+        text-align: center;
+    }
+
+    footer .container div {
+        width: 100%;
+    }
+
+    footer .container {
+        text-align: center;
+    }
+
+    img {
+        width: 100%;
+    }
+
+
+    header .content {
+        order: 4;
+    }
+
+    #responses .content {
+        order: 2;
+    }
+
+}
