@@ -1,0 +1,46 @@
+/**
+ * Created by gali on 23/09/15.
+ */
+(function () {
+    'use strict';
+
+    angular
+        .module('siteimmo')
+        .directive('gettel', gettel);
+
+    gettel.$inject = ['$http','$rootScope','$ajaxQuery','$compile'];
+
+    function gettel($http,$rootScope,$ajaxQuery,$compile) {
+        var directive = {
+            templateUrl:   '/js/angular/template/gettel.html',
+            restrict: 'AE',
+            replace: true,
+            scope: {
+                info: '=',
+                bindModel:'=ngModel',
+                bindError: "=ngError"
+            },
+            link: link
+        };
+        return directive;
+
+        function link(scope, element, attrs) {
+            scope.showTel = function(){
+                $ajaxQuery.getTel(scope.info,function(reponse){
+                    if(reponse && reponse.img){
+                        var img = $('<img src="'+reponse.img+'" />');
+                        $(element).empty().append(img);
+                    }
+                    if (reponse && reponse.tel){
+                            var elementTel = $ ('<a class="txtWhite" href="#" onclick="window.location.href=\'tel:'+reponse.tel+'\';return false;">'+reponse.tel+'</a>');
+                            $(element).empty().html(elementTel);
+                    }
+
+                });
+            };
+
+
+        }
+    }
+})();
+

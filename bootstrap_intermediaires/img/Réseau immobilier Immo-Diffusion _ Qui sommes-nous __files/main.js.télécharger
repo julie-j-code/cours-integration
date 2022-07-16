@@ -1,0 +1,135 @@
+$(document).ready(function () {
+    'use strict';
+
+    $('#search_vacances_datArrivee').datetimepicker({
+        format: "DD/MM/YYYY",
+        minDate: moment().startOf('day'),
+        useCurrent : false
+    });
+    $('#search_vacances_datDepart').datetimepicker({
+        format: "DD/MM/YYYY",
+        minDate: moment().add(1,'day').startOf('day'),
+        useCurrent : false
+    });
+    $('#search_vacances_datArrivee').on("dp.change", function(e){
+        $('#search_vacances_datArrivee').data("DateTimePicker").minDate(moment(e.date).add(1,'day').startOf('day'));
+    });
+    $('#search_vacances_datDepart').on("dp.change", function(e){
+        var d = $('#_search_vacances_datDepart').data("DateTimePicker").date().subtract(1,'day').startOf('day');
+        $("#search_vacances_datArrivee").data("DateTimePicker").maxDate(d);
+    });
+    $('#search_vacances_datDepart').on("dp.show", function(e){
+        refreshPrevDate();
+    });
+    $('#search_vacances_datDepart').on("dp.update", function(e){
+        refreshPrevDate();
+    });
+
+    if ($('#contact_alertmail_typeAlert').val() === '0') {
+        $('#row-meuble').hide();
+    } else {
+        $('#row-meuble').show();
+    }
+    $('#contact_alertmail_typeAlert').on('change', function (evt) {
+        if ($(this).val() === "0") {
+            $('#row-meuble').hide();
+        } else {
+            $('#row-meuble').show();
+        }
+    });
+
+
+    $('.active-btn-loading').each(function(key,elt){
+        $(this).on('click',function(){
+            $("#"+$(this).data('submit')).trigger('click');
+        });
+    });
+
+
+    $('form').on('submit',function(){
+        $(this).find('.active-btn-loading').button('loading');
+    });
+
+
+
+    // $('#search_offre').on('change',function(){
+    //     console.log('PLOP');
+    //     $('#search_vacances_datArrivee').datetimepicker({
+    //         format: "DD/MM/YYYY",
+    //         minDate: moment().startOf('day'),
+    //         useCurrent : false
+    //     });
+    //     $('#searchModule_vacances_datDepart').datetimepicker({
+    //         format: "DD/MM/YYYY",
+    //         minDate: moment().add(1,'day').startOf('day'),
+    //         useCurrent : false
+    //     });
+    // });
+    // if(navigator.geolocation){
+    //     /*navigator.geolocation.getCurrentPosition(function(position){
+    //      console.log(position);
+    //      });*/
+    // }
+    function refreshPrevDate(){
+        var datePrev = moment($('#search_vacances_datArrivee').data("DateTimePicker").date()).format("DD/MM/YYYY");
+        $('td.day[data-day="'+datePrev+'"]').addClass('datemin');
+    }
+    $("#buttonScroll").click(function() {
+        $('html, body').animate({
+            scrollTop: $("#form_annonce").offset().top
+        }, 1000);
+    });
+    $("#buttonRecrutementScroll").click(function() {
+        $('html, body').animate({
+            scrollTop: $("#form_recrutement").offset().top
+        }, 1000);
+    });
+    $.each($('a.bmd-modalButton'),function(key,val){
+        var val =screen.width*0.76;
+        if(screen.width < 768){
+            val = screen.width*1.25;
+        }
+       $(val).attr('data-bmdwidth',val);
+        $(val).attr('data-bmdheigt',$(window).height());
+    });
+    function refreshToken($focus){
+        $.ajax({
+            'url' : Routing.generate('app_ajax_reloadtoken')
+        }).success(function(reponse){
+            $($focus).val(reponse.token);
+        }).error(function(reponse){
+
+        });
+    }
+    var $formsRefresh = ['#contact__token'];
+    $.each($formsRefresh,function(key,val){
+        if($(val).length > 0){
+            refreshToken(val);
+        }
+    });
+    $('#nb-annonce')
+        .on('click',function(){
+            $.scrollTo("#breadcrumb",400);
+        });
+    /////////////////////// JAUGE PMC  ////////////////////
+    $('.analyseSecteur [data-toggle="tooltip"]').tooltip({trigger: 'manual'}).tooltip('show');
+
+
+    /**
+     * Envoie du formulaire de recherche
+     */
+    $('#send-form-search').on('click',function(){
+            $('#search_page').val(1);
+            $('#form-search').submit();
+    });
+
+
+
+});
+
+$( window ).scroll(function() {
+    $(".progress-bar").each(function(){
+        each_bar_width = $(this).attr('aria-valuenow');
+        $(this).width(each_bar_width + '%');
+    });
+});

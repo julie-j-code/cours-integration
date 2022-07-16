@@ -1,0 +1,45 @@
+body {
+padding: 0;
+width: 100%;
+    background: url("https://www.immobilier-diffusion.com/templates/default/img/mainphoto.jpg") no-repeat;
+    background-size:cover;
+    font-family: 'Quicksand', sans-serif;
+    color: #3c3b3b;
+}
+
+html, div, header, header.container-fluid, div.container-fluid{margin: 0;padding: 0;width: 100%; max-width: 100%;}
+
+#logo{
+    width: 260px;
+    height: 68px;
+}
+
+
+.nav-item{
+        font-size: 1rem;
+        color: white;
+    }
+
+.container.tab-pane.active{
+    background-color: white;
+    padding-bottom:3rem;
+}
+
+	@media all and (min-width: 992px) {
+		.navbar{ padding-top: 0; padding-bottom: 0; }
+		.navbar .has-megamenu{position:static!important;}
+		.navbar .megamenu{left:0; right:0; width:100%; padding:20px;  }
+		.navbar .nav-link{ padding-top:1rem; padding-bottom:1rem;  }
+	}
+
+/* .perso{
+    background-color: #a4b951;
+    color: white;
+}
+
+.search{
+    background-color: rgba(60, 59, 59, 0.5);
+    color: white;
+} */
+
+

@@ -1,0 +1,86 @@
+/**
+ * Created by fetch-john on 29/09/17.
+ */
+
+(function($) {
+    $.fn.bmdIframe = function( options ) {
+        var self = this;
+        var settings = $.extend({
+            classBtn: '.bmd-modalButton',
+            defaultW: 640,
+            defaultH: 360
+        }, options );
+        $('#content-form').empty();
+        $(settings.classBtn).on('click', function(e) {
+            var allowFullscreen = $(this).attr('data-bmdVideoFullscreen') || false;
+            var dataClass = $(this).attr('data-class');
+            $(self).find('#cmodal').attr('class','');
+            $(self).find("iframe").attr('class','');
+            $(self).find("iframe body#modal").attr('class','');
+            $(self).find('.modal-content').css({'height' : '90vh'});
+            $(self).find("iframe").css({'height' : '73vh'});
+
+            if(dataClass) {
+                $(self).find('#cmodal').addClass('modal-dialog ' + dataClass);
+            }
+
+            var dataClassIframe = $(this).data('class-iframe');
+            if(dataClassIframe) {
+                $(self).find("iframe").addClass(dataClassIframe);
+            }
+
+            var dataTitle = $(this).attr('data-title');
+            $(self).find('#modalTitle').empty();
+            if(dataTitle)
+                $(self).find('#modalTitle').append(dataTitle);
+
+            var dataVideo = {
+                'src': $(this).attr('data-bmdSrc') + '#modal',
+                'height': $(this).attr('data-bmdHeight')   || settings.defaultH,
+                'width': $(this).attr('data-bmdWidth') || settings.defaultW
+            };
+
+            if($(this).data('form-post')) {
+                var form = $('#fake-form');
+                $(form).attr('action',$(this).attr('data-bmdSrc') + '#modal');
+                if($(this).data('id-agent')){
+                    var ipt = $('<input name="id_agent" type="hidden" value="'+$(this).data('id-agent')+'"/>');
+                    form.append(ipt);
+
+                }
+                if($(this).data('id-agence')){
+                    var ipt = $('<input name="id_agence" type="hidden" value="'+$(this).data('id-agence')+'"/>');
+                    form.append(ipt);
+
+                }
+                var ipt_modal = $('<input name="modal" type="hidden" value="1" />');
+                form.append(ipt_modal);
+                form.submit();
+
+                e.preventDefault();
+            }else{
+                $(self).find("iframe").attr(dataVideo);
+            }
+        });
+
+        // si le modal est fermé, nous réinitialisons les données d'iframe pour empêcher la reproduction d'une vidéo même lorsque le modal est fermé
+        this.on('hidden.bs.modal', function(){
+            $(this).find('iframe').html("").attr("src", "");
+        });
+
+        this.on('shown.bs.modal', function(){
+           $('#loader-iframe').show();
+        });
+
+        $(self).find("iframe").on('load',function(){
+            $(this).css({'opacity':1});
+            $('#loader-iframe').hide();
+        });
+
+        return this;
+    };
+
+})(jQuery);
+jQuery(document).ready(function(){
+    jQuery("#modal-iframe-bt3").bmdIframe();
+});

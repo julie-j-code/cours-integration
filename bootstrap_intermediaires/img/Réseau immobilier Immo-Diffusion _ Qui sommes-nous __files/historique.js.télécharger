@@ -1,0 +1,30 @@
+(function(){
+  'use strict';
+
+  angular
+      .module('siteimmo')
+      .controller('historique', historique);
+
+  historique.$inject = ['$scope','$ajaxQuery','$window'];
+
+  function historique($scope,$ajaxQuery,$window){
+      $scope.historique = [];
+      $scope.init = function(){
+          console.log('Ploopppp historique');
+          $ajaxQuery.getHistorique(function(data){
+              if(data){
+                 $scope.historique = data;
+              }
+          });
+      };
+
+      $scope.genRoute = function($typeCookie){
+          var params = {
+              dpc : varsGlobal.site.dpc,
+              dpl : varsGlobal.site.dpl,
+              motclef2 : varsGlobal.site.motclef2
+          };
+          $window.location.href =  $ajaxQuery.genRoute('resultSearch',params) + '?typecookie='+$typeCookie;
+      };
+  }
+})();

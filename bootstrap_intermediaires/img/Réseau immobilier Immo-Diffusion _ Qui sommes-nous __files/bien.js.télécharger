@@ -1,0 +1,97 @@
+(function(){
+   'use strict';
+    angular
+        .module('siteimmo')
+        .factory('$bienFactory',$bienFactory);
+
+    $bienFactory.$inject = [];
+
+    function $bienFactory($http) {
+        var service = {
+            genPathThumnail : genPathThumnail,
+            genLink : genLink
+        };
+
+        return service;
+
+        function offreTxt(offre){
+            switch(offre){
+                case 0 :
+                    return 'vente';
+                case 1 :
+                    return 'location';
+                case 2:
+                    return 'vacances';
+                case 3:
+                    return 'viager';
+                default:
+                    return 'autre';
+            }
+        }
+
+        function genRoute(route,params){
+            return Routing.generate(route,params);
+        }
+
+
+
+        function genLink($bien,route){
+            if(!route)
+                route = 'annonce';
+            switch(route){
+                case 'annonce':
+                    var params = {
+                        dpc : $bien.departement_code,
+                        dpl : $bien.departement_slug,
+                        motclef2 : varsGlobal.site.motclef2,
+                        id : $bien.id,
+                        offre : offreTxt($bien.offre),
+                        type : $bien.typebien_slug,
+                        cp : $bien.ville_cp,
+                        ville : $bien.ville_slug
+                    };
+                    break;
+                case 'reseau_form_annonce':
+                    var params = {
+                        slug_departement : $bien.departement_slug,
+                        keyword : varsGlobal.site.motclef2,
+                        id : $bien.id,
+                        offre : offreTxt($bien.offre),
+                        type : $bien.typebien_slug,
+                        cp : $bien.ville_cp,
+                        slug_ville : $bien.ville_slug
+                    };
+                    break;
+            }
+
+            return  genRoute(route,params);
+        }
+
+        function genPathThumnail($bien,$format){
+            var loc = "";
+            if($bien.offre == 1 || $bien.offre == 2){
+                loc = "loc/";
+            }
+            if($bien.photo){
+                var $type = "vente";
+                if($bien.offre == 1 || $bien.offre == 2)
+                    $type = "location";
+
+                return "/media/cache/" + $format + "/" + $bien.agence_idext + "/" + $type + "/" + $bien.reference + "/" + $bien.photo;
+                // var $route =  genRoute('renderThumbnail',{
+                //     dpc : $bien.departement_code,
+                //     siteid : varsGlobal.site.id,
+                //     offre : offreTxt($bien.offre),
+                //     type : $bien.typebien_slug,
+                //     format : $format,
+                //     img : $bien.photo,
+                //     ville : $bien.ville_slug,
+                //     ref : $bien.id
+                // });
+                // return $route;
+            }else{
+                return varsGlobal.pathWeb + '/templates/reseau/img/unavailable_720x455.jpg';
+            }
+        }
+    }
+})();

@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script> -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<style>
+    *, ::after, ::before{
+    margin: 0;
+    padding: 0;
+    max-width:100%;
+}
+    body{
+        margin: 0;
+        padding: 0;
+        height: 100vw;
+        background-color: #202020;
+    }
+    header{
+        background: url("img/fusion-free_01.jpg") no-repeat center fixed ;
+        background-size: cover;
+    }
+
+    .bg-black{
+        background-color: black;
+    }
+
+    /* Make the image fully responsive */
+  .carousel-inner img {
+    width: 60%;
+    /* height: 100%; */
+  }
+
+    .adjustedwidth{
+        width: 60%;
+    }
+
+  .rounded-circle{
+      width:6rem;
+      height: 6rem;
+  }
+
+  @media screen and (max-width: 768px) {
+      .adjustedwidth{
+          width:100%;
+      }
+      
+  }
+
+
+
+</style>
+</head>
+
+
+
+
+<body>
+    <header class="container-fluid m-0 text-white py-5">
+        <div class="jumbotron text-center bg-transparent">
+            <h1 class="display-4">We’re Fusion, We Build Things for Human</h1>
+            <nav class="navbar navbar-expand">
+                <ul class="navbar-nav" style="max-width:400px;margin:5vw auto">
+                    <li class="nav-item"><a class="nav-link text-white" href="#">Design</a> </li>
+                    <li class="nav-item"><a class="nav-link text-white border-left border-dark" href="#">Strategy</a></li>
+                    <li class="nav-item"><a class="nav-link text-white border-left border-dark m-0" href="#">Branding</a></li>
+                </ul>
+            </nav>       
+        
+        </div>
+    </header>
+
+    <section class="container-fluid text-white text-center pb-5">
+        <!-- pour simuler la ligne séparatrice verticale -->
+        <div class="m-0 p-5 m-0 d-inline-block border-right border-white"></div>
+        <div class="m-0 p-5 m-0 d-inline-block"></div>
+
+        <h2 class="diplay-5 mt-2">Our services</h2>
+        <h3 class="display-4 adjustedwidth mx-auto">Our team will take your business presence to new level</h3>
+
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-sm-4">
+                    <i class="fa fa-file-archive pb-2 mt-4"></i>
+                    <h3 class="mb-5">Column 1</h3>
+                    <p>Lorem ipsum dolor..</p>
+                </div>
+                <div class="col-sm-4">
+                    <i class='fa fa-puzzle-piece pb-2 mt-4'></i>
+                    <h3 class="mb-5">Column 2</h3>
+                    <p>Lorem ipsum dolor..</p>
+                </div>
+                <div class="col-sm-4">
+                    <i class="fa fa-paint-brush pb-2 mt-4"></i>
+                    <h3 class="mb-5">Column 3</h3>
+                    <p>Lorem ipsum dolor..</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    
+    <section class="container-fluid bg-black text-white text-center p-5">
+        
+        <div id="demo" class="carousel slide" data-ride="carousel">
+            
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2"></li>
+            </ul>
+            
+            <!-- The slideshow -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="img/4.jpg" alt="Los Angeles">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/1.jpg" alt="Chicago">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/2.jpg" alt="New York">
+                </div>
+            </div>
+            
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+            
+        </div>
+        
+    </section>
+
+    
+    
+    <section class="container-fluid text-white text-center pb-5">
+        <!-- pour simuler la ligne séparatrice verticale -->
+        <div class="m-0 p-5 m-0 d-inline-block border-right border-white"></div>
+        <div class="m-0 p-5 m-0 d-inline-block"></div>
+
+        <h2 class="diplay-5 mt-3">Testimonials</h2>
+        <h3 class="display-4 adjustedwidth mx-auto">We have worked with some amazing companies around the world</h3>
+    
+        <div class="container py-5 row mx-auto team">
+            <div class="col-md-2 p-5"><img src="img/1.jpg" alt="" class="img-thumbnail border-0"></div>
+            <div class="col-md-2 p-5"><img src="img/2.jpg" alt="" class="img-thumbnail border-0"></div>
+            <div class="col-md-2 p-5"><img src="img/3.jpg" alt="" class="img-thumbnail border-0"></div>
+            <div class="col-md-2 p-5"><img src="img/4.jpg" alt="" class="img-thumbnail border-0"></div>
+            <div class="col-md-2 p-5"><img src="img/1.jpg" alt="" class="img-thumbnail border-0"></div>
+            <div class="col-md-2 p-5"><img src="img/2.jpg" alt="" class="img-thumbnail border-0"></div>
+
+        </div>
+        <div class="container adjustedwidth mx-auto bg-black pb-5">
+                    <!-- pour simuler la ligne séparatrice verticale -->
+            <div class="p-0 m-0 row justify-content-center">
+                <div class="col-1 bg-white p-5 m-0"></div>
+            </div>
+            <blockquote class="blockquote text-center p-5">
+                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+              </blockquote>
+        </div>
+    
+    </section>
+
+    <section class="container-fluid bg-black text-white text-center pb-5">
+        <!-- pour simuler la ligne séparatrice verticale -->
+        <div class="m-0 p-5 m-0 d-inline-block border-right border-white"></div>
+        <div class="m-0 p-5 m-0 d-inline-block"></div>
+
+        <h2 class="diplay-5 mt-3">Our team</h2>
+        <h3 class="display-4 adjustedwidth mx-auto">Our amazing team</h3>     
+
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 p-5">
+                    <img src="img/1.jpg" alt="" class="img-fluid rounded-circle m-3">
+                    <h4 class="display-5">Donna Watson</h4>
+                    <p class="center">VP of Product</p>
+                </div> 
+                <div class="col-md-3 p-5">
+                    <img src="img/1.jpg" alt="" class="img-fluid rounded-circle my-3">
+                    <h4 class="display-5">Donna Watson</h4>
+                    <p class="center">VP of Product</p>
+                </div> 
+                <div class="col-md-3 p-5">
+                    <img src="img/1.jpg" alt="" class="img-fluid rounded-circle my-3">
+                    <h4 class="display-5">Donna Watson</h4>
+                    <p class="center">VP of Product</p>
+                </div> 
+                <div class="col-md-3 p-5">
+                    <img src="img/1.jpg" alt="" class="img-fluid rounded-circle my-3">
+                    <h4 class="display-5">Donna Watson</h4>
+                    <p class="center">VP of Product</p>
+                </div> 
+                <div class="col-md-3 p-5">
+                    <img src="img/1.jpg" alt="" class="img-fluid rounded-circle my-3">
+                    <h4 class="display-5">Donna Watson</h4>
+                    <p class="center">VP of Product</p>
+                </div> 
+                <div class="col-md-3 p-5">
+                    <img src="img/1.jpg" alt="" class="img-fluid rounded-circle my-3">
+                    <h4 class="display-5">Donna Watson</h4>
+                    <p class="center">VP of Product</p>
+                </div> 
+                <div class="col-md-3 p-5">
+                    <img src="img/1.jpg" alt="" class="img-fluid rounded-circle my-3">
+                    <h4 class="display-5">Donna Watson</h4>
+                    <p class="center">VP of Product</p>
+                </div> 
+                <div class="col-md-3 p-5">
+                    <img src="img/1.jpg" alt="" class="img-fluid rounded-circle my-3">
+                    <h4 class="display-5">Donna Watson</h4>
+                    <p class="center">VP of Product</p>
+                </div> 
+            </div>
+        </div>
+        
+    </section>
+    
+</body>
+</html>

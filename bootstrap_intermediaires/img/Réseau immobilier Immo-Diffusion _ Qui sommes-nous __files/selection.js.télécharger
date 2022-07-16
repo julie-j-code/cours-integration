@@ -1,0 +1,163 @@
+(function(){
+  'use strict';
+
+  angular
+      .module('siteimmo')
+      .controller('selection', selection);
+
+    selection.$inject = ['$scope','$ajaxQuery','$rootScope','$window'];
+
+  function selection($scope,$ajaxQuery,$rootScope,$window){
+          var $e = angular.element;
+          $scope.selectionList = false;
+          $rootScope.selection = [];
+
+
+
+
+
+      $scope.init = function() {
+          var currentSelect = {};
+          if(localStorage.getItem('selection')) {
+              currentSelect = JSON.parse(localStorage.getItem('selection'));
+          }
+          // $ajaxQuery.getSelection(currentSelect,function(data){
+          //     if(data){
+          //         $rootScope.selection = data.selection;
+          //         localStorage.setItem('selection',JSON.stringify(mySetLs(data.selection)));
+          //     }else{
+          //         emtpyLS();
+          //     }
+          //     refreshIcon();
+          // });
+      };
+
+      $scope.returnPathImg = function($bien,$format){
+          var loc = "";
+          if($bien.offre == 1 || $bien.offre == 2){
+            loc = "loc/";
+          }
+
+          var $type = "vente";
+          if($bien.offre == 1 || $bien.offre == 2)
+              $type = "location";
+
+          return "/media/cache/carre540/" + $bien.agence_idext + "/" + $type + "/" + $bien.reference + "/" + $bien.photo;
+
+          // return $ajaxQuery.genRoute('renderThumbnail',{
+          //     dpc : $bien.departement_code,
+          //     siteid : varsGlobal.site.id,
+          //     offre : offreTxt($bien.offre),
+          //     type : $rootScope.slugify($bien.typeaff),
+          //     format : 'carre540',
+          //     img : $bien.name,
+          //     ville : $bien.ville_slug
+          // });
+      };
+
+
+      $scope.gotToAnnonce = function(bien){
+          //console.log(varsGlobal.site.profil);
+          //return false;
+          //console.log(bien);return false;
+          var params = null;
+          var route = null;
+          if(varsGlobal.site.profil === 4){
+              params = {
+                  departement_slug : bien.departement_slug,
+                  region_slug:  bien.region_slug,
+                  id : bien.id,
+                  offre : offreTxt(bien.offre),
+                  type : $rootScope.slugify(bien.typeaff),
+                  cp : bien.ville_cp,
+                  ville_slug : bien.ville_slug,
+                  keyword : varsGlobal.trans.keyword.immobilier
+              };
+
+              route = 'reseau_form_annonce';
+          }else{
+              params = {
+                  dpc : bien.departement_code,
+                  departement_slug : bien.departement_slug,
+                  motclef2 : varsGlobal.site.motclef2,
+                  id : bien.id,
+                  offre : offreTxt(bien.offre),
+                  type : bien.typebien_slug,
+                  cp : bien.cp,
+                  ville : bien.ville_slug
+              };
+              route = 'annonce';
+          }
+          var url = $ajaxQuery.genRoute(route,params);
+          $window.location.href = url;
+      };
+
+      // $scope.removeElt = function(idbien){
+      //     var tmpTab = $scope.selection;
+      //
+      //     var selection = JSON.parse(localStorage.getItem('selection'));
+      //     $ajaxQuery.removeSelection(idbien,function(data){
+      //         if(data){
+      //             selection.splice(selection.indexOf(idbien),1);
+      //             angular.forEach($scope.selection,function(val,key){
+      //                 if(val.id == idbien){
+      //                     tmpTab.splice(key,1);
+      //                 }
+      //                 if(key === $scope.length+1){
+      //                     console.log('OOOO');
+      //                     $scope.selection = tmpTab;
+      //                     setSelection($scope.selection);
+      //                 }
+      //             });
+      //         }
+      //
+      //     });
+      //     return false;
+      //
+      // };
+
+      function offreTxt(offre){
+          switch(offre){
+              case 0 :
+                  return 'vente';
+              case 1 :
+                  return 'location';
+              case 2:
+                  return 'vacances';
+              default:
+                  return 'autre';
+          }
+      }
+      /**
+       * Génere un cookie de selection vide
+       */
+      function emtpyLS(){
+          $rootScope.selection = [];
+          localStorage.setItem('selection',JSON.stringify([]));
+      }
+
+      /**
+       * Prépare la chaine a inserer en cookie
+       * @param s
+       */
+      function mySetLs(s){
+          var tab = [];
+          angular.forEach(s,function(val,key){
+            tab.push(val.id);
+          });
+          return tab;
+      }
+
+      function refreshIcon(){
+           angular.forEach($rootScope.selection,function(val,key){
+               checkBien(val.id);
+           });
+      }
+
+      function checkBien(idbien){
+          $e('#selection-'+idbien).parent().addClass("active");
+          $e('#selection-'+idbien).removeClass("icon-handhome").addClass("icon-homecheck");
+      }
+
+  }
+})();

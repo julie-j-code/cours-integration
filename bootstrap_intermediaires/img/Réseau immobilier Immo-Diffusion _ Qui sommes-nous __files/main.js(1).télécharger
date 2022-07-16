@@ -1,0 +1,30 @@
+$(function () {
+    //Tooltip des listing
+    $('[data-toggle=tooltip]').tooltip();
+    //Event change CV
+    $("#appbundle_contact_recrutement_cv").on('change',function(){
+        $("#uploadFile_cv").val($(this).val());
+    });
+    //Event change LM
+    $("#appbundle_contact_recrutement_lettreMotivation").on('change',function(){
+        $("#uploadFile_lm").val($(this).val());
+    });
+    //Last bien sur la home
+    if( $("#last_ads").length){
+        var topLastAds = $("#last_ads").offset().top - 250;
+    }
+    //Scroll to bottom on Homepage
+    $('.js-scrollTo').on('click', function() { // Au clic sur un élément
+        var speed = 1250; // Durée de l'animation (en ms)
+        $('html, body').animate( { scrollTop: topLastAds }, speed ); // Go
+        return false;
+    });
+
+    $('.show-iframe').on('click', function () {
+        var dataSrc = $(this).data('src');
+        var titre = $(this).data('titre');
+        $('#modal-iframe iframe').attr('src', dataSrc);
+        $('#modal-iframe h4.modal-title').html(titre);
+        $('#modal-iframe').modal({show: true});
+    });
+});

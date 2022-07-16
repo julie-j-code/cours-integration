@@ -1,0 +1,113 @@
+/*html, body, header, div.container, div.container-fluid, ::after, ::before, .row, div, nav, button, img{*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    box-sizing: border-box;*/
+/*}*/
+header, .secondaire{
+    background: darkgrey;
+}
+
+/*header, .background{*/
+/*    background-image: url("../img/low-angle-view-of-skyscrapers (1).jpg"), url("../img/low-angle-view-of-skyscrapers.jpg");*/
+/*    background-attachment: fixed;*/
+/*    !*background-size: contain, cover;*!*/
+/*    background-size: auto 100%, 100% auto;*/
+/*    background-repeat: no-repeat, no-repeat;*/
+/*    background-position: left top, right top;*/
+/*}*/
+
+header, .background{
+    background-image: url("../img/low-angle-view-of-skyscrapers (1).jpg"), url("../img/low-angle-view-of-skyscrapers.jpg");
+    background-attachment: fixed;
+    background-size: 100vw, 80vw;
+    background-repeat: no-repeat, no-repeat;
+    background-position: left top, right top;
+}
+
+.bg-perso{
+    background-image: url("../img/low-angle-view-of-skyscrapers.jpg");
+    background-attachment: fixed;
+    /*background-size: contain, cover;*/
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: right top;
+}
+
+header, .col-md-3{
+    /*min-height: 348px;*/
+    padding-bottom: 2vh;
+}
+
+.img-fluid, .play, .carousel-item img.d-block{
+    object-fit: cover;
+    min-height: 293px;
+    margin: 0;
+
+}
+.dark{
+    background-color: rgba(1,6,21,0.9)
+}
+.primaire, .bg-dark{
+    background-color: rgba(30,103,157,0.9);
+}
+
+.tertiaire{
+    background-color: rgba(255, 221, 0, 0.9);
+
+}
+
+hr{
+    height: 10px;
+}
+hr.h-25{
+    max-height: 2px;
+}
+.row{
+    min-height:293px;
+
+}
+
+.col-md-3,.col{
+    padding-top:5vh;
+
+}
+
+@media (max-width: 992px) {
+    .bg-perso{
+        background-image: none;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    header, .flex-height{
+        min-height: auto;
+
+    }
+
+    .bg-perso{background-image : none;}
+
+
+    header, .background{
+        background: url("../img/low-angle-view-of-skyscrapers (1).jpg") no-repeat scroll;
+        background-size: cover;
+
+    }
+
+    /*.background{*/
+    /*    background-image: none;*/
+    /*    background-size: 100vw;*/
+    /*    background-color: darkgrey;*/
+    /*}*/
+
+    /*.col-md-3{*/
+    /*    min-height: 200px;*/
+
+    /*}*/
+
+    .col-md-3.background{
+        min-height: 200px;
+        background-size: 100vw;
+    }
+}

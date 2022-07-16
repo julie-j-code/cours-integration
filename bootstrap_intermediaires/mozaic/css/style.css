@@ -1,0 +1,30 @@
+header, .secondaire{
+    background: darkgrey;
+}
+
+header, .col-md-3{
+    /*min-height: 348px;*/
+    padding-bottom: 2vh;
+}
+
+.tertiaire{
+    background-color: yellow;
+}
+
+.row{
+    min-height:293px;
+
+}
+
+.col-md-3,.col{
+    padding-top:5vh;
+
+}
+@media (max-width: 768px) {
+
+    header, .flex-height{
+        min-height: auto;
+        hanging-punctuation: auto;
+    }
+
+     }

@@ -1,0 +1,55 @@
+(function ($, Routing) {
+  $.fn.selectAgentID = function (data, callback) {
+    var cAgents = $(data.contentAgent);
+    cAgents.hide();
+    $(data.ipt).on('input', function () {
+      var ipt = $(this);
+      if ($(this).val() != "") {
+        cAgents.show();
+        $.ajax({
+          url: Routing.generate('app_ajax_searchagent'),
+          method: 'POST',
+          data: {
+            'agent_nom': $(this).val(),
+            'ajax': true
+          }, success: function (resp) {
+            cAgents.html('');
+            $.each(resp, function (key, val) {
+              if ($(this).data('id') !== val.agent_id) {
+                switch(data.tpl_default) {
+                  case 'agence':
+                    var tpl_default = "<div data-name='result' data-json='"+JSON.stringify(val)+"' data-id='" + val.agent_id + "'>" + val.agent_enseigne + ' ' + val.agent_prenom + ' ' + val.agent_nom + "</div>";
+                    break;
+                  default:
+                    var tpl_default = "<div data-name='result' data-id='" + val.agent_id + "'>" + val.agent_prenom + ' ' + val.agent_nom + ' (' + val.ville_nom + ' ' + val.ville_cp + ')' + "</div>";
+                }
+                cAgents.append(tpl_default);
+              }
+            });
+            if (resp.length == 0) {
+              cAgents.hide();
+            }
+          }, error: function (resp) {
+            cAgents.hide();
+          },
+        });
+        cAgents.on('click', 'div', function () {
+          $(ipt).val($(this).html());
+          cAgents.html('');
+          cAgents.hide();
+          $(data.iptTargetVal).val($(this).data('id'));
+          if (callback) {
+            callback($(this).data('json'));
+          }
+        });
+      } else {
+        cAgents.html('');
+      }
+    });
+    $(data.ipt).on('keyup', function () {
+      if ($(this).val() == "") {
+        cAgents.hide();
+      }
+    })
+  };
+}(jQuery, Routing));

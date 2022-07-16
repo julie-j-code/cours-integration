@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="http://bootstrap.julie-j.net/immo-maquette-perso/medias/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <script src="./medias/carousel.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script> -->
+
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous"> -->
+
+    <title>Document</title>
+</head>
+
+<body class="bg-secondary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary my-auto">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Logos</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- bootstrap 5 <ul class="navbar-nav ms-lg-auto"> -->
+                <ul class="navbar-nav ml-lg-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Clients</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Accès Premium</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="container bg-secondary mx-auto mt-5">
+        <div id="welcome" class="row align-items-center text-white">
+            <div class="col-md-7">
+                <h1 class="display-4 text-white text-left mb-5">Lorem ipsum dolor.</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis doloremque obcaecati alias? Sunt
+                    velit culpa quae corrupti atque nulla, adipisci ipsum deserunt, dignissimos cumque, tenetur ipsam
+                    magni doloribus dolor debitis quidem eligendi. Sapiente tenetur perspiciatis velit consectetur
+                    praesentium, minus officia dolores rem quo aliquid nesciunt et qui corporis nam aspernatur!</p>
+                <button class="btn btn-primary d-inline-block text-uppercase mt-5">Accès Clients</button>
+                <button class="btn btn-outline-light d-inline-block text-uppercase mt-5">Inscription</button>
+            </div>
+            <div class="col-md-5 text-center p-5">
+                <!-- carousel -->
+                <div class="row">
+
+                    <section class="slide-wrapper container-fluid text-white">
+                        <div class="container">
+                            <div id="myCarousel" class="carousel slide row" data-ride="carousel">
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner col-10">
+                                    <div class="carousel-item active">
+                                        <div class="fill d-flex align-items-center">
+                                            <div>
+                                                <h3>Lorem ipsum dolor sit amet.</h3>
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, nam.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="fill d-flex align-items-center">
+                                            <div class="text-white">
+                                                <h3>Lorem ipsum dolor sit amet.</h3>
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, eveniet possimus.
+                                            </div>                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="fill d-flex align-items-center">
+                                            <div class="text-white">
+                                                <h3>Lorem ipsum dolor sit amet.</h3>
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, nam.
+                                            </div>                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="fill d-flex align-items-center">
+                                            <div class="text-white">
+                                                <h3>Lorem ipsum dolor sit amet.</h3>
+                                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint.
+                                            </div>                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Indicators -->
+                                <div class="col-2">
+
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                                        <li data-target="#myCarousel" data-slide-to="3"></li>
+                                    </ol>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+
+                <!-- fin -->
+            </div>
+        </div>
+    </header>
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="//db.onlinewebfonts.com/c/218946a86ddc551b40b54a2f097905d4?family=Bahagia+Jarah" rel="stylesheet" type="text/css"/>
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous"> -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/styleimmo.css">
+<body ng-app="siteimmo" id="modal" class="ng-scope"><div role="dialog" aria-live="polite" aria-label="cookieconsent" aria-describedby="cookieconsent:desc" class="cc-window cc-floating cc-type-info cc-theme-block cc-bottom cc-right cc-color-override-840809054 cc-invisible" style="display: none;"><!--googleoff: all--><span id="cookieconsent:desc" class="cc-message">En poursuivant votre navigation sur Réseau Immo-diffusion, vous acceptez l’utilisation de Cookies qui vous permettent notamment de conserver votre sélection de biens immobilier    sur tous les supports. <a aria-label="learn more about cookies" role="button" tabindex="0" class="cc-link" href="https://www.immo-diffusion.fr/fr/mentions-legales/en-france" target="_blank">En savoir plus</a></span><div class="cc-compliance"><a aria-label="dismiss cookie message" role="button" tabindex="0" class="cc-btn cc-dismiss">J'accepte !</a></div><!--googleon: all--></div>
+    <div id="contentFlashbag">
+                            </div>
+        <header role="banner" class="navbar modal-bien">
+                                        <div class="row text-right hidden-print">
+    <nav class="navbar" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <i class="fa fa-reorder txtWhite"></i>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav navbar-left">
+                                        <li class="dropdown dropdown-large text-center text_nav pr5px pl5px block-menu">
+                                                    <a class="btn-primary-negatif link-menu" href="https://www.immo-diffusion.fr/fr/france/vente" title=" Annonces VENTE Immobilier">
+                                <i class="icon-document"></i><br><span class="txt_small">Annonces</span><br><br>
+                            </a>
+                                                <div class="dropdown-menu dropdown-menu-large row main-nav sub-menu">
+                            <ul class="row_menu row">
+                                                                <li class="col-lg-3 col-lg-offset-2 col-sm-5 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+                                    <ul>
+                                                    <li class="dropdown-header">
+        Vente immobilière France
+    </li>
+    <li>
+        <a href="https://www.immo-diffusion.fr/fr/france/vente" title="Annonces VENTE">
+            <img src="./Réseau immobilier Immo-Diffusion _ Qui sommes-nous __files/vente.svg" alt=" Vente Immobilier" class="img_5 hidden-xs">
+                         VENTE
+        </a>
+    </li>
+    <li class="divider"></li>
+                                    </ul>
+                                </li>
+                                                                <li class="col-lg-3 col-sm-5 col-xs-12">
+                                    <ul>
+                                                    <li class="dropdown-header">
+        Location immobilière France
+    </li>
+    <li>
+        <a href="https://www.immo-diffusion.fr/fr/france/location" title="Annonces LOCATION">
+            <img src="./Réseau immobilier Immo-Diffusion _ Qui sommes-nous __files/location.svg" alt=" Location" class="img_5 hidden-xs">
+                         LOCATION
+        </a>
+    </li>
+    <li class="divider"></li>
+                                    </ul>
+                                </li>
+                                                                <li class="col-lg-offset-0 col-lg-3 col-sm-offset-2 col-sm-5 col-xs-12">
+                                    <ul>
+                                                    <li class="dropdown-header">
+        Vacances France
+    </li>
+    <li>
+        <a href="https://www.immo-diffusion.fr/fr/france/vacances" title="Annonces VACANCES">
+            <img src="./Réseau immobilier Immo-Diffusion _ Qui sommes-nous __files/vacances.svg" alt=" Vacances" class="img_5 hidden-xs">
+                         VACANCES
+        </a>
+    </li>
+    <li class="divider"></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                                                        <ul class="row_menu row">
+                                <li class="col-lg-3 col-lg-offset-2 col-sm-5 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+                                    <ul>
+                                        <li class="dropdown-header">
+                                            Annonces ciblées France
+                                        </li>
+                                        <li>
+                                                        <a href="https://www.immo-diffusion.fr/fr/france/immobilier-prestige" title="Immobilier PRESTIGE ">
+        <img src="./Réseau immobilier Immo-Diffusion _ Qui sommes-nous __files/prestige.svg" alt="Immobilier PRESTIGE " class="img_5 hidden-xs">
+                        PRESTIGE
+    </a>
+                                        </li>
+                                        <li>
+                                                        <a href="https://www.immo-diffusion.fr/fr/france/immobilier-neuf" title="Immobilier NEUF ">
+        <img src="./Réseau immobilier Immo-Diffusion _ Qui sommes-nous __files/neuf.svg" alt="Immobilier NEUF " class="img_5 hidden-xs">
+                        NEUF
+    </a>
+                                        </li>
+                                        <li>
+                                                        <a href="https://www.immo-diffusion.fr/fr/france/immobilier-renove" title="Immobilier RÉNOVÉ ">
+        <img src="./Réseau immobilier Immo-Diffusion _ Qui sommes-nous __files/renove.svg" alt="Immobilier RÉNOVÉ " class="img_5 hidden-xs">
+                        RÉNOVÉ
+    </a>
+                                        </li>
+                                        <li>
+                                                        <a href="https://www.immo-diffusion.fr/fr/france/immobilier-a-rafraichir" title="Immobilier À RAFRAICHIR ">
+        <img src="./Réseau immobilier Immo-Diffusion _ Qui sommes-nous __files/a-rafraichir.svg" alt="Immobilier À RAFRAICHIR " class="img_5 hidden-xs">
+                        À RAFRAICHIR
+    </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="col-lg-3 col-sm-5 col-xs-12">
+                                    <ul>
+                                        <li class="mt30px">
+                                                        <a href="https://www.immo-diffusion.fr/fr/france/immobilier-a-renover" title="Immobilier À RÉNOVER ">
+        <img src="./Réseau immobilier Immo-Diffusion _ Qui sommes-nous __files/a-renover.svg" alt="Immobilier À RÉNOVER " class="img_5 hidden-xs">
+                        À RÉNOVER
+    </a>
+                                        </li>
+                                        <li>
+                                                        <a href="https://www.immo-diffusion.fr/fr/france/immobilier-commerce" title="Immobilier COMMERCE ">
+        <img src="./Réseau immobilier Immo-Diffusion _ Qui sommes-nous __files/commerce.svg" alt="Immobilier COMMERCE " class="img_5 hidden-xs">
+                        COMMERCE
+    </a>
+                                        </li>
+                                        <li>
+                                                        <a href="https://www.immo-diffusion.fr/fr/france/immobilier-local-bureau" title="Immobilier LOCAL / BUREAU ">
+        <img src="./Réseau immobilier Immo-Diffusion _ Qui sommes-nous __files/local-bureau.svg" alt="Immobilier LOCAL / BUREAU " class="img_5 hidden-xs">
+                        LOCAL / BUREAU
+    </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.immo-diffusion.fr/fr/international" title="Annonces INTERNATIONALES">
+                                                <img src="./Réseau immobilier Immo-Diffusion _ Qui sommes-nous __files/mapMonde.svg" alt=" France Annonces INTERNATIONALES" class="img_5 hidden-xs">
+                                                                                                Annonces INTERNATIONALES
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="col-lg-offset-0 col-lg-3 col-sm-offset-2 col-sm-5 col-xs-12">
+                                    <ul>
+                                        <li class="dropdown-header">Annonces inversées France</li>
+                                        <li>
+                                            <a href="https://www.immo-diffusion.fr/fr/france/chasseurs-immobilier/acheteurs" title="Trouver un Acheteur ID France">
+                                                <img src="./Réseau immobilier Immo-Diffusion _ Qui sommes-nous __files/acquereur.svg" alt="Trouver un Acheteur ID France" class="img_5 hidden-xs">
+                                                                                                Trouver un Acheteur ID France
+                                            </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li class="dropdown-header">Dépôt d'annonce particulier France</li>
+                                        <li class="btn_diffusion mt15px">
+                                            <a class="btn-primary btn btn-lg" href="https://www.immo-diffusion.fr/fr/deposer-une-annonce" title="Diffusion">
+                                                <i class="icon-ajouter"></i> DÉPOSEZ VOTRE ANNONCE
+                                            </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                                        <li class="dropdown dropdown-large text-center text_nav pr5px pl5px block-menu">
+                                                    <a href="https://www.immo-diffusion.fr/fr/france/estimation-prixm2" title="Estimation" class="btn-primary-negatif visible-lg link-menu">
+                                <i class="icon-estimation"></i><br><span class="txt_small">Estimation</span><br><br>
+                            </a>
+                                                <a class="btn-primary-negatif dropdown-toggle hidden-lg" data-toggle="dropdown" href="https://www.immo-diffusion.fr/fr/reseauimmobilier#">
+                            <i class="icon-estimation"></i><br><span class="txt_small">Estimation</span><br><br>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-large row main-nav sub-menu">
+                                                        <li class="col-lg-3 col-lg-offset-2 col-sm-offset-2 col-sm-5 col-xs-12 col-xs-offset-0">
+                                <ul>
+                                    <li class="dropdown-header">Estimation France</li>
+                                    <li>   <a href="https://www.immo-diffusion.fr/fr/france/estimation-prixm2#estimation" title="Estimation">
+      <i class="icon-estimation"></i>
+       Estimation
+       PRIX
+   </a>
+
+         <a href="https://www.immo-diffusion.fr/fr/france/estimation-prixm2/estimer-maison#estimer" title="Estimer Maison">
+         <i class="icon-estimation"></i>
+          Estimer
+          MAISON
+      </a>
+         <a href="https://www.immo-diffusion.fr/fr/france/estimation-prixm2/estimer-appartement#estimer" title="Estimer Appartement">
+         <i class="icon-estimation"></i>
+          Estimer
+          APPARTEMENT
+      </a>
+         <a href="https://www.immo-diffusion.fr/fr/france/estimation-prixm2/estimer-terrain#estimer" title="Estimer Terrain">
+         <i class="icon-estimation"></i>
+          Estimer
+          TERRAIN
+      </a>
+   </li>
+                                    <li class="divider"></li>
+                                    <li class="dropdown-header">Prix m2 France</li>
+                                    <li>    <a href="https://www.immo-diffusion.fr/fr/france/estimation-prixm2" title="Prix m2"><i class="icon-prix"></i> Prix au m2 dans votre ville</a>
+</li>
+                                                                                                                        <li><a href="https://www.immo-diffusion.fr/fr/languedoc/herault/34000/estimation-prixm2-montpellier" title="Prix m2 MONTPELLIER"><i class="icon-prix"></i> Prix m2 Montpellier  (34)</a></li>
+                                                                                    <li><a href="https://www.immo-diffusion.fr/fr/basse-normandie/calvados/14000/estimation-prixm2-caen" title="Prix m2 CAEN"><i class="icon-prix"></i> Prix m2 Caen  (14)</a></li>
+                                                                                                                <li class="divider"></li>
+                                </ul>
+                            </li>
+                            <li class="col-lg-3 col-sm-5 col-xs-12 mt15px ">
+                                <ul>
+                                                                                                                        <li><a href="https://www.immo-diffusion.fr/fr/bourgogne/cote-d-or/21000/estimation-prixm2-dijon" title="Prix m2 DIJON"><i class="icon-prix"></i> Prix m2 Dijon  (21)</a></li>
+                                                                                    <li><a href="https://www.immo-diffusion.fr/fr/aquitaine/gironde/33000/estimation-prixm2-bordeaux" title="Prix m2 BORDEAUX"><i class="icon-prix"></i> Prix m2 Bordeaux  (33)</a></li>
+                                                                                    <li><a href="https://www.immo-diffusion.fr/fr/champagne/marne/51100/estimation-prixm2-reims" title="Prix m2 REIMS"><i class="icon-prix"></i> Prix m2 Reims  (51)</a></li>
+                                                                                    <li><a href="https://www.immo-diffusion.fr/fr/haute-normandie/seine-maritime/76000/estimation-prixm2-rouen" title="Prix m2 ROUEN"><i class="icon-prix"></i> Prix m2 Rouen  (76)</a></li>
+                                                                                    <li><a href="https://www.immo-diffusion.fr/fr/bretagne/finistere/29200/estimation-prixm2-brest" title="Prix m2 BREST"><i class="icon-prix"></i> Prix m2 Brest  (29)</a></li>
+                                                                                    <li><a href="https://www.immo-diffusion.fr/fr/languedoc/pyrenees-orientales/66000/estimation-prixm2-perpignan" title="Prix m2 PERPIGNAN"><i class="icon-prix"></i> Prix m2 Perpignan  (66)</a></li>
+                                                                                                                <li class="divider"></li>
+                                </ul>
+                            </li>
+                            <li class="col-lg-3 col-sm-5 col-xs-12 mt15px ">
+                                <ul>
+                                    <li class="dropdown-header">Estimation France</li>
+                                    <li class="btn_diffusion mt15px">
+                                            <a class="btn-primary btn btn-lg" href="https://www.immo-diffusion.fr/fr/france/estimation-prixm2#estimation" title="ESTIMEZ VOTRE BIEN"><i class="fa fa-gavel"></i> ESTIMEZ VOTRE BIEN</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                                                                                                                                                                                                                                                                            </ul>
+                            </li>
+                        </ul>
+                    </li>
+                                        <li class="dropdown dropdown-large text-center text_nav pr5px pl5px block-menu">
+                        <a class="btn-primary-negatif link-menu" href="https://www.immo-diffusion.fr/fr/deposer-une-annonce" title="Diffusion">
+                            <i class="icon-prospection"></i><br><span class="txt_small"> Diffusion</span><br><br>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-large row main-nav sub-menu">
+                            <li class="col-lg-3 col-sm-3 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+                                <ul>
+                                                                                                                                                    <li class="dropdown-header">Dépôt d'annonce particulier</li>
+                                    <li>
+                                                                                                                                                                                                                <a href="https://www.immo-diffusion.fr/fr/deposer-une-annonce#diffusionMax" data-diffusion="on" name="diffusionBtn" title="Diffusion MAX">
+                                            <i class="icon-diffusionAnnonces"></i> Diffusion MAX
+                                        </a>
+                                    </li>
+                                    <li>
+                                                                                                                                                                                                                <a href="https://www.immo-diffusion.fr/fr/deposer-une-annonce#diffusionOff" data-diffusion="off" name="diffusionBtn" title="Diffusion OFF">
+                                            <i class="icon-diffusionAnnonces"></i> Diffusion OFF
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="col-lg-2 col-sm-2 col-xs-offset-0 col-xs-12">
+                                <ul>
+                                    <li class="dropdown-header">Réseau de diffusion Pro &amp; Pap</li>
+                                    <li><a href="https://www.immo-diffusion.fr/fr/passerelles/diffusion-nationale" title="Liste des sites de diffusion"><i class="icon-list"></i> Diffusion Nationale</a></li>
+                                    <li><a href="https://www.immo-diffusion.fr/fr/passerelles/diffusion-regionale" title="Liste des sites de diffusion"><i class="icon-list"></i> Diffusion Régionale</a></li>
+                                </ul>
+                            </li>
+                            <li class="col-lg-2 col-sm-2 col-xs-offset-0 col-xs-12 mt30px">
+                                <ul>
+                                    <li><a href="https://www.immo-diffusion.fr/fr/passerelles/diffusion-internationale" title="Liste des sites de diffusion"><i class="icon-list"></i> Diffusion Internationale</a></li>
+                                    <li><a href="https://www.immo-diffusion.fr/fr/passerelles/diffusion-prestige" title="Liste des sites de diffusion"><i class="icon-list"></i> Diffusion Prestige</a></li>
+                                </ul>
+                            </li>
+                            <li class="col-lg-3 col-sm-3 col-xs-offset-0 col-xs-12">
+                                <ul>
+                                    <li class="dropdown-header">Dépôt d'annonce particulier France</li>
+                                    <li class="btn_diffusion mt15px">
+                                        <a class="btn-primary btn btn-lg" href="https://www.immo-diffusion.fr/fr/deposer-une-annonce" title="Diffusion">
+                                            <i class="icon-ajouter"></i> DÉPOSEZ VOTRE ANNONCE
+                                        </a>
+                                    </li>
+                                    <li class="divider"></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                                                            <li class="dropdown dropdown-large text-center text_nav pr5px pl5px block-menu">
+                        <a class="btn-primary-negatif visible-lg link-menu" href="https://www.immo-diffusion.fr/fr/reseauimmobilier#">
+                            <i class="icon-service"></i><br><span class="txt_small">Services +</span><br><br>
+                        </a>
+                        <a class="btn-primary-negatif dropdown-toggle hidden-lg" data-toggle="dropdown" href="https://www.immo-diffusion.fr/fr/reseauimmobilier#">
+                            <i class="icon-service"></i><br><span class="txt_small">Services +</span><br><br>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-large row main-nav sub-menu">
+                                                        <li class="col-lg-4 col-lg-offset-2 col-sm-4 col-sm-offset-2 col-xs-12">
+                                <ul>
+
+                                    <li class="dropdown-header">Services +</li>
+                                    <li>
+                                        <a href="https://www.immo-diffusion.fr/fr/actu" rel="external" title="Actualité immobilière"><i class="icon-actu"></i> Actualité immobilière</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mandat-diffusion.fr/mandatdediffusion" target="_blank" rel="external" title="Mandat &quot;Diffusion&quot; France"><i class="icon-mandatdiffusion"></i> Mandat "Diffusion"</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.partners-travaux.fr/" target="_blank" rel="external" title="Devis travaux France"><i class="icon-devisTravaux"></i> Devis travaux</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://immodiffusion.simply-move.fr/fr/service/category/f388cb4c-1755-4e98-811c-75fe1ce648d1/devis-demenageurs" target="_blank" rel="external" title="Devis déménagement"><i class="icon-devisDemenagement"></i> Devis déménagement</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://immodiffusion.simply-move.fr/fr/service/category/758dd2cb-33a6-4f5b-8b42-adbc9df13255/assurance-habitation" target="_blank" rel="external" title="Devis assurance habitation"><i class="icon-devisAssurance"></i> Devis assurance habitation</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://immodiffusion.simply-move.fr/fr/service/category/6027a286-7ca9-4e79-9900-523b96932ccb/vehicule-utilitaire" target="_blank" rel="external" title="Devis location camion"><i class="icon-demenagement"></i> Devis location camion</a>
+                                    </li>
+
+                                                                        <li class="divider"></li>
+                                </ul>
+                            </li>
+
+                                                        <li class="col-lg-4 col-sm-4 col-xs-offset-0 col-xs-12">
+                                <ul>
+                                    <li class="dropdown-header">Calculette financière</li>
+                                    <li>
+                                        <a href="https://www.immo-diffusion.fr/fr/reseauimmobilier#" class="bmd-modalButton modalNav" data-class="modal-lg" data-title="Prêt à taux zéro (PTZ)" data-toggle="modal" data-bmdsrc="https://www.meilleurtaux.com/calculatrice/pret_taux_zero_plus/index.php?" data-bmdheight="800" data-target="#modal-iframe-bt3" title="Prêt à taux zéro (PTZ)"><i class="icon-ptz"></i> Prêt à taux zéro (PTZ)</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="https://www.immo-diffusion.fr/fr/reseauimmobilier#" class="bmd-modalButton modalNav" data-class="modal-lg" data-title="Calculs frais de notaires" data-toggle="modal" data-bmdsrc="https://www.meilleurtaux.com/calculatrice/frais_notaire/index.php?" data-bmdheight="500" data-target="#modal-iframe-bt3" title="Calculs frais de notaires"><i class="icon-justice"></i> Calculs frais de notaires</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.immo-diffusion.fr/fr/reseauimmobilier#" class="bmd-modalButton modalNav" data-class="modal-lg" data-title="Calculs mensualités de rembourssement" data-toggle="modal" data-bmdsrc="https://www.meilleurtaux.com/calculatrice/calcul_mensualites/index.php?" data-bmdheight="500" data-target="#modal-iframe-bt3" title="Calculs mensualités de rembourssement"><i class="icon-mensualite"></i> Calculs mensualités de rembourssement</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.immo-diffusion.fr/fr/reseauimmobilier#" class="bmd-modalButton modalNav" data-class="modal-lg" data-title="Combien emprunter ?" data-toggle="modal" data-bmdsrc="https://www.meilleurtaux.com/calculatrice/capacite_endettement/" data-bmdheight="500" data-target="#modal-iframe-bt3" title="Combien emprunter ?"><i class="icon-question"></i> Combien emprunter ?</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.immo-diffusion.fr/fr/reseauimmobilier#" class="bmd-modalButton modalNav" data-class="modal-lg" data-title="Tableau d&#39;amortissement" data-toggle="modal" data-bmdsrc="https://www.meilleurtaux.com/calculatrice/amortissement/index.php?" data-bmdheight="500" data-target="#modal-iframe-bt3" title="Tableau d&#39;amortissement"><i class="icon-amortissement"></i> Tableau d'amortissement</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                                        <li class="dropdown dropdown-large text-center text_nav pr5px pl5p block-menu">
+                        <a class="btn-primary-negatif visible-lg link-menu" href="https://www.immo-diffusion.fr/fr/reseauimmobilier" title="Réseau IMMO-DIFFUSION">
+                            <i class="icon-immo-diffusion"></i><br><span class="txt_small">Le Réseau</span><br><br>
+                        </a>
+                        <a class="btn-primary-negatif dropdown-toggle hidden-lg" data-toggle="dropdown" href="https://www.immo-diffusion.fr/fr/reseauimmobilier#">
+                            <i class="icon-immo-diffusion"></i><br><span class="txt_small">Le Réseau</span><br><br>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-large row main-nav sub-menu">
+                                                        <li class="col-lg-3 col-lg-offset-2 col-sm-offset-2 col-sm-5 col-xs-12 col-xs-offset-0">
+                                <ul>
+                                    <li class="dropdown-header">Qui sommes-nous ?</li>
+                                    <li><a href="https://www.immo-diffusion.fr/fr/reseauimmobilier" title="Réseau IMMO-DIFFUSION"><i class="icon-immo-diffusion"></i> Réseau immobilier "IMMO-DIFFUSION"</a></li>
+                                    <li class="divider"></li>
+                                    <li class="dropdown-header">Trouver un agent France</li>
+                                    <li>
+                                                                                    <a href="https://www.immo-diffusion.fr/fr/france/agents-immobiliers" title="Agent ID">
+                                                <i class="icon-users"></i> Agent ID
+                                            </a>
+                                                                            </li>
+                                    <li class="divider"></li>
+                                    <li class="dropdown-header">Trouver un centre d'affaires France</li>
+                                    <li>
+                                                                                    <a href="https://www.immo-diffusion.fr/fr/france/agences-immobilieres" title="Centre d&#39;affaires ID">
+                                                <i class="icon-agence"></i> Centre d'affaires ID
+                                            </a>
+                                                                            </li>
+                                    <li class="divider"></li>
+                                </ul>
+                            </li>
+                                                        <li class="col-lg-3 col-sm-5 col-xs-12">
+                                <ul>
+                                    <li class="dropdown-header">Recrutement PRO France</li>
+                                    <li><a href="https://www.immo-diffusion.fr/fr/concept-immobilier" title="Le concept &quot;Entre Pro&quot; d&#39;ID"><i class="icon-immo-diffusion"></i> Le concept "Entre Pro" d'ID</a></li>
+                                    <li><a href="https://www.immo-diffusion.fr/fr/devenir-agent-immobilier" title="Devenir agent immobilier ID"><i class="icon-recrutement"></i> Devenir agent immobilier ID</a></li>
+                                    <li><a href="https://www.immo-diffusion.fr/fr/recrutement-immobilier" title="Annonces recrutement ID"><i class="icon-annoncesRecrutement"></i> Annonces recrutement ID</a></li>
+                                    <li><a href="https://www.immo-diffusion.fr/fr/licences-de-marques" title="Nos licences de marques ID"><i class="icon-scalingup"></i> Nos licences de marques ID</a></li>
+                                    <li class="divider"></li>
+                                </ul>
+                            </li>
+                            <li class="col-lg-offset-0 col-lg-3 col-sm-offset-2 col-sm-5 col-xs-12">
+                                <ul>
+                                    <li class="dropdown-header">Outils &amp; services PRO France</li>
+                                    <li><a href="https://www.immo-diffusion.fr/fr/services-immobilier" title="Vue d&#39;ensemble"><i class="icon-outils"></i> Vue d'ensemble</a></li>
+                                    <li><a href="https://www.immo-diffusion.fr/fr/services-immobilier/call-center" title="Secrétariat central"><i class="icon-callCenter"></i> Secrétariat central</a></li>
+                                    <li><a href="https://www.immo-diffusion.fr/fr/services-immobilier/logiciel" title="Logiciel immobilier"><i class="icon-logiciel"></i> Logiciel immobilier</a></li>
+                                    <li><a href="https://www.immo-diffusion.fr/fr/passerelles" title="Diffusion d&#39;annonces"><i class="icon-diffusion"></i> Diffusion d'annonces</a></li>
+                                    <li><a href="https://www.immo-diffusion.fr/fr/services-immobilier/formation" title="Formations immobilières"><i class="icon-formation"></i> Formations immobilières</a></li>
+                                    <li><a href="https://www.immo-diffusion.fr/fr/services-immobilier/site-immobilier" title="Créations de sites ID"><i class="icon-creation"></i> Créations de sites ID</a></li>
+                                    <li><a href="https://www.immo-diffusion.fr/fr/services-immobilier/prospection-immobiliere" title="Prospection"><i class="icon-prospection"></i> Prospection</a></li>
+                                    <li class="divider"></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                                        <li class="dropdown dropdown-large text-center text_nav pr5px pl5px block-menu">
+                        <a class="btn-primary-negatif visible-lg link-menu" href="https://www.immo-diffusion.fr/fr/reseauimmobilier#" title="Achat immobilier">
+                            <i class="icon-enveloppe"></i><br><span class="txt_small">Contact</span><br><br>
+                        </a>
+                        <a href="https://www.immo-diffusion.fr/fr/reseauimmobilier#" class="btn-primary-negatif dropdown-toggle hidden-lg" data-toggle="dropdown">
+                            <i class="icon-enveloppe"></i><br><span class="txt_small">Contact</span><br><br>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-large row main-nav sub-menu">
+                                                        <li class="col-lg-4 col-lg-offset-2 col-sm-4 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+                                <ul>
+                                    <li class="dropdown-header">Contact transaction</li>
+                                    <li>
+                                                <a href="https://www.immo-diffusion.fr/fr/france/contact-achat#breadcrumb" title="achat
+"><i class="icon-acheter"></i> ACHAT
+</a>
+                                    </li>
+                                    <li>
+                                                <a href="https://www.immo-diffusion.fr/fr/france/contact-vente#breadcrumb" title="vente
+"><i class="icon-vendre"></i> VENTE
+</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                                                        <li class="dropdown-header">Contact professionnel</li>
+                                    <li><a href="https://www.immo-diffusion.fr/fr/devenir-agent-immobilier#form_recrutement" title="Devenir agent immobilier ID"><i class="icon-recrutement"></i> Devenir agent immobilier ID</a></li>
+                                </ul>
+                            </li>
+                                                        <li class="col-lg-4 col-sm-4 col-xs-12 ">
+                                <ul>
+                                    <li class="dropdown-header">Contact location</li>
+                                    <li>
+                                                <a href="https://www.immo-diffusion.fr/fr/france/contact-location#breadcrumb" title="location
+"><i class="icon-louer"></i> LOCATION
+</a>
+                                    </li>
+                                    <li>
+                                                <a href="https://www.immo-diffusion.fr/fr/france/contact-gestion#breadcrumb" title="gestion
+"><i class="icon-miseenlocation"></i> GESTION
+</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                                                                                                                                            <li id="selection-opened" class="show-on-hover ml15px text_nav text-center">
+                        <a href="https://www.immo-diffusion.fr/fr/reseauimmobilier" title="Ma sélection - Réseau Immo-diffusion immobilier Montpellier" class="btn-primary-negatif h75px">
+                            <i class="icon-handhome"></i><span class="badge ng-binding">0</span> <br><span class="txt_small">Ma sélection</span>
+                        </a>
+                    </li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <li class="dropdown dropdown-large text-center text_nav ml15px block-menu block-login ng-scope" ng-controller="menu" id="btn_menu_connexion">
+                            <div ng-init="init(&#39;collapse&#39;,&#39;fr&#39;)" ng-bind-html="logger" class="ng-binding">
+<a href="https://www.immo-diffusion.fr/fr/reseauimmobilier#" class="dropdown-toggle btn-primary-negatif h75px " data-toggle="dropdown">
+    <i class="icon-utilisateur"></i><br><span class="txt_small">
+                                                                      connexion
+                                 </span>
+</a>
+<ul class="dropdown-menu pull-right">
+            <div>
+            <p class="h1 text-uppercase">Identification</p>
+            <p>Si vous êtes déjà inscrit(e), identifiez-vous pour accéder à votre espace personnel :</p>
+        </div>
+
+        <form action="https://www.immo-diffusion.fr/login_check" method="post" class="form-signin hidden-print">
+                        <div class="form-group">
+                <label for="username" class="sr-only">Nom d'utilisateur</label>
+                <input type="text" id="username" name="_username" value="" required="required" class="form-control" placeholder="Login ou Email">
+            </div>
+            <div class="form-group">
+                <label for="password" class="sr-only">Mot de passe</label>
+                <input type="password" id="password" name="_password" required="required" class="form-control" placeholder="* Mot de passe">
+            </div>
+            <input type="checkbox" id="remember_me" name="_remember_me" value="on">
+            <label for="remember_me">Se souvenir de moi</label>
+            <div class="pull-right">
+                <a href="https://www.immo-diffusion.fr/resetting/request">Mot de passe oublié ?</a>
+            </div>
+            <input type="submit" class="btn btn-lg btn-primary btn-block mt15px" id="_submit" name="_submit" value="Connexion">
+        </form>
+    </ul>
+ </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </li>
+                                        <li class="btn_diffusion">
+                        <a class="btn-primary btn ml15px" href="https://www.immo-diffusion.fr/fr/deposer-une-annonce" title="déposez votre annonce en diffusion Max ou diffusion Off - Immo-Diffusion">
+                            DÉPOSEZ VOTRE ANNONCE
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+    </header>
+    <main>
+        <a class="hidden-print modal-bien" href="https://www.immo-diffusion.fr/" title="IMMO-DIFFUSION">
+            <img class="ltr logoHeader" alt="IMMO-DIFFUSION" title="IMMO-DIFFUSION" src="./Réseau immobilier Immo-Diffusion _ Qui sommes-nous __files/logo-immodiffusion-default.svg">
+</a>
+<div id="selection" onload="hideMenu()" class="hidden-print ng-scope" ng-controller="selection" ng-init="init()" style="height: 406px; width: 0px; min-height: 406px; min-width: 0px;">
+    <nav id="selection_multilevelpushmenu" class="multilevelpushmenu_wrapper" style="height: 100%; min-height: 406px; min-width: 0px;">
+        
+        
+    <div class="levelHolderClass rtl multilevelpushmenu_inactive" data-level="0" style="margin-right: -340px; width: 340px; min-width: 340px;"><h2 style="text-align: right"> <i class="icon-close floatLeft cursorPointer"></i> MA SELECTION</h2><ul style="display: none;">
+            <!-- ngRepeat: bien in selection track by $index -->
+        </ul></div></nav>
+</div>
+            <div class="bg_blanc">
+        <div class="bg_Slider hidden-xs">
+    <div class="container animated fadeIn mt15px">
+        <div class="row-fluid">
+            <!-- Carousel -->
+            <div id="carouselAnimate" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="item active left">
+                        <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 text-center">
+            <div class="animated fadeInRightBig">
+                <h2 class="h1">
+                    1ère Centrale Immobilière de Professionnels Indépendants
+                </h2>
+            </div>
+            <p class="animated fadeInRightBig h4">
+                Implantation sur de nombreux secteurs partout en France !
+            </p>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="animated bounceInDown text-center positionInterlocuteur delai_slice-1">
+                <img src="./Réseau immobilier Immo-Diffusion _ Qui sommes-nous __files/interlocuteurUnique.png" alt="Interlocuteur Unique Immo-Diffusion" title="Interlocuteur Unique Immo-Diffusion" class="img-responsive">
+            </div>
+        </div>
+        <div class="col-md-8 col-sm-12 ">
+            <p class="animated flipInX delai_slice-6 text-center txtWhite positionTxtNbAgence2">
+                <strong>
+                    <span>
+                         180 agences
+                    </span>
+                </strong>
+            </p>
+            <img src="./Réseau immobilier Immo-Diffusion _ Qui sommes-nous __files/nbAgences.png" alt="180 agences Immo-diffusion" title="180 agences Immo-diffusion" class="img-responsive animated bounceInDown delai_slice-6 positionNbAgence2">
+            <p class="animated flipInX delai_slice-8 text-center txtWhite positionTxtNbAgent2">
+                <strong>
+                    <span>
+                         500 agents
+                    </span>
+                </strong>
+            </p>
+            <img src="./Réseau immobilier Immo-Diffusion _ Qui sommes-nous __files/nbAgents.png" alt="500 agents Immo-diffusion" title="500 agents Immo-diffusion" class="img-responsive animated bounceInDown delai_slice-8 positionNbAgent2">
+        </div>
+    </div>
+</div>                    </div>
+                    <div class="item next left">
+                        <div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <div class="animated rotateInDownRight">
+                <h2 class="h1">
+                    Vous voulez vendre ?
+                </h2>
+            </div>
+            <p class="animated fadeInRightBig h4">
+                Découvrez nos services...
+            </p>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <p class="animated flipInX delai_slice-4 mt45px">
+                <i class="icon-estimation picto-md2"></i>
+                <strong>
+                    <span class="h4 listAnimate2 ml15px">
+                        Estimation gratuite de votre bien
+                    </span>
+                </strong>
+            </p>
+            <p class="animated flipInX delai_slice-6 mt45px">
+                <i class="icon-diffusionAnnonces picto-md2"></i>
+                <strong>
+                    <span class="h4 listAnimate2 ml15px">
+                        Diffusion immédiate de votre bien
+                    </span>
+                </strong>
+            </p>
+            <p class="animated flipInX delai_slice-8 mt45px">
+                <i class="icon-users picto-md2"></i>
+                <strong>
+                    <span class="h4 listAnimate2 ml15px">
+                        1 interlocuteur + de 500 négociateurs informés
+                    </span>
+                </strong>
+            </p>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <p class="animated flipInX delai_slice-4 mt45px">
+                <i class="icon-document picto-md2"></i>
+                <strong>
+                    <span class="h4 listAnimate2 ml15px">
+                         Réalisation d'un dossier détaillé de votre bien
+                    </span>
+                </strong>
+            </p>
+            <p class="animated flipInX delai_slice-6 mt45px">
+                <i class="icon-contact picto-md2"></i>
+                <strong>
+                    <span class="h4 listAnimate2 ml15px">
+                         Compte rendu des visites acquéreurs
+                    </span>
+                </strong>
+            </p>
+            <p class="animated flipInX delai_slice-8 mt45px">
+                <i class="icon-mandat picto-md2"></i>
+                <strong>
+                    <span class="h4 listAnimate2 ml15px">
+                         Suivi du dossier jusqu'à la signature de l'acte de vente
+                    </span>
+                </strong>
+            </p>
+        </div>
+        <div class="col-xs-12 mt15px">
+            <div class="animated fadeInRightBig delai_slice-10">
+                            <a href="https://www.immo-diffusion.fr/fr/france/contact-vente" title="vente
+">
+        <button class="button btn-lg btn-txt-small btn-block btn btn-primary text-uppercase"><span>Déposez une offre : vente immobilière
+</span></button>
+    </a>
+            </div>
+        </div>
+    </div>
+</div>                    </div>
+                    <div class="item">
+                        <div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <div class="animated rotateInDownRight">
+                <h2 class="h1">
+                    Vous voulez acheter ?
+                </h2>
+            </div>
+            <p class="animated fadeInRightBig h4">
+                Découvrez nos services...
+            </p>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <p class="animated flipInX delai_slice-4 mt45px">
+                <i class="icon-estimation picto-md2"></i>
+                <strong>
+                    <span class="h4 listAnimate2 ml15px">
+                        Disponibilité, étude et conseils
+                    </span>
+                </strong>
+            </p>
+            <p class="animated flipInX delai_slice-6 mt45px">
+                <i class="icon-fichierCommunAcheteurs picto-md2"></i>
+                <strong>
+                    <span class="h4 listAnimate2 ml15px">
+                        Diffusion de votre demande auprès tous nos adhérents
+                    </span>
+                </strong>
+            </p>
+            <p class="animated flipInX delai_slice-8 mt45px">
+                <i class="icon-prix picto-md2"></i>
+                <strong>
+                    <span class="h4 listAnimate2 ml15px">
+                        Aide au financement
+                    </span>
+                </strong>
+            </p>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <p class="animated flipInX delai_slice-4 mt45px">
+                <i class="fa fa-search picto-md2"></i>
+                <strong>
+                    <span class="h4 listAnimate2 ml15px">
+                        Recherches personnalisées dans le fichier central
+                    </span>
+                </strong>
+            </p>
+            <p class="animated flipInX delai_slice-6 mt45px">
+                <i class="icon-users picto-md2"></i>
+                <strong>
+                    <span class="h4 listAnimate2 ml15px">
+                        1 interlocuteur + de 500 négociateurs informés
+                    </span>
+                </strong>
+            </p>
+            <p class="animated flipInX delai_slice-8 mt45px">
+                <i class="icon-mandat picto-md2"></i>
+                <strong>
+                    <span class="h4 listAnimate2 ml15px">
+                        Suivi du bon déroulement de l'acquisition
+                    </span>
+                </strong>
+            </p>
+        </div>
+        <div class="col-xs-12 mt15px">
+            <div class="animated fadeInRightBig delai_slice-10">
+                    
+        <a href="https://www.immo-diffusion.fr/fr/france/contact-achat" title="achat
+">
+        <button class="button btn-lg btn-txt-small btn-block btn btn-primary text-uppercase"><span>Déposez une demande : achat immobilier
+</span></button>
+    </a>
+            </div>
+        </div>
+    </div>
+</div>                    </div>
+                    <!-- button Indicators -->
+                    <ol class="carousel-indicators carouselAnimate-indicators">
+                        <li data-target="#carouselAnimate" data-slide-to="0" class=""></li>
+                        <li data-target="#carouselAnimate" data-slide-to="1" class="active"></li>
+                        <li data-target="#carouselAnimate" data-slide-to="2" class=""></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+</div>        <div class="container breadcrumb text-capitalize modal-bien" id="breadcrumb">
+                        <a class="cursorPointer text-capitalize" target="_parent" href="https://www.immo-diffusion.fr/">Accueil</a> <span class="txtLightGrey"> &gt; </span>
+                                Reseau immo-diffusion
+            </div>        <section class="container pb15px mb0px">
+            <div class="container-fluid">
+                <div class="row mt15px">
+                    <div class="col-md-9 xs-mt65px">
+                        <section>
+                            <div class="row pb15px container-fluid">
+                                <div class="col-md-6">
+                                    <h1>Qui sommes-nous ?
+</h1>
+                                    <p>Depuis sa création en 2001, la centrale IMMO-DIFFUSION regroupe des <strong>professionnels indépendants</strong> sur des secteurs géographiques complémentaires.
+</p>
+                                    <p>IMMO-DIFFUSION offre à ses adhérents un <a class="text-underline" href="https://www.immo-diffusion.fr/fr/services-immobilier"><strong> ensemble d'outils et services professionnels</strong></a> pour excercer un <strong>travail en équipe efficace</strong>.
+</p>
+                                </div>
+                                <div class="col-md-6 mb15px">
+                                    <img itemprop="image" class="img-responsive mt15px" src="./Réseau immobilier Immo-Diffusion _ Qui sommes-nous __files/qsn.jpg" alt="Réseau immobilier : Qui sommes-nous ?
+" title="Réseau immobilier : Qui sommes-nous ?
+">
+                                </div>
+                            </div>
+                            <div class="row pb15px container-fluid">
+                                <div class="col-xs-12 border pattern_1">
+                                    <h3 class="text-underline"><strong>L'objectif de notre groupe est d'apporter des services de qualité dans :
+</strong></h3>
+                                    <ul>
+                                        <li>- <strong>Les suivis des clients</strong> : acheteurs, vendeurs
+</li>
+                                        <li>- <strong>Les échanges entre professionnels</strong> (inter-agences/agents)
+</li>
+                                        <li>- <strong>Les méthodologies commerciales</strong> des professionnels adhérents
+</li>
+                                        <li>- <strong>Le développement quotidien</strong> des nouvelles technologies dans l'immobilier
+</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                        <hr>
+                        <section>
+                            <div class="row pb15px container-fluid">
+                                <div class="col-md-6 col-md-push-6">
+                                    <h1><span class="text-lighter">Vous êtes</span> vendeur ?</h1>
+                                    <p>Lorsque vous nous confiez la vente de votre bien, ce dernier est enregistré dans le fichier de référencement internet du réseau.
+
+                                    </p>
+                                    <p>Une première approche consistera à faire un rapprochement sur <strong>plus de 263 012 clients</strong> actuellement en cours de recherche et d'envoyer un dossier complet aux acquéreurs potentiels.
+
+                                    </p>
+                                </div>
+                                <div class="col-md-6 mb15px col-md-pull-6">
+                                    <img itemprop="image" class="img-responsive mt15px" src="./Réseau immobilier Immo-Diffusion _ Qui sommes-nous __files/vendeurs.jpg" alt="Vendeur IMMO-DIFFUSION" title="Vendeur IMMO-DIFFUSION">
+                                </div>
+                                <div class="col-xs-12">
+                                    <p><strong>Immo-Diffusion s'occupera ensuite de toute la communication du bien</strong> et centralisera toutes les demandes de contacts dans le fichier central du réseau. De multiples croisements sont ainsi réalisés chaque jour (Automatiquement et Manuellement) pour <strong>augmenter le potentiel d'une vente rapide.</strong>
+</p>
+                                </div>
+                                <div class="col-sm-12 txtLightGrey mb15px">
+                                    <small>Pour plus d'informations sur nos conditions de mise en vente, consultez notre site dédié à la présentation de nos mandats de ventes : <a class="txtLightGrey" href="http://www.mandat-diffusion.fr/">www.mandat-diffusion.fr</a>
+</small>
+                                </div>
+                                <div class="col-xs-12">
+                                                <a href="https://www.immo-diffusion.fr/fr/france/contact-vente" title="vente
+">
+        <button class="button btn-lg btn-txt-small btn-block btn btn-primary text-uppercase"><span>Déposez une offre : vente immobilière
+</span></button>
+    </a>
+                                </div>
+                            </div>
+                        </section>
+                        <hr>
+                        <section>
+                            <div class="row pb15px container-fluid">
+                                <div class="col-sm-6">
+                                    <h1><span class="text-lighter">Vous êtes</span> acheteur ?</h1>
+                                    <p>Vous recherchez un bien immobilier... <strong>1 seul interlocuteur et plus de 547 collaborateurs </strong> seront à votre service pour trouver le bien de vos rêves.
+</p>
+                                    <p>Chaque agent est en mesure de vous donner des informations en temps réel sur le secteur de vos recherches.
+</p>
+                                    <p>Vous bénéficiez ainsi de la <strong>meilleure représentativité du marché local et régional.</strong>
+</p>
+                                </div>
+                                <div class="col-md-6 mb15px">
+                                    <img itemprop="image" class="img-responsive mt15px" src="./Réseau immobilier Immo-Diffusion _ Qui sommes-nous __files/acheteurs.jpg" alt="Acheteurs IMMO-DIFFUSION" title="Acheteurs IMMO-DIFFUSION">
+                                </div>
+                            </div>
+                            <div class="row pb15px container-fluid">
+                                <div class="col-xs-12 border pattern_1">
+                                    <h3 class="text-underline"><strong>De nombreux services sont également mis à votre disposition :
+</strong></h3>
+                                    <ul>
+                                        <li>- <strong>Ecoute &amp; conseils</strong></li>
+                                        <li>- <strong>Aide au financement</strong></li>
+                                        <li>- <strong>Suivi du bon déroulement de l'acquisition et du transfert de propriété</strong></li>
+                                        <li>- <strong>Assurance, gestion de patrimoine</strong></li>
+                                        <li>- <strong>Services travaux, construction et déco : <a href="https://www.partners-travaux.fr/" target="_blank">partners-travaux.fr</a>
+</strong></li><strong>
+                                        </strong><li><strong>- Garantie revente...</strong></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row container-fluid">
+                                <div class="col-sm-12 txtLightGrey mb15px">
+                                    <small>Vous ne recherchez plus ? La désinscription est aussi simple que l'inscription à partir de votre compte ! <br> NB : Toutes les coordonnées enregistrées sont sctictement utilisées dans le cadre de recherches immobilières. Nous ne pratiquons aucun échange ou vente de données.
+</small>
+                                </div>
+                                <div class="col-xs-12">
+                                        
+        <a href="https://www.immo-diffusion.fr/fr/france/contact-achat" title="achat
+">
+        <button class="button btn-lg btn-txt-small btn-block btn btn-primary text-uppercase"><span>Déposez une demande : achat immobilier
+</span></button>
+    </a>
+                                </div>
+                            </div>
+                        </section>
+                        <hr>
+                        <section>
+                            <div class="row pb15px container-fluid">
+                                <div class="col-md-6 col-md-push-6">
+                                    <h1><span class="text-lighter">Vous êtes</span> professionnels ?</h1>
+                                    <p>Nous vous invitons à nous contacter pour plus de renseignements sur le fonctionnement du Réseau et du logiciel immobilier.
+</p>
+                                    <p><strong>Des outils innovants</strong> et toute une équipe sont mis à votre disposition. Vous redécouvrirez votre métier sous un autre jour... N'attendez plus !
+</p>
+                                </div>
+                                <div class="col-md-6 mb15px col-md-pull-6">
+                                    <img itemprop="image" class="img-responsive mt15px" src="./Réseau immobilier Immo-Diffusion _ Qui sommes-nous __files/agentsCommerciaux.jpg" alt="Pro IMMO-DIFFUSION" title="Pro IMMO-DIFFUSION">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 txtLightGrey mb15px">
+                                    <small>Le progiciel "IMMO DIFF" (Logiciel immobilier), réservé à l'exploitation du système IMMO DIFFUSION vous sera fourni et adapté à vos besoins.</small>
+                                </div>
+                                <div class="col-xs-12">
+                                    <a class="button btn-lg btn-block btn btn-primary text-uppercase mb15px" id="buttonRecrutementScroll" href="https://www.immo-diffusion.fr/fr/devenir-agent-immobilier"><span> Devenir agent immobilier ID </span></a>                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <section class="col-md-3 outilsImmo container-fluid mt15px">
+                        <div class="aside">
+    <h2 class="text-center h2"><strong>Nos licences de marques</strong></h2>
+    <hr>
+    <aside class="pub well mt15px text-center">
+    <a href="https://www.immo-diffusion.fr/fr/licences-de-marques">
+        <div class="row">
+            <div class="col-xs-12">
+                <h3 class="text-uppercase">Pour les agences</h3>
+                <img itemprop="image" class="img-responsive mt5px" src="./Réseau immobilier Immo-Diffusion _ Qui sommes-nous __files/partners.jpg" alt="Licence PARTNER&#39;S" title="Licence PARTNER&#39;S">
+            </div>
+        </div>
+        <div class="row mt10px">
+            <div class="col-xs-12">
+                <img itemprop="image" class="img-responsive mt5px" src="./Réseau immobilier Immo-Diffusion _ Qui sommes-nous __files/premium.jpg" alt="Licence PREMIUM" title="Licence PREMIUM">
+            </div>
+        </div>
+    </a>
+</aside>    <aside class="pub well mt15px text-center">
+    <a href="https://www.immo-diffusion.fr/fr/licences-de-marques">
+        <div class="row">
+            <div class="col-xs-12">
+                <h3 class="text-uppercase">Pour les négociateurs</h3>
+                <img itemprop="image" class="img-responsive mt5px" src="./Réseau immobilier Immo-Diffusion _ Qui sommes-nous __files/broker.jpg" alt="Licence BROKER" title="Licence BROKER">
+            </div>
+        </div>
+    </a>
+</aside>
+    <h2 class="text-center h2"><strong>L'essentiel "ENTRE PRO"</strong></h2>
+    <hr>
+    <aside class="pub well mt15px text-center">
+    <a href="https://www.immo-diffusion.fr/fr/reseauimmobilier">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>Présentation d'ID</h1>
+                <br>
+                <small>Immo-Diffusion est une centrale de professionnels indépendants implantés sur des secteurs géographiques complémentaires. Les adhérents Immo-Diffusion réunissent leurs compétences pour apporter un maximum de services à leurs clientèles.</small>
+            </div>
+        </div>
+    </a>
+</aside>    <aside class="pub well mt15px text-center">
+    <a href="https://www.immo-diffusion.fr/fr/devenir-agent-immobilier">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>Devenir agent immobilier d'ID</h1>
+                <br>
+                <small>Rejoindre immo-diffusion c'est profiter d'une synergie et d'une expérience commune tout en restant <strong>libre et indépendant !</strong> Confirmé ou débutant, Immo-diffusion vous accompagnera dans votre réussite...</small>
+            </div>
+        </div>
+    </a>
+</aside>    <aside class="pub well mt15px text-center">
+    <a href="https://www.immo-diffusion.fr/fr/services-immobilier/logiciel">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>Logiciel d'ID</h1>
+                <br>
+                <small>Spécialement conçu pour un travail en groupe efficace, le logiciel immobilier Immo-Diffusion centralise toutes les informations et actions du réseau pour gérer avec performance votre activité.</small>
+            </div>
+        </div>
+    </a>
+</aside>    <aside class="pub well mt15px text-center">
+    <a href="https://www.immo-diffusion.fr/fr/services-immobilier/formation">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>Formations d'ID</h1>
+                <br>
+                <small>Les adhérents ont accès à des formations professionnelles de différents niveaux. De la formation initiale au metier d'agent immobilier... à la formation d'expert immobilier !</small>
+            </div>
+        </div>
+    </a>
+</aside>        <div class="pub well bg0 recrutement mt15px">
+                <a href="https://www.immo-diffusion.fr/fr/recrutement-immobilier" title="Immo-Diffusion recrute  !">
+    <aside class="row">
+        <div class="col-xs-2">
+            <i class="fa fa-2x fa-black-tie"></i>
+        </div>
+        <div class="col-xs-10">
+            <h1>
+                Nous recrutons  !
+            </h1>
+            <p>
+                Décrouvrez notre concept conçu pour les agents immobiliers  indépendants.
+            </p>
+        </div>
+    </aside>
+</a>    </div>
+</div>                    </section>
+                </div>
+            </div>
+        </section>
+    </div>
+    </main>
+                            <footer class="container-fluid hidden-print modal-bien">
+    <div class="row">
+        
+        
+<div class="col-sm-3">
+    <div class="edito row">
+        <h4 class="col-sm-12 h5 text-uppercase">
+            <strong>Liens
+            <span>immobilier</span></strong>
+        </h4>
+                    <ul class="col-sm-12">
+                                        <li><a href="https://www.immo-diffusion.fr/fr/immobilier-sud-france">Immobilier Sud France</a></li>
+                                        <li><a href="https://www.immo-diffusion.fr/fr/immobilier-nord-france">Immobilier Nord France</a></li>
+                                        <li><a href="https://www.immo-diffusion.fr/fr/immobilier-centre-france">Immobilier Centre France</a></li>
+                                        <li><a href="https://www.immo-diffusion.fr/fr/france/estimation-prixm2">Prix Immobilier</a></li>
+                                        <li><a href="https://www.immo-diffusion.fr/fr/france/vente">Dernières annonces immobilières</a></li>
+                                        <li><a href="https://www.immo-diffusion.fr/fr/annonces-immobilieres-les-plus-consultees">Annonces immobilières les plus consultées</a></li>
+                                        <li><a href="https://www.immo-diffusion.fr/fr/affaires-immobiliers">Annonces immo coups de coeurs</a></li>
+                                        <li><a href="https://www.immo-diffusion.fr/fr/services-immobilier/logiciel">Logiciel immobilier</a></li>
+                                <li>
+                    <a href="https://www.immo-diffusion.fr/fr/guide">Guide &amp; lexique immobilier</a>
+                </li>
+                <li>
+                    <a href="https://www.immo-diffusion.fr/fr/plan-annonces">Plan des annonces immobilières </a>
+                </li>
+            </ul>
+            </div>
+</div>
+<div class="col-sm-6">
+    <div class="liens row">
+        <h4 class="col-sm-12 h5"><strong>IMMO-DIFFUSION</strong><br><span></span></h4>
+                    <ul class="col-sm-6">
+                                                            <li><a href="https://www.immo-diffusion.fr/fr/languedoc/herault/vente">Immobilier Hérault (34)
+</a></li>
+                                                                                <li><a href="https://www.immo-diffusion.fr/fr/languedoc/gard/vente">Immobilier Gard (30)
+</a></li>
+                                                                                <li><a href="https://www.immo-diffusion.fr/fr/rhone-alpes/rhone/vente">Immobilier Rhône (69)
+</a></li>
+                                                                                <li><a href="https://www.immo-diffusion.fr/fr/midi/gers/vente">Immobilier Gers (32)
+</a></li>
+                                                                                <li><a href="https://www.immo-diffusion.fr/fr/languedoc/aude/vente">Immobilier Aude (11)
+</a></li>
+                                                                                <li><a href="https://www.immo-diffusion.fr/fr/aquitaine/lot-et-garonne/vente">Immobilier Lot Et Garonne (47)
+</a></li>
+                                                                                <li><a href="https://www.immo-diffusion.fr/fr/centre/loir-et-cher/vente">Immobilier Loir Et Cher (41)
+</a></li>
+                                                                                <li><a href="https://www.immo-diffusion.fr/fr/languedoc/lozere/vente">Immobilier Lozère (48)
+</a></li>
+                                                                                <li><a href="https://www.immo-diffusion.fr/fr/paca/bouches-du-rhone/vente">Immobilier Bouches Du Rhône (13)
+</a></li>
+                                                                                <li><a href="https://www.immo-diffusion.fr/fr/corse/haute-corse/vente">Immobilier Haute Corse (2B)
+</a></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                        </ul>
+            <ul class="col-sm-6">
+                                                                                                                                                                                                                                                                                                                                                                                                                                    <li><a href="https://www.immo-diffusion.fr/fr/languedoc/pyrenees-orientales/vente">Immobilier Pyrénées Orientales (66)
+</a></li>
+                                                                                <li><a href="https://www.immo-diffusion.fr/fr/midi/ariege/vente">Immobilier Ariège (09)
+</a></li>
+                                                                                <li><a href="https://www.immo-diffusion.fr/fr/rhone-alpes/ardeche/vente">Immobilier Ardèche (07)
+</a></li>
+                                                                                <li><a href="https://www.immo-diffusion.fr/fr/poitou/deux-sevres/vente">Immobilier Deux Sèvres (79)
+</a></li>
+                                                                                <li><a href="https://www.immo-diffusion.fr/fr/rhone-alpes/ain/vente">Immobilier Ain (01)
+</a></li>
+                                                                                <li><a href="https://www.immo-diffusion.fr/fr/midi/lot/vente">Immobilier Lot (46)
+</a></li>
+                                                                                <li><a href="https://www.immo-diffusion.fr/fr/bretagne/cotes-d-armor/vente">Immobilier Côtes D'armor (22)
+</a></li>
+                                                                                <li><a href="https://www.immo-diffusion.fr/fr/auvergne/allier/vente">Immobilier Allier (03)
+</a></li>
+                                                                                <li><a href="https://www.immo-diffusion.fr/fr/rhone-alpes/isere/vente">Immobilier Isère (38)
+</a></li>
+                                                                                <li><a href="https://www.immo-diffusion.fr/fr/limousin/correze/vente">Immobilier Corrèze (19)
+</a></li>
+                                                </ul>
+            </div>
+</div>
+        <div class="col-sm-3 text-center">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Contacter IMMO-DIFFUSION</h2>
+                    <div class="row container-fluid">
+                        <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-offset-0 col-sm-12 col-xs-offset-0 col-xs-12">
+                            <a href="https://www.immo-diffusion.fr/fr/reseauimmobilier#" onclick="window.location.href=&#39;tel:0805696034&#39;">
+                                <img class="img-responsive center" src="./Réseau immobilier Immo-Diffusion _ Qui sommes-nous __files/numeroVert_immo-diffusion.png" alt="Numero vert centrale immobilière de Professionnels indépendants IMMO-DIFFUSION
+" title="Numero vert centrale immobilière de Professionnels indépendants IMMO-DIFFUSION
+">
+                            </a>
+                        </div>
+                        <div class="col-xs-12 mt15px mb15px">
+                            <a href="https://www.facebook.com/ImmoDiffusion/app/317624808265710/" target="_blank" title="Facebook IMMO-DIFFUSION "><i class="icon icon-facebook-circular picto-sm2 mr5px"></i></a>
+                            <a href="https://twitter.com/immo_diffusion" target="_blank" title="Twitter IMMO-DIFFUSION "><i class="icon icon-twitter-circular picto-sm2 mr5px"></i></a>
+                            <a href="https://plus.google.com/+ImmodiffusionFrance" target="_blank" title="Google+ IMMO-DIFFUSION "><i class="icon icon-google-plus-circular picto-sm2 mr5px"></i></a>
+                                                                                                            </div>
+                        <div class="col-xs-12 mb15px">
+                            <div class="fb-like fb_iframe_widget" data-href="http://www.facebook.com/ImmoDiffusion" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true" fb-xfbml-state="rendered" fb-iframe-plugin-query="action=like&amp;app_id=&amp;container_width=320&amp;href=http%3A%2F%2Fwww.facebook.com%2FImmoDiffusion&amp;layout=button_count&amp;locale=fr_FR&amp;sdk=joey&amp;share=true&amp;show_faces=true&amp;size=small"><span style="vertical-align: bottom; width: 180px; height: 28px;"><iframe name="f4574ab5c5939c" width="1000px" height="1000px" data-testid="fb:like Facebook Social Plugin" title="fb:like Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="./Réseau immobilier Immo-Diffusion _ Qui sommes-nous __files/like.html" style="border: none; visibility: visible; width: 180px; height: 28px;" class=""></iframe></span></div>
+                        </div>
+                    </div>
+
+                    <div class="borderTop">
+                        <h2>IMMO-DIFFUSION c'est aussi ...</h2>
+                        <div class="row container-fluid">
+                            <a href="https://www.le-meilleur-pour-votre-bien.fr/" target="_blank" title="Le meilleur pour votre bien">
+                                <i class="icon icon-lmpvb picto-sm2 mr5px"></i>
+                            </a>
+                            <a href="https://www.partners-travaux.fr/" target="_blank" title="Partners Travaux">
+                                <i class="icon icon-partnersTravaux picto-sm2 mr5px"></i>
+                            </a>
+                            <a href="http://www.1001acheteurs.fr/" target="_blank" title="1001 Acheteurs">
+                                <i class="icon icon-acheteurs1001 picto-sm2 mr5px"></i>
+                            </a>
+                            <a href="http://www.my360shoot.fr/" target="_blank" title="My 360 Shoots">
+                                <i class="icon icon-my360shoots picto-sm2 mr5px"></i>
+                            </a>
+                            <a href="http://www.mandat-diffusion.fr/" target="_blank" title="Mandat Diffusion">
+                                <i class="icon icon-mandatDiffusion picto-sm2 mr5px"></i>
+                            </a>
+                            <a href="http://www.laformimmo.fr/" target="_blank" title="La Form&#39; Immo">
+                                <i class="icon icon-laFormImmo picto-sm2 mr5px"></i>
+                            </a>
+                            <a href="http://www.la-carte-immo.fr/" target="_blank" title="La Carte Immo">
+                                <i class="icon icon-laCarteImmo picto-sm2 mr5px"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row bgGrey text-center p15px mt15px">
+        © Immo-Diffusion 2020 - <i style="font-size: 8px;">29/12/2020 06:25:25</i> - Tout droit réservé |
+<a href="https://www.immo-diffusion.fr/fr/mentions-legales/en-france">Mentions légales
+</a>
+
+|
+<a href="https://www.immo-diffusion.fr/fr/en-france/baremes-honoraires-agence"> Barèmes des honoraires</a>    </div>
+
+
+
+</body></html>

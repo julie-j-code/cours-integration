@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+ <style>
+
+*, ::after, ::before{
+    margin: 0;
+    padding: 0;
+    max-width:100%;
+}
+
+
+     @media screen and (max-width: 768px) {
+         .display-4{
+             font-size: 2rem;
+         }
+
+         
+         
+     }
+ </style>
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="articles">
+            <article>
+                <div class="container p-3 my-3 border">
+                    A simple way to stick your navbar is just to add class name sticky-top to your navbar. But keep in mind, your navbar element must be direct child of body. If you wrap your navbar with some other div it will not work.
+                </div>
+                <a data-toggle="tooltip" title="Essai avec menu standard" data-content="navbar-brand & navbar-toogler à part" href="indeximmo.html">index immobilier-diffusion exercice</a>
+            </article>
+            <article>
+                <a data-toggle="tooltip" title="Essai avec mega menu" data-content="icones font-awesome en display block" href="./megamenu/megamenu.html">index immo-diffusion exercice</a>
+            </article>
+            <hr class="separator">
+            <article>
+                <a data-toggle="tooltip" title="Boostrap Projet 1 Codecademy" data-content="Projet 1" href="./codecademy/codecademy1.html">codecademy1</a>
+            </article>
+            <article>
+                <a data-toggle="tooltip" title="Boostrap Grid Exercice" data-content="Exercice" href="./codecademy/codecademy2.html">codecademy2</a>
+            </article>
+            <article>
+                <a data-toggle="tooltip" title="Boostrap Projet 2 Codecademy" data-content="Projet 2" href="./codecademy/codecademy3.html">codecademy3</a>
+            </article>
+            <article>
+                <a data-toggle="tooltip" title="Bootstrap Projet 3 Codecademmy" data-content="Projet 3" href="./codecademy/codecademy4.html">codecademy4</a>
+            </article>
+            <hr class="separator">
+            <article>
+                <p class="display-4">Cutting/Integration VS Bootstrap from PSD Pixture for training</p>
+                <a data-toggle="tooltip" title="Projet Découpe/Intégration VS Bootstrap depuis PSD" data-content="Projet 1" href="./pixture/">
+                    <img src="./img/pixture_capture.jpg" alt="" class="img-responsive w-60">
+                </a>
+            </article>
+            <hr class="separator">
+            <article>
+                <p class="display-4">Cutting/Integration VS Bootstrap from PSD Fusion for training</p>
+                <a data-toggle="tooltip" title="Projet Découpe/Intégration VS Bootstrap depuis PSD" data-content="Projet 1" href="./fusion/">
+                    <img src="./img/fusion_capture.jpg" alt="" class="img-responsive w-60">
+                </a>
+            </article>
+            <hr class="separator">
+
+            <article>
+                <p class="display-4">Project Cutting/Integration VS Bootstrap from PSD FDN Mozaïc</p>
+                <div class="container p-3 my-3 border">
+                    Mozaic RWD with flex .order-md to adjust flexible cols in row.
+                </div>
+                <a data-toggle="tooltip" title="Projet Découpe/Intégration VS Bootstrap depuis PSD" data-content="Projet 1" href="http://bootstrap.julie-j.net/mozaic/">
+                    <img src="./mozaic/capture.jpg" alt="" class="img-responsive">
+                </a>
+            </article>
+            <hr class="separator">
+            <article>
+                <p class="display-4">Advanced Personalized Mozaïc with Background Images</p>
+                <div class="container p-3 my-3 border">
+                    Mozaic with personalized css to adjust flexible cols in row for RWD.
+                </div>
+                <a data-toggle="tooltip" title="Projet Découpe/Intégration VS Bootstrap depuis PSD" data-content="Projet 1" href="http://bootstrap.julie-j.net/mozaic/index2.html">
+                    <img src="./mozaic/img/mozaic-capture.jpg" alt="" class="img-responsive">
+                </a>
+            </article>
+            <hr class="separator">
+            <article id="multi-pages-template-web">
+                <p class="display-4">Advanced Multipurpose Template for Webdesign Training </p>
+                <div class="container p-3 my-3 border">
+                    Advanced multipurpose PSD template for corporate agencies or real-estate Website</div>
+                <a data-toggle="tooltip" title="Projet Prototypage, Découpe/Intégration VS Bootstrap depuis PSD" data-content="Projet 1" href="http://bootstrap.julie-j.net/immo-maquette-perso/index.html">
+                    <img src="./immo-maquette-perso/prototype.png" alt="" class="img-responsive">
+                </a>
+                <div class="container p-3 list-group">
+                    <ul class="nav">
+                        <li class="nav-item">
+                          <a class="nav-link" href="./immo-maquette-perso/index.html">Planche Introduction2</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="./immo-maquette-perso/introduction3.html">Planche Introduction3</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="./immo-maquette-perso/temoignages.html">Planche Témoignages</a>
+                        </li>
+                      </ul>                    
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+          $('[data-toggle="tooltip"]').tooltip();   
+        });
+        </script>
+
+ </body>
+
+</html>

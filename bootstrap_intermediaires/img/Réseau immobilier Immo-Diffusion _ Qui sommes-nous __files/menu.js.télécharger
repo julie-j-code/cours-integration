@@ -1,0 +1,30 @@
+(function(){
+    'use strict';
+
+    angular
+        .module('siteimmo')
+        .controller('menu', menu);
+
+    menu.$inject = ['$scope','$sce','$ajaxQuery'];
+    function menu($scope,$sce,$ajaxQuery){
+        $scope.init = function($template,$locale){
+            init($template,$locale);
+        };
+
+        function init($template,$locale){
+            $ajaxQuery.initLogger($template,$locale,function(data){
+                $scope.logger = $sce.trustAsHtml(data);
+            });
+        }
+    }
+
+})();
+
+
+
+//
+
+
+
+
+

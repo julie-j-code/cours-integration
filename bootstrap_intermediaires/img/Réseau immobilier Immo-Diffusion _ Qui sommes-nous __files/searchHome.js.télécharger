@@ -1,0 +1,244 @@
+/**
+ * Created by john on 12/04/16.
+ */
+(function(){
+    'use strict';
+
+    angular
+        .module('siteimmo')
+        .controller('searchHome', searchHome);
+
+    searchHome.$inject = ['$scope','$log','$ajaxQuery','$rootScope'];
+    function searchHome($scope,$log,$ajaxQuery,$rootScope){
+
+        $scope.delay = 100;
+        $scope.itemArray = [];
+
+        $scope.form = {
+            ville :null,
+            errorVille: false,
+            vente : {
+                surfaceMin : null,
+                prixMax: null
+            },
+            location :  {
+                surfaceMin : null,
+                prixMax: null
+            },
+            vacance : {
+                date : {
+                    arrivee : null,
+                    depart : null
+                }
+            },
+            estimation : {
+                surface : null,
+                typeBien : null
+            }
+        };
+
+        $scope.initVille = function(ville,type){
+            if(ville && ville !== null){
+                $scope.itemArray.push(ville);
+                $scope.form.ville = ville;
+            }
+        };
+
+        $scope.change = function(valsearch,type){
+            $ajaxQuery.searchVilles({q:valsearch,full : 1},function(results){
+                $scope.itemArray =results.items;
+                // switch(type){
+                //     case 'vente':
+                //         $scope.itemArray.vente = results.items;
+                //         break;
+                //     case 'location':
+                //         $scope.itemArray.location = results.items;
+                //         break;
+                //     case 'vacance':
+                //         $scope.itemArray.vacance = results.items;
+                //         break;
+                //     case 'estimation':
+                //         $scope.itemArray.estimation = results.items;
+                //         break;
+                // }
+            });
+        };
+
+
+        $scope.getTypeBiens  = function(){
+            $ajaxQuery.getTypesBien(function(data){
+                $scope.typeBiens = [];
+                angular.forEach(data,function(val,key){
+                    if(val.slug === 'appartement'){
+                        $scope.typeBiens.push(val);
+                    }
+                    if(val.slug === 'maison-villa'){
+                        $scope.typeBiens.push(val);
+                        $scope.form.estimation.typeBien = val;
+                    }
+                });
+               // $scope.form.estimation.typeBien = $scope.typeBiens[1];
+
+            });
+        };
+
+        $rootScope.villeTop = null;
+        $scope.init = function($offres){
+           $scope.offres = $offres;
+        };
+
+        function genFormSubmit($datas) {
+            var form = $('<form class="hidden" action="'+$datas.action+'" method="POST">' +
+                '<input type="text" value="'+$datas.surfaceMin+'" name="surfaceMin">' +
+                '<input type="text" value="'+$datas.prixMax+'" name="prixMax">' +
+                '<input type="text" value="'+$datas.dateArrivee+'" name="dateArrivee">' +
+                '<input type="text" value="'+$datas.dateDepart+'" name="dateDepart">' +
+                '<input type="text" value="'+$datas.elargissement+'" name="elargissement">' +
+                '</form>');
+            console.log("",$datas);
+            $('body').append(form);
+            form.submit();
+        }
+
+        function genRouteAndSendForm($type,$surfaceMin,$prixMax,$dateArrivee,$dateDepart) {
+            var route = null;
+            var $datas = null;
+
+            if($scope.form.ville.type === "region") {
+                $datas = {
+                    region_slug :  $scope.form.ville.slug,
+                    offre : $type
+                };
+                route = $ajaxQuery.genRoute('reseau_listing_bienbyregion',$datas);
+            } else if($scope.form.ville.type === "departement") {
+                $datas = {
+                    departement_slug :  $scope.form.ville.slug,
+                    region_slug :  $scope.form.ville.region_slug,
+                    offre : $type
+                };
+                route = $ajaxQuery.genRoute('reseau_listing_bienbydepartement',$datas);
+            } else {
+                var $datas = {
+                    cp : $scope.form.ville.cp,
+                    offre : $type,
+                    ville_slug : $scope.form.ville.slug,
+                    departement_slug : $scope.form.ville.departement.slug,
+                    region_slug: $scope.form.ville.departement.region.exprRaccourciSlug,
+                    keyword: varsGlobal.trans.keyword.immobilier,
+                };
+
+                route = $ajaxQuery.genRoute('reseau_listing_bienbyville',$datas);
+            }
+
+            genFormSubmit({
+                action : route,
+                surfaceMin : $surfaceMin,
+                prixMax : $prixMax,
+                dateArrivee : $dateArrivee,
+                dateDepart : $dateDepart,
+                elargissement : 5
+            });
+        }
+
+        $scope.search = function($val){
+                console.log($scope.form.ville);
+                // if($scope.form.ville === undefined || $scope.form.ville === null){
+                //     $scope.form.errorVille = true;
+                //     return;
+                // }
+                switch($val){
+                    case 'vente':
+                        genRouteAndSendForm(
+                            varsGlobal.trans.offre.vente,
+                            $scope.form.vente.surfaceMin,
+                            $scope.form.vente.prixMax,
+                            null,
+                            null
+                        );
+                        break;
+                    case 'location':
+                        genRouteAndSendForm(
+                            varsGlobal.trans.offre.location,
+                            $scope.form.location.surfaceMin,
+                            $scope.form.location.prixMax,
+                            null,
+                            null
+                        );
+                        break;
+                    case 'vacances':
+                        genRouteAndSendForm(
+                            varsGlobal.trans.offre.vacances,
+                            null,
+                            null,
+                            $scope.form.vacance.date.arrivee != "" ? moment($scope.form.vacance.date.arrivee, "DD-MM-YYYY").format("X") : null,
+                            $scope.form.vacance.date.depart != "" ? moment($scope.form.vacance.date.depart, "DD-MM-YYYY").format("X") : null
+                        );
+                        break;
+                    case 'estimation':
+                        var type_bien = "maison";
+                        if( $scope.form.estimation.typeBien && $scope.form.estimation.typeBien.val != "maison-villa") {
+                            type_bien = $scope.form.estimation.typeBien.val;
+                        }
+                        var route = $ajaxQuery.genRoute('reseau_form_estimation_ville_typebien',{
+                            cp : $scope.form.ville.cp,
+                            keyword_url: varsGlobal.trans.keyword.pmc,
+                            keyword_url2: "estimer",
+                            ville_slug : $scope.form.ville.slug,
+                            departement_slug : $scope.form.ville.departement.slug,
+                            region_slug: $scope.form.ville.departement.region.exprRaccourciSlug,
+                            typebien: type_bien,
+                        });
+                        genFormSubmit({
+                            action : route,
+                            surfaceMin : $scope.form.estimation.surface
+
+                        });
+                        break;
+                }
+
+            // window.location = $ajaxQuery.genRoute('reseau_listing_bienbyville',{
+            //     cp : $rootScope.villeTop.cp,
+            //     offre : 'vente',
+            //     ville : $rootScope.villeTop.slug,
+            //     departement : $rootScope.villeTop.departement.slug,
+            // });
+        }
+
+        $('#search-vacance-arrivee').datetimepicker({
+            format: "DD/MM/YYYY",
+            minDate: moment().startOf('day'),
+            useCurrent : false
+        }).on("dp.change", function(e){
+            $scope.form.vacance.date.arrivee = $(this).datetimepicker().val();
+            if($scope.form.vacance.date.arrivee !== ""){
+                $('#search-vacance-depart').data("DateTimePicker").minDate(moment(e.date).add(1,'day').startOf('day'));
+            }
+        });
+        $('#search-vacance-depart').datetimepicker({
+            format: "DD/MM/YYYY",
+            minDate: moment().add(1,'day').startOf('day'),
+            useCurrent : false
+        }).on("dp.change", function(e){
+            $scope.form.vacance.date.depart = $(this).datetimepicker().val();
+            if($scope.form.vacance.date.depart !== ""){
+                var d = $('#search-vacance-depart').data("DateTimePicker").date().subtract(1,'day').startOf('day');
+                $("#search-vacance-arrivee").data("DateTimePicker").maxDate(d);
+            }
+        });
+    }
+
+
+
+
+})();
+
+
+function slugify(text)
+{
+    return text.toString().toLowerCase()
+        .replace(/\s+/g, '-')           // Replace spaces with -
+        .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+        .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+        .replace(/^-+/, '')             // Trim - from start of text
+        .replace(/-+$/, '');            // Trim - from end of text
+}

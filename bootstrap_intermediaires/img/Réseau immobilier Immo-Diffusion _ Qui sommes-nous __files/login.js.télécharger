@@ -1,0 +1,20 @@
+(function(){
+    'use strict';
+
+    angular
+        .module('siteimmo')
+        .controller('login', login);
+
+    login.$inject = ['$scope','$sce','$ajaxQuery'];
+    function login($scope,$sce,$ajaxQuery){
+        $scope.init = function($locale,$template){
+            init($locale,$template);
+        };
+        function init($locale,$template){
+            console.log($template);
+            $ajaxQuery.renderLogin($locale,$template,function(data){
+                $scope.login = $sce.trustAsHtml(data);
+            });
+        }
+    }
+})();

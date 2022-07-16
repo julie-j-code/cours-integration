@@ -1,0 +1,191 @@
+'use strict';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/**
+ * Created by john on 19/05/16.
+ */
+//# sourceMappingURL=genSelect2.js.map
+
+var genSelect2Ville = function () {
+    function genSelect2Ville(selector, option) {
+        _classCallCheck(this, genSelect2Ville);
+
+        this.selector = selector;
+        this.defaultOption = option;
+        this.option = {
+            theme: option.theme ? option.theme : 'bootstrap',
+            multiple: option.multiple ? option.multiple : false,
+            placeholder: option.placeholder ? option.placeholder : 'Placeholder ...',
+            escapeMarkup: function escapeMarkup(markup) {
+                return markup;
+            },
+            data: $(selector).data('initselection'),
+            minimumInputLength: 1,
+            ajax: {
+                url:  Routing.generate('qville_select2'),
+                dataType: 'json',
+                //delay: 250,
+                data: function data(params) {
+                    return {
+                        q: params.term, // search term
+                        page: params.page
+                    };
+                },
+                processResults: function processResults(data, params) {
+                    // parse the results into the format expected by Select2
+                    // since we are using custom formatting functions we do not need to
+                    // alter the remote JSON data, except to indicate that infinite
+                    // scrolling can be used
+                    params.page = params.page || 1;
+
+                    return {
+                        results: data.items,
+                        pagination: {
+                            more: params.page * 30 < data.total_count
+                        }
+                    };
+                },
+                cache: true
+
+            },
+            language: {
+                inputTooShort: function(args) {
+                    // args.minimum is the minimum required length
+                    // args.input is the user-typed text
+                    return "";
+                },
+                inputTooLong: function(args) {
+                    // args.maximum is the maximum allowed length
+                    // args.input is the user-typed text
+                    return "";
+                },
+                errorLoading: function() {
+                    return "";
+                },
+                loadingMore: function() {
+                    return "";
+                },
+                noResults: function() {
+                    return "";
+                },
+                searching: function() {
+                    return "";
+                },
+                maximumSelected: function(args) {
+                    // args.maximum is the maximum number of items the user may select
+                    return "";
+                }
+            }
+        };
+
+        if (option.templateResult) {
+            this.option.templateResult = option.templateResult;
+        } else {
+            this.option.templateResult = this.formatReponse;
+        }
+
+        if (option.templateSelection) {
+            this.option.templateSelection = option.templateSelection;
+        } else {
+            this.option.templateSelection = this.formatRepoSelection;
+        }
+
+        if (option.allowClear) {
+            this.option.allowClear = option.allowClear;
+        }
+
+        if (option.language) {
+            this.option.language = option.language;
+        }
+
+        $(selector).select2(this.option).val(this.init(option.multiple));
+
+        if (option.eventSelect) {
+            $(selector).on('select2:select', option.eventSelect);
+        }
+    }
+
+    _createClass(genSelect2Ville, [{
+        key: 'init',
+        value: function init(multiple) {
+            if (multiple) {
+                var dataDefault = $(this.selector).data('initselection');
+                if (Array.isArray(dataDefault)) {
+                    var tabId = [];
+                    $(dataDefault).each(function (key, value) {
+                        tabId.push(value.id);
+                    });
+                    $(this.selector).val(tabId).trigger('change');
+                }
+            } else {
+                var _dataDefault = $(this.selector).data('initselection');
+                if (Array.isArray(_dataDefault) && _dataDefault.length > 0) {
+                    $(this.selector).val(_dataDefault[0].id).trigger('change');
+                }
+            }
+        }
+    }, {
+        key: 'formatReponse',
+        value: function formatReponse(repo) {
+            if (repo.loading) return repo.text;
+            var markup = '<div class="ville-selec">' + repo.nom + ' (' + repo.cp + ') </div>';
+            return markup;
+        }
+    }, {
+        key: 'formatRepoSelection',
+        value: function formatRepoSelection(repo) {
+
+            if (repo.text) {
+                return repo.text;
+            }
+            if (repo.nom === undefined) {
+                return "Sélectionnez une Ville";
+            }
+            var v = {
+                cp: repo.cp,
+                slug: repo.slug,
+                departement_slug: repo.departement.slug
+            };
+            v = JSON.stringify(v);
+            return '<span class="selected-ville" data-ville=' + v + '>' + repo.nom + ' (' + repo.cp + ')' + '</span>';
+        }
+
+        /**
+         * Récupère la valeur pour l'envoyer dans le formulaire
+         */
+
+    }, {
+        key: 'genOption',
+        value: function genOption(selector) {
+            $(this.selector + ' option').each(function (key, value) {
+                $(selector).val($(this).val());
+            });
+        }
+
+        /**
+         * Récupère les valeurs pour les envoyer dans le formulaire
+         */
+
+    }, {
+        key: 'genOptions',
+        value: function genOptions(selector, tpl) {
+            $(this.selector + ' ').each(function (key, value) {
+                var option = $(tpl.replace(/__name__/g, key));
+                $(option).attr('value', $(value).val());
+                $(selector).append(option);
+            });
+        }
+    }, {
+        key: 'addOption',
+        value: function addOption(data) {
+            var option = $('<option value="' + data.id + '" selected="selected">' + data.text + '</option>');
+            $(this.selector).append(option);
+        }
+    }]);
+
+    return genSelect2Ville;
+}();
+//# sourceMappingURL=genSelect2Ville-compiled.js.map

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+
+    <title>Essai Immobilier Diffusion</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="//db.onlinewebfonts.com/c/218946a86ddc551b40b54a2f097905d4?family=Bahagia+Jarah" rel="stylesheet" type="text/css"/>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styleimmo.css">
+
+
+</head>
+<body>
+
+    <header class="container-fluid">
+    <!-- <header class="container-fluid fixed-top"> -->
+    
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <!-- btn -->
+            <button class="navbar-toggler pull-left p-1" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon small"></span>
+                </button>
+                <!-- fin btn -->
+            <figure class="figure mx-auto d-inline-block align-top">
+                <!-- logo -->
+                <a class="navbar-brand logo" itemprop="url" href="https://www.immobilier-diffusion.com/" title="Accueil - ODYSSEE - IMMO-DIFFUSION ">
+                    <img alt="ODYSSEE - IMMO-DIFFUSION" title="ODYSSEE - IMMO-DIFFUSION" src="https://www.immobilier-diffusion.com/img/logo/logo-immodiffusion-positif-vert1.svg" class="figure-img img-responsive" alt="">
+                    <figcaption class="figure-caption text-center"><span class="bahagia">By</span> ODYSSEE IMMOBILIER</figcaption>
+                </a>
+                <!-- fin logo -->
+            </figure>
+
+        </nav>
+
+        
+    </header>
+        <div class="container-fluid sticky-top">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container">                    
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <ul class="navbar-nav mb-2 mb-lg-0 mx-auto">
+                            <li class="nav-item nav">
+                                <a class="nav-link active" aria-current="page" href="#">
+                                    <i class="fa fa-home fa-lg"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Dropdown
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Dropdown
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Dropdown
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+    
+    
+   <!-- section de recherche simplifiée -->
+
+    <section class="container mx-auto">
+
+        <h1 class="search p-4 mb-0">
+            <i>Recherchez</i> avec ODYSSEE - IMMO-DIFFUSION <small class="d-block">( immobilier-diffusion.com )</small>
+        </h1>
+                <!-- <p class="lead text-white">Recherchez avec ODYSSEE - IMMO-DIFFUSION ( immobilier-diffusion.com )</p> -->
+
+            <form class="form row justify-content-around p-4 mx-auto search">
+                              
+                <select name="search[offre]" id="" class="custom-select col-sm-2">
+                    <option value="vente">vente</option>
+                    <option value="location">location</option>
+                </select>
+
+                <select name="search[typeBien]" class="custom-select col-sm-2">  
+                    <option value="appartement">appartement</option>
+                    <option value="villa" selected>villa</option>
+                    <option value="commerce">commerce</option>
+                </select>
+            
+               <select name="search[ville]" id="" class="custom-select col-sm-4">
+                    <option value="vente">data ville1</option>
+                    <option value="location">data ville2</option>
+                    <option value="location">data ville3</option>
+                    <option value="location">data ville4</option>
+                </select> 
+
+               <select name="search[rayon]" id="" class="custom-select col-sm-1">
+                    <option value="vente">5kms</option>
+                    <option class="dropdown-divider">------</option>
+                    <option value="location">0 km</option>
+                    <option value="location">10kms</option>
+                    <option value="location">15kms</option>
+                    <option value="location">20kms</option>
+                </select> 
+
+                <button class="btn col-sm-2 text-white rounded perso">Rechercher</button>
+
+               <!-- simulation des champs de recherche supplémentaires -->
+
+                <div class="collapse row py-5 justify-content-around filter-panel">
+                    <div class="form-group col-sm-2">
+                        <input type="text" id="" name="search[surfMin]" class="form-control form-control-sm" placeholder="Surf. Min">
+                    </div>
+                    <div class="form-group col-sm-2">
+                            <input type="text" id="" name="search[budgetMin]" class="form-control form-control-sm" placeholder="Prix Min">
+                    </div>
+                    <div class="form-group col-sm-2">
+                            <input type="text" id="" name="search[budgetMax]" class="form-control form-control-sm" placeholder="Prix Max">
+                    </div>
+
+                    <select name="search[nbresPieces]" id="" class="custom-select custom-select-sm col-sm-2">
+                        <option value="">Nb. de pièces</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                
+                </div>
+            </form>
+    </section>
+
+<!-- fin des champs supplémentaires pour l'exemple -->
+
+        <div class="container mx-auto row justify-content-end align-items-end">
+            <div class="col-sm-2 search mr-0">
+                <button class="btn btn-link text-white" data-toggle="collapse" data-target=".filter-panel">
+                    <i class="fa fa-plus mr-2" aria-hidden="true"></i> Critères
+                </button>
+            </div>
+        </div>
+
+                
+<!-- fin recherche simplifiée -->
+
+    <!-- porfolio -->
+
+    <section class="container mt-5">
+        <h1 class="perso p-4"><i>Dernières</i> annonces de ODYSSEE - IMMO-DIFFUSION <small>immobilier DIFFUSION </small></h1>
+        <div class="card-group">
+            
+            <div class="card">
+                <h3 class="card-header">Villa/Maison</h3>
+                <a href="#" class="btn">
+                    <div class="rollover d-flex align-items-center"><p class="text-center w-100">ref XXX09Y</p></div>
+                    <img src="https://www.immobilier-diffusion.com/media/cache/rect620_392/149/vente/125018/Fr125018i.jpg" alt="" class="card-img-top">
+                </a>
+                <div class="card-body">
+                    <h4 class="card-title">34000-Montpellier</h4>
+                    <p class="card-text">Some quick example text to build on the card and make up the bulk of the card's content.</p>
+                </div>           
+                <div class="card-footer bg-dark text-white">21m<sup>2</sup> | 1 pièce(s) | Ext. 4m<sup>2</sup></div>
+            </div>
+            
+            <div class="card">
+                <h3 class="card-header">Villa/Maison</h3>
+                <a href="#" class="btn">
+                    <div class="rollover d-flex align-items-center"><p class="text-center w-100">ref XXX09Y</p></div>
+                    <img src="https://www.immobilier-diffusion.com/media/cache/rect620_392/149/vente/125295/Fr125295c.jpg" alt="" class="card-img-top">
+                </a>
+                <div class="card-body">
+                    <h4 class="card-title">34000-Montpellier</h4>
+                    <p class="card-text">Some quick example text to build on the card and make up the bulk of the card's content.</p>
+                </div>           
+                <div class="card-footer bg-dark text-white">21m<sup>2</sup> | 1 pièce(s) | Ext. 4m<sup>2</sup></div>
+            </div>
+            
+            <div class="card">
+                <h3 class="card-header">Appartement</h3>
+                <a href="#" class="btn">
+                    <div class="rollover d-flex align-items-center"><p class="text-center w-100">ref XXX09Y</p></div>
+                    <img src="https://www.immobilier-diffusion.com/media/cache/rect620_392/149/vente/118312/Fr118312c.jpg" alt="" class="card-img-top">
+                </a>
+                <div class="card-body">
+                    <h4 class="card-title">34000-Montpellier</h4>
+                    <p class="card-text">Some quick example text to build on the card and make up the bulk of the card's content.</p>
+                </div>           
+                <div class="card-footer bg-dark text-white">21m<sup>2</sup> | 1 pièce(s) | Ext. 4m<sup>2</sup></div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-header">Villa/Maison</h3>
+                <a href="#" class="btn">
+                    <div class="rollover d-flex align-items-center"><p class="text-center w-100">ref XXX09Y</p></div>
+                    <img src="https://www.immobilier-diffusion.com/media/cache/rect620_392/13/vente/96693/MI96693a.jpg" alt="" class="card-img-top">
+                </a>
+                <div class="card-body">
+                    <h4 class="card-title">34000-Montpellier</h4>
+                    <p class="card-text">Some quick example text to build on the card and make up the bulk of the card's content.</p>
+                </div>           
+                <div class="card-footer bg-dark text-white">21m<sup>2</sup> | 1 pièce(s) | Ext. 4m<sup>2</sup></div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-header">Villa/Maison</h3>
+                <a href="#" class="btn stretched-link">
+                    <div class="rollover d-flex align-items-center"><p class="text-center w-100">ref XXX09Y</p></div>
+                    <img src="https://www.immobilier-diffusion.com/media/cache/rect620_392/13/vente/124937/MI124937a.jpeg" alt="" class="card-img-top">
+                </a>
+                <div class="card-body">
+                    <h4 class="card-title">34000-Montpellier</h4>
+                    <p class="card-text">Some quick example text to build on the card and make up the bulk of the card's content.</p>
+                </div>           
+                <div class="card-footer bg-dark text-white">21m<sup>2</sup> | 1 pièce(s) | Ext. 4m<sup>2</sup></div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-header">Villa/Maisonhh</h3>
+                <a href="#" class="btn stretched-link">
+                    <div class="rollover d-flex align-items-center"><p class="text-center w-100">ref XXX09Y</p></div>
+                    <img src="https://www.immobilier-diffusion.com/media/cache/rect620_392/13/vente/96741/MI96741e.jpg" alt="" class="card-img-top">
+                </a>
+                <div class="card-body">
+                    <h4 class="card-title">34000-Montpellier</h4>
+                    <p class="card-text">Some quick example text to build on the card and make up the bulk of the card's content.</p>
+                </div>           
+                <div class="card-footer bg-dark text-white">21m<sup>2</sup> | 1 pièce(s) | Ext. 4m<sup>2</sup></div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="container row mx-auto p-0">
+
+            <div class="col-sm-8">
+                <h2 class="perso p-4">ODYSSEE - IMMO-DIFFUSION - MONTPELLIER<br><small>immobilier DIFFUSION</small></h2>
+                <div class="light p-4">
+                    <h3 mb-4>ODYSSEE - IMMO-DIFFUSION - MONTPELLIER : Votre agence de proximité !</h3>
+                    <h4>
+                        ODYSSEE - IMMO-DIFFUSION - MONTPELLIER se fera un plaisir de répondre à tous vos besoins immobiliers.
+                    </h4>
+                    <h4>
+                        ODYSSEE - IMMO-DIFFUSION vous propose des annonces de studios, appartements ou encore villas dans le secteur de Montpellier -  Montpellier Sud -  Montpellier Centre.
+                    </4>
+                    <h4>
+                        ODYSSEE - IMMO-DIFFUSION se tient à votre disposition pour tous vos projets immobiliers. Retrouvez dès à présent notre service gratuit et immédiat d'estimation de votre bien près de <span class="text-uppercase">MONTPELLIER</span>.
+                    </p>
+                    <h4>
+                        Nous vous souhaitons une agréable navigation sur notre site www.immobilier-diffusion.com en Hérault.
+                    </h4>
+                </div>
+            </div>
+            <div class="col-sm-4 text-white p-4 search">
+                
+                <!-- code simplifié -->
+                <h3>Créer un compte DIFFUSION</h3>
+                <p class="h4 font-italic pb-4">... et accéder à plus de services ! </p>
+                <p class="h5 pb-3"><i class="fa fa-lg fa-bell-o mr-4"></i> Gérer mes alertes mail </p>
+                <p class="h5 pb-3"><i class="fa fa-lg fa-gavel mr-4"></i> Estimer mon bien </p>
+                <p class="h5 pb-3"><i class="fa fa-lg fa-building mr-4"></i> Suivre mon bien ... </p>
+                <button class="btn text-white rounded perso mt-4">Rechercher</button>
+
+            </div>
+
+    </section>
+
+    <footer class="bg-dark text-center text-lg-start text-white">
+        <!-- Grid container -->
+        <div class="container p-4">
+          <!--Grid row-->
+          <div class="row">
+            <!--Grid column-->
+            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+              <h5 class="text-uppercase">Footer text</h5>
+      
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
+                molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae
+                aliquam voluptatem veniam, est atque cumque eum delectus sint!
+              </p>
+            </div>
+            <!--Grid column-->
+      
+            <!--Grid column-->
+            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+              <h5 class="text-uppercase">Footer text</h5>
+      
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
+                molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae
+                aliquam voluptatem veniam, est atque cumque eum delectus sint!
+              </p>
+            </div>
+            <!--Grid column-->
+          </div>
+          <!--Grid row-->
+        </div>
+        <!-- Grid container -->
+      
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+          © 2020 Copyright:
+        </div>
+        <!-- Copyright -->
+      </footer>
+
+     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+ 
+</body>
+</html>

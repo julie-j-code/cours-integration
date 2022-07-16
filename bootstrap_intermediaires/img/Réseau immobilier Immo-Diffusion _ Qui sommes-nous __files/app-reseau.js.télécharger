@@ -1,0 +1,259 @@
+/**
+ * Created by john on 09/06/16.
+ */
+(function () {
+    'use strict';
+    angular.module('siteimmo', ['ngRoute', 'ngCookies', 'angularConsent', 'ui.bootstrap', 'ui.select', 'ngSanitize']).config(function ($interpolateProvider) {
+        $interpolateProvider.startSymbol('{!').endSymbol('!}');
+    }).config(function (uiSelectConfig) {
+        uiSelectConfig.defaultTheme = 'select2';
+        uiSelectConfig.refreshDelay = 0;
+        // uiSelectConfig.defaultTheme = 'selectize';
+    });
+
+    angular.module('siteimmo').filter('propsFilter', function () {
+        return function (items, props) {
+            var out = [];
+            if (angular.isArray(items)) {
+                items.forEach(function (item) {
+                    var itemMatches = false;
+                    var keys = Object.keys(props);
+                    for (var i = 0; i < keys.length; i++) {
+                        var prop = keys[i];
+                        if (props[prop]) {
+                            var text = props[prop].toLowerCase();
+                            if (item[prop] && item[prop].toString().toLowerCase().indexOf(text) !== -1) {
+                                itemMatches = true;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (itemMatches) {
+                        out.push(item);
+                    }
+                });
+            } else {
+                // Let the output be the input untouched
+                out = items;
+            }
+            return out;
+        };
+    }).filter('estimationTypeBien', function () {
+        return function (val) {
+            var out = [];
+            // Filter logic here, adding matches to the out var.
+            if (val.slug == "appartement") {
+                out.push(val);
+            }
+            return out;
+        }
+    });
+
+    angular.module('siteimmo').run(function ($rootScope, $ajaxQuery, $bienFactory) {
+        $rootScope.slugify = function (text) {
+            return text.toString().toLowerCase()
+                .replace(/\s+/g, '-')           // Replace spaces with -
+                .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+                .replace(/\-\-+0/g, '-')         // Replace multiple - with single -
+                .replace(/^-+/, '')             // Trim - from start of text
+                .replace(/-+$/, '');            // Trim - from end of text
+        };
+
+        $rootScope.genLink = function ($route, $params) {
+            return Routing.generate($route, $params);
+        };
+
+        $rootScope.formatSecteurAcheteur = function (texte) {
+            var str = texte.replace(/"/g, '').split(',');
+            return str.join(' - ');
+        };
+
+        $rootScope.inSelection = function (bien) {
+            var res = false;
+            angular.forEach($rootScope.selection, function (k, val) {
+                if (val.id === bien.id)
+                    res = true;
+                if (k === $rootScope.selection.length - 1) {
+                    return res;
+                }
+            });
+        };
+
+        $rootScope.groupSelect = function(item) {
+            if(item) {
+                if(item.type == "departement") {
+                    return "Departements";
+                }
+                if(item.type == "region") {
+                    return "Regions";
+                }
+                if(item.departement) {
+                    return "Villes";
+                }
+            }
+        };
+
+        $rootScope.refreshToken = function($id){
+            $.ajax({
+                url: Routing.generate('app_ajax_reloadtoken'),
+                success: function (token){
+                    $($id).val(token.token);
+                }
+            });
+        }
+
+        $rootScope.genLinkBien = function ($bien) {
+            console.log($bien);
+            return $bienFactory.genLink($bien, 'reseau_form_annonce');
+        };
+
+        $rootScope.formatTextAnnonce = function (str) {
+            var parser = new DOMParser;
+            var dom = parser.parseFromString(
+                '<!doctype html><body>' + str,
+                'text/html');
+            var decodedString = dom.body.textContent;
+            return decodedString.substr(0, 100) + "...";
+        };
+
+        $rootScope.goTo = function (bien) {
+            var link = $rootScope.genLinkBien(bien);
+            window.location = link;
+        };
+
+        $rootScope.getSelection = function(){
+            console.log('Ma selection ... get');
+        }
+
+        $rootScope.loadingAddSelection = false;
+
+
+        $rootScope.removeSelection = function ($event, bien) {
+            $ajaxQuery.removeSelection(bien.id, function (data) {
+                $rootScope.selection.splice($rootScope.selection.indexOf(bien), 1);
+                refreshSelection();
+                $rootScope.loadingAddSelection = false;
+            });
+        }
+        $rootScope.addSelection = function ($event, bien) {
+                var $btn = $($event.currentTarget).button('loading');
+                $($event.currentTarget).tooltip("destroy");
+                if (!angular.isArray($rootScope.selection))
+                    $rootScope.selection = [];
+
+                if (angular.element($event.currentTarget).hasClass('active')) {
+                    $ajaxQuery.removeSelection(bien.id, function (data) {
+                        $rootScope.selection.splice($rootScope.selection.indexOf(bien), 1);
+                        refreshSelection();
+                        angular.element($event.currentTarget).removeClass('active');
+                        $rootScope.loadingAddSelection = false;
+                        $btn.button('reset');
+                        $($event.currentTarget).tooltip();
+                    });
+                } else {
+                    $ajaxQuery.addSelection(bien.id, function (data) {
+                        $rootScope.selection.push(bien);
+                        refreshSelection();
+                        angular.element($event.currentTarget).addClass('active');
+                        $btn.button('reset');
+                        $($event.currentTarget).tooltip();
+                    });
+                }
+
+
+
+
+            // if ($.inArray(bien, $rootScope.selection) === -1) {
+            //     $ajaxQuery.addSelection(bien.id, function (data) {
+            //         $rootScope.selection.push(bien);
+            //         refreshSelection();
+            //
+            //     });
+            // } else {
+            //     $ajaxQuery.removeSelection(bien.id, function (data) {
+            //         $rootScope.selection.splice($rootScope.selection.indexOf(bien), 1);
+            //         refreshSelection();
+            //
+            //     });
+            // }
+
+
+        };
+
+
+
+        $rootScope.genThumbnail = function ($bien) {
+            console.log($bien);
+            var loc = "";
+            if ($bien.offre == 1 || $bien.offre == 2) {
+                loc = "loc/";
+            }
+
+
+            var $type = "vente";
+            if($bien.offre == 1 || $bien.offre == 2)
+                $type = "location";
+
+            return "/media/cache/carre540/" + $bien.agence_idext + "/" + $type + "/" + $bien.reference + "/" + $bien.photo;
+
+
+            // return $ajaxQuery.genRoute('renderThumbnail', {
+            //     dpc: $bien.departement_code,
+            //     siteid: varsGlobal.site.id,
+            //     offre: $rootScope.offreTxt($bien.offre),
+            //     type: $bien.typebien_slug,
+            //     format: 'carre540',
+            //     img: $bien.photo,
+            //     ville: $bien.ville_slug,
+            //     idext: $bien.reference,
+            //     id_ag_ext: $bien.agence_idext
+            //
+            // });
+        };
+
+        $rootScope.offreTxt = function (offre) {
+            switch (offre) {
+                case 0 :
+                    return 'vente';
+                case 1 :
+                    return 'location';
+                case 2:
+                    return 'vacances';
+                case 3:
+                    return 'viager';
+                case 'vente':
+                    return 0;
+                case 'location':
+                    return 1;
+                case 'vacances':
+                    return 2;
+                case 'viager':
+                    return 3;
+                case 'vente-location-vacances':
+                    return null;
+                default:
+                    return 'autre';
+            }
+        }
+
+
+
+        function setSelection(selection) {
+            localStorage.setItem('selection', JSON.stringify(selection));
+        }
+
+        function refreshSelection() {
+            var tab = [];
+            angular.forEach($rootScope.selection, function (val, key) {
+                tab.push(val.id);
+                if (key + 1 === $rootScope.selection.length)
+                    setSelection(tab);
+            });
+        }
+
+
+
+    });
+
+})();

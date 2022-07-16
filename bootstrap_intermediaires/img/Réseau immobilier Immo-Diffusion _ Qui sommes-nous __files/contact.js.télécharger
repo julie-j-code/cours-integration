@@ -1,0 +1,141 @@
+
+(function(){
+    'use strict';
+
+    angular
+        .module('siteimmo')
+        .controller('contact', contact);
+
+    contact.$inject = ['$scope','$location','$ajaxQuery'];
+    function contact($scope,$location,$ajaxQuery){
+        if($('#contact_agent').length > 0) {
+            $('#selectAgent').selectAgentID({
+                ipt : '#selectAgent',
+                contentAgent: '#resultsAgent',
+                iptTargetVal : '#contact_agent'
+            });
+        }
+
+        /* jshint validthis: true */
+        var vm = this;
+        var vmReseau = this;
+        //vm.typeFormu = null;
+        vm.villes = [];
+        // vmReseau.villes = [];
+        vm.search = {
+            localistaion : {
+                villes : []
+            }
+        };
+
+        vmReseau.init = function(ville){
+
+            if(ville !== null){
+                vm.villes.push(ville);
+                vm.ville = ville ;
+            }
+
+            var $paramsUri = $ajaxQuery.getParamsUri();
+            angular.element("#appbundle_contact_bien_typeDemande").val($paramsUri.action);
+
+        };
+
+        if($('#contact_bien_typeDemande').length){
+            switch($('#form-contact').data('type')){
+                case 'achat':
+                  // $('#contact_bien_typeDemande').val(1);
+                    vm.typeFormu = 1;
+                    break;
+                case 'vente':
+                    //$('#contact_bien_typeDemande').val(0);
+                    vm.typeFormu = 0;
+                    break;
+                case 'location':
+                    //$('#contact_bien_typeDemande').val(2);
+                    vm.typeFormu = 2;
+                    break;
+                case 'gestion':
+                    //$('#contact_bien_typeDemande').val(3);
+                    vm.typeFormu = 3;
+                    break;
+                default:
+                    vm.typeFormu = null;
+            }
+        }
+
+        $scope.returnTypeFormu = function(){
+            return returnType();
+        };
+
+        vm.returnTypeFormu = function(){
+            return returnType();
+        };
+
+        function returnType(){
+            var val = $('#form-contact').data('type');
+            switch($('#form-contact').data('type')){
+                case 'achat':
+                    return '1';
+                case 'vente':
+                    //$('#contact_bien_typeDemande').val(0);
+                    return '0';
+                case 'location':
+                    //$('#contact_bien_typeDemande').val(2);
+                    return '2';
+                case 'gestion':
+                    //$('#contact_bien_typeDemande').val(3);
+                    return '3';
+                default:
+                    return null;
+            }
+        }
+
+        vmReseau.selectVille = function (item, model){
+            console.log(item.id);
+            $('#contact_bien_ville').val(item.id);
+        };
+
+        vm.selectVille = function (item, model){
+            $('#contact_bien_ville').val(item.id);
+        };
+
+        vm.changeTypeForm = function(){
+           // vm.typeFormu = parseInt($('#contact_bien_typeDemande').val());
+        };
+
+        vm.change =function(valsearch){
+
+            console.log('search Ville',valsearch);
+            $ajaxQuery.searchVilles({q:valsearch},function(results){
+                vm.villes = results.items;
+            });
+        };
+
+        vmReseau.searchVille = function(valsearch){
+            console.log("Before Refresh => " , vm.villes);
+            $ajaxQuery.searchVilles({q:valsearch},function(results){
+                vmReseau.villes = results.items;
+                vm.villes = results.items;
+            });
+        };
+
+        vm.clearVille = function (select, ville) {
+            vm.ville = null;
+            $('#contact_bien_ville').val('');
+        };
+    }
+
+    angular
+        .module('siteimmo')
+        .controller('btncontact', btncontact);
+
+    btncontact.$inject = ['$scope'];
+    function btncontact($scope){
+         $scope.changeTo = function(evt){
+             angular.element("#appbundle_contact_bien_typeDemande").val(evt);
+         };
+    }
+
+})();
+
+

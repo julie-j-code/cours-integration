@@ -1,0 +1,284 @@
+(function(){
+   'use strict';
+    angular
+        .module('siteimmo')
+        .factory('$ajaxQuery',$ajaxQuery);
+
+    $ajaxQuery.$inject = ['$http','$q'];
+
+    function $ajaxQuery($http,$q) {
+        var headerJson =  {'Content-Type': 'application/x-www-form-urlencoded',"X-Requested-With":"XMLHttpRequest"};
+        var onload = false;
+        var service = {
+            getParamsUri : getParamsUri,
+            genRoute : genRoute,
+            initLogger : initLogger,
+            renderLogin : renderLogin,
+            getSelection : getSelection,
+            addSelection : addSelection,
+            removeSelection : removeSelection,
+            getHistorique : getHistorique,
+            getListingBiens : getListingBiens,
+            getVilleByCpAndNom : getVilleByCpAndNom,
+            searchVilles : searchVilles,
+            getProspects : getProspects,
+            sendEmailProspect : sendEmailProspect,
+            sendEmailAgent : sendEmailAgent,
+            searchVille : searchVille,
+            getTypesBien : getTypesBien,
+            getPmc : getPmc,
+            getTel: getTel,
+            setVue: setVue,
+            getActu: getActu,
+            getTypeBien: getTypeBien
+        };
+
+        return service;
+
+        function getTel($data){
+
+        }
+
+
+        function getParamsUri() {
+            // This function is anonymous, is executed immediately and
+            // the return value is assigned to QueryString!
+            var query_string = {};
+            var query = window.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i=0;i<vars.length;i++) {
+                var pair = vars[i].split("=");
+                // If first entry with this name
+                if (typeof query_string[pair[0]] === "undefined") {
+                    query_string[pair[0]] = decodeURIComponent(pair[1]);
+                    // If second entry with this name
+                } else if (typeof query_string[pair[0]] === "string") {
+                    var arr = [ query_string[pair[0]],decodeURIComponent(pair[1]) ];
+                    query_string[pair[0]] = arr;
+                    // If third or later entry with this name
+                } else {
+                    query_string[pair[0]].push(decodeURIComponent(pair[1]));
+                }
+            }
+            return query_string;
+        }
+
+        function genRoute(route,params){
+            return Routing.generate(route,params);
+        }
+
+
+        function getTypeBien(locale,callback){
+            $http({url:  Routing.generate('ajax_get_type_bien' ,{'_locale' : locale}) , method: "GET", data: {}, headers: {'Content-Type': 'application/json'}
+            }).then(function successCallback(response) {
+                callback(response.data);
+            }, function errorCallback(response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+            });
+        }
+        function getActu($page,$template,callback){
+            $http({url:  Routing.generate('actu_main_index' ,{'page' : $page,'template' : $template}) , method: "GET", data: {}, headers: {'Content-Type': 'application/json'}
+            }).then(function successCallback(response) {
+                callback(response.data);
+            }, function errorCallback(response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+            });
+        }
+
+
+        /**
+         * Retourne le logger
+         * @param callback
+         */
+        function initLogger($template,$locale,callback){
+            $http({url: Routing.generate('render_logger',{"template" : $template,"_locale" : $locale}), method: "POST", data: {}, headers: {'Content-Type': 'application/json'}
+            }).then(function successCallback(response) {
+                callback(response.data);
+            }, function errorCallback(response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+            });
+        }
+
+        function getTypesBien(callback){
+            $http({url:  Routing.generate('homepage') + '../json/Typebien.json', method: "GET", data: {}, headers: {'Content-Type': 'application/json'}
+            }).then(function successCallback(response) {
+                callback(response.data);
+            }, function errorCallback(response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+            });
+        }
+
+        function renderLogin($locale,$template,callback){
+            $http({url: Routing.generate('render_login',{"_locale" : $locale,"template" : $template}), method: "POST", data: {}, headers: {'Content-Type': 'application/json'}
+            }).then(function successCallback(response) {
+                callback(response.data);
+            }, function errorCallback(response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+            });
+        }
+
+        function getSelection(selection,callback){
+            $http({url: Routing.generate('user_selection_getmy'), method: "POST", data: {selection : selection}, headers: {'Content-Type': 'application/json'}
+            }).then(function successCallback(response) {
+                callback(response.data);
+            }, function errorCallback(response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+            });
+        }
+
+
+        function removeSelection(idbien,callback){
+            $http({url: Routing.generate('user_selection_remove'), method: "POST", data: {idbien : idbien}, headers: {'Content-Type': 'application/json'}
+            }).then(function successCallback(response) {
+                callback(response.data);
+            }, function errorCallback(response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+            });
+        }
+
+        function addSelection(idbien,callback){
+            $http({url: Routing.generate('user_selection_add'), method: "POST", data: {idbien : idbien}, headers: {'Content-Type': 'application/json'}
+            }).then(function successCallback(response) {
+                callback(response.data);
+            }, function errorCallback(response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+            });
+        }
+
+        function getHistorique(callback){
+            $http({url: Routing.generate('user_historique_get'), method: "GET", data: {}, headers: {'Content-Type': 'application/json'}
+            }).then(function successCallback(response) {
+                callback(response.data);
+            }, function errorCallback(response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+            });
+        }
+
+
+        function getListingBiens($post,callback){
+            $http({url: Routing.generate('ajax_get_listing_bien'), method: "POST", data: $post, headers: {'Content-Type': 'application/json'}
+            }).then(function successCallback(response) {
+                callback(response.data);
+            }, function errorCallback(response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+            });
+        }
+
+        function getVilleByCpAndNom($post,callback){
+            $http({url: Routing.generate('location_ajax_getvillebycpandnom'), method: "POST", data: $post, headers: {'Content-Type': 'application/json'}
+            }).then(function successCallback(response) {
+                callback(response.data);
+            }, function errorCallback(response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+            });
+        }
+
+
+        function searchVilles($post,callback){
+            var canceler = $q.defer();
+            if(onload == true) {
+                //canceler.resolve();
+            }
+            onload = true;
+            $http({url: Routing.generate('qville_select2'), method: "POST", data: $post, headers: headerJson, timeout: canceler.promise
+            }).then(function successCallback(response) {
+                onload = false;
+                callback(response.data);
+            }, function errorCallback(response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+            });
+
+        }
+
+        function getProspects($post,callback){
+            $http({url: Routing.generate('reseau_contact_ajaxgetprospectapi'), method: "POST", data: $post, headers: {'Content-Type': 'application/json'}
+            }).then(function successCallback(response) {
+                callback(response.data);
+            }, function errorCallback(response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+            });
+        }
+
+        function sendEmailProspect($post,callback){
+            $http({url: Routing.generate('reseau_contact_ajaxsendemail'), method: "POST", data: $post, headers: {'Content-Type': 'application/json'}
+            }).then(function successCallback(response) {
+                callback(response.data);
+            }, function errorCallback(response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+            });
+        }
+
+        function searchVille($post,callback){
+            $http({url: Routing.generate('searchVille'), method: "POST", data: $post, headers: {'Content-Type': 'application/json'}
+            }).then(function successCallback(response) {
+                callback(response.data);
+            }, function errorCallback(response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+            });
+        }
+
+        function getPmc($idville,$locale,callback){
+            $http({url: Routing.generate('getpmc',{'_locale' : $locale,'idville' : $idville}), method: "GET", headers: {'Content-Type': 'application/json'}
+            }).then(function successCallback(response) {
+                callback(response.data);
+            }, function errorCallback(response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+            });
+        }
+
+        function getTel($data,callback){
+            // if($data && $data.id !== null && $data.id != 0){
+                $http({url: Routing.generate('app_ajax_gettelannonce',$data), method: "GET", headers: {'Content-Type': 'application/json'}
+                }).then(function successCallback(response) {
+                    callback(response.data);
+                }, function errorCallback(response) {
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
+                });
+            // }
+
+        }
+
+        function setVue($data,callback){
+            if($data && $data.id !== null && $data.id != 0){
+                $http({url: Routing.generate('app_ajax_setvueannonce',$data), method: "GET", headers: {'Content-Type': 'application/json'}
+                }).then(function successCallback(response) {
+                    callback(response.data);
+                }, function errorCallback(response) {
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
+                });
+            }
+        }
+
+        function sendEmailAgent($data,callback){
+            if($data && $data.id !== null && $data.id != 0){
+                $http({url: Routing.generate('reseau_contact_ajaxsendemailtoagence'), method: "POST",data: $data, headers: {'Content-Type': 'application/json'}
+                }).then(function successCallback(response) {
+                    callback(response.data);
+                }, function errorCallback(response) {
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
+                });
+            }
+        }
+
+
+    }
+})();
