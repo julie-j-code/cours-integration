@@ -12,11 +12,11 @@
       var sticky = navbar.offsetTop;
 
       if (window.pageYOffset > sticky) {
-          nav.classList.add('bg-light', 'navbar-light');
-          nav.classList.remove("navbar-dark");
+          nav.classList.add("bg-light", "navbar-light");
+          nav.classList.remove("navbar-dark", "bg-dark");
       } else {
           nav.classList.remove("bg-light", "navbar-light");
-          nav.classList.add("navbar-dark");
+          nav.classList.add("navbar-dark", "bg-dark");
       }
 
       // show or hide the back-top-top button
