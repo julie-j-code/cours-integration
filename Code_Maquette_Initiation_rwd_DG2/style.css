@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;
 }
@@ -42,6 +48,8 @@ section {
     margin-top: 60px;
 }
 
+p{margin-top: 50px;}
+
 button {
     border-radius: 30px;
     padding: 10px 30px;
@@ -59,17 +67,18 @@ button {
     color: #F4347B;
 }
 
-/* pour le background des différentes sections sans ajouter de id ! */
-section:first-of-type, section:nth-child(3)  {
-    background: url(./images/section1.svg) no-repeat -30vh center;
-    background-size: 100vh;
-}
-/* attention : contrairement aux images format standard, il ne faut pas utiliser de "" dans le chemin de l'image */
-section:nth-child(2) {
-    background: url(./images/section2.svg) no-repeat 120vh center;
+/* pour le background des différentes sections sans ajouter ajouter d'id ! */
+section:first-of-type,
+section:nth-child(3) {
+    background: url(./images/section1.svg) no-repeat -30vh top;
     background-size: 100vh;
 }
 
+/* attention : contrairement aux images format standard, il ne faut pas utiliser de "" dans le chemin de l'image */
+section:nth-child(2) {
+    background: url(./images/section2.svg) no-repeat 120vh top;
+    background-size: 100vh;
+}
 
 h2,
 h1 {
@@ -83,7 +92,7 @@ h1 strong {
     display: block;
 }
 
-.right h2{
+.right h2 {
     margin-bottom: 100px;
 }
 
@@ -96,17 +105,13 @@ a {
 .content {
     width: 40%;
     padding: 30px;
-    /* border: 1px solid black;
-    border-radius: 30px; */
     margin: 50px 0;
-    /* align-content: center; */
 }
 
 img {
     width: 40%;
 }
 
-/* une section sur 2 a ses éléments allignés sur la droite donc pourquoi pas */
 .right {
     text-align: right;
     padding-right: 30px;
@@ -135,14 +140,15 @@ img {
     background-color: #fff;
 }
 
-footer, section{
+footer,
+section {
     padding: 100px 50px;
 }
 
 footer {
     background: url(./images/section4.svg) no-repeat center 30vh;
     background-size: 120vw;
-    height:100vh
+    height: 100vh
 }
 
 /* pour éviter de créer un selecteur juste  pour cette image */
@@ -154,19 +160,36 @@ footer img {
 }
 
 footer .container {
-    /* parce que vous n'avez pas encore vu propriétés avancées flexbox flex:1 vous pouvez utiliser width */
+    /* parce que vous n'avez pas encore vu en séance la propriété avancée flexbox flex:1 vous pouvez utiliser width */
     /* width: 60vw; */
     flex: 1;
     flex-grow: 2;
 }
 
 
+@media screen AND (max-width:1200px) {
 
-@media screen AND (max-width:575px) {
+    footer,
+    section {
+        padding: 30px;
+        height: 100vh;
+        margin: 0;
+    }
+
+    header {
+        height: 100vh;
+        background-position: right -150px;
+        background-size: 100vh;
+    }
+
+}
+
+@media screen AND (max-width:820px) {
 
     header {
         background-size: 100vh;
-        background-position-x: center;
+        background-position: center -200px;
+        height: fit-content;
     }
 
     /* pour être conforme à la maquette version mobiles */
@@ -174,22 +197,68 @@ footer .container {
         display: none;
     }
 
-    /* même si nous n'avons pas encore évoqué cette  partie en séance, elle figure dan mon cours */
+    /* même si nous n'avons pas encore évoqué cette partie en séance, elle figure dan mon cours */
     nav {
         flex-direction: column;
         justify-content: center;
         text-align: center;
     }
-    /* à défaut de flex-direction column, vous pouviez, comme déjà vu faire :border: border:     /* 
+
+    /* à défaut de flex-direction column, vous pouviez, comme déjà vu faire
     nav, nav a{ display:block;}     */
 
     nav a {
         margin-bottom: 20px;
     }
 
+    section {
+        margin: 0;
+        padding: 0;
+    }
+
     .box,
-    .content {
+    .container,
+    .content,
+    .right,
+    footer {
+        text-align: center;
+        padding: 2% 0;
+        height: fit-content;
+        /* on  pourrait se contenter de basculer en display block partout pour casser le flex et retrouver une disposition de nos éléments par défaut. Le problème, c'est que l'exercice ici consiste aussi à jouer sur la propriété order de flexbox (pour changer le flux si on s'en tient à la maquette XD version mobiles). Donc on  privilégie le flex-direction column, qui est la méthode la plus utilisée pour gérer le responsive avec flexbox */
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .container,
+    .content,
+    .right,
+    footer {
         width: 100%;
+    }
+
+    .right,
+    .box {
+        margin: 2vh auto;
+    }
+
+    .box {
+        width: 70%;
+    }
+
+    .right h2 {
+        margin: 0;
+    }
+
+    .container {
+        flex: auto;
+    }
+
+    section {
+        background-size: 100vw;
+    }
+
+    section:nth-child(2) {
+        background-position: 20vw top;
     }
 
     ul {
@@ -199,18 +268,19 @@ footer .container {
         text-align: center;
     }
 
-    footer .container div {
+    footer .container>div {
         width: 100%;
     }
 
     footer .container {
         text-align: center;
+        flex-direction: column;
+        display: block;
     }
 
     img {
-        width: 100%;
+        width: 80vw;
     }
-
 
     header .content {
         order: 4;
@@ -218,6 +288,14 @@ footer .container {
 
     #responses .content {
         order: 2;
+    }
+
+    footer img {
+        order: 2;
+    }
+
+    footer {
+        background-position: center bottom;
     }
 
 }
