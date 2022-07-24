@@ -7,17 +7,14 @@
     Sticky pour faire en sorte que la navbar change de background au scroll de la page
     ======================================= */
     window.onscroll = function () {
-        var header_navbar = document.getElementById("header_navbar");
+        var navbar = document.getElementById("navbar");
         var nav = document.querySelector("nav");
-        var sticky = header_navbar.offsetTop;
+        var sticky = navbar.offsetTop;
 
         if (window.pageYOffset > sticky) {
-            // header_navbar.classList.add("sticky");
             nav.classList.add('bg-light', 'navbar-light');
             nav.classList.remove("navbar-dark");
-            // logo.setAttribute("src", "assets/images/logo-2.svg")
         } else {
-            // header_navbar.classList.remove("sticky");
             nav.classList.remove("bg-light", "navbar-light");
             nav.classList.add("navbar-dark");
         }
@@ -38,8 +35,6 @@
             navbarCollapse.classList.remove('show')
         })
     );
-
-
     
     
 })();

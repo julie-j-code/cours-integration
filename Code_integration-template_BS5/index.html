@@ -22,16 +22,13 @@
 
 </head>
 
-<body class="container-fluid">
-    <div>
-
+<body>
+    <div class="container-fluid">
         <!-- header -->
-        <header class="bg-cover w-100">
-            <!-- style="background-image: url(images/hero.jpg)" -->
-
+        <header class="bg-cover">
             <!-- ce div additionnel sert pour javascript à évaluer la hauteur à partir de laquelle on swith
             entre navbar-dark et navbar-ligth  -->
-            <div id="header_navbar" class="fixed-top">
+            <div id="navbar" class="fixed-top">
                 <nav class="navbar navbar-expand-md navbar-dark">
                     <div class="container">
                         <a class="navbar-brand text-white" href="index.html">
@@ -41,7 +38,6 @@
                             data-bs-target="#navbarSupportedContent">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul id="nav" class="navbar-nav ms-auto">
                                 <li class="nav-item">
@@ -87,7 +83,7 @@
 
         <!-- sections -->
 
-        <section id="features" class="features_area pt-5 mt-5">
+        <section id="features" class="pt-5 mt-5">
             <div class="container">
                 <div class="text-center pb-5">
                     <h2 class="title">Why Choose Us</h2>
@@ -220,8 +216,8 @@
         </section>
 
 
-        <section id="portfolio" class="pt-5 mt-5">
-            <div class="container">
+        <section id="portfolio" class="pt-5 mt-5 px-0">
+            <div class="w-100">
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
                         <!-- <div class="section_title text-center pb-60"> -->
@@ -232,81 +228,88 @@
                         </div>
                     </div>
                 </div> <!-- row -->
-            </div> <!-- container -->
-            <div class="row justify-content-end text-center">
-                <div class="col-sm-3 p-0 portfolio">
-                    <img src="images/portfolio-1.jpg" class="p-0 img-fluid" alt="portfolio">
-                    <div class="portfolio_over">
-                        <ul class="meta">
-                            <li><a href="#0"><i class="lni lni-link"></i></a></li>
-                        </ul>
-                        <h5 class="portfolio_title">Logo And Branding</h5>
+
+                <div class="row justify-content-between text-center p-0 g-0">
+                    <div class="col-sm-3 p-0 portfolio">
+                        <img src="images/portfolio-1.jpg" class="img-fluid" alt="portfolio">
+                        <div class="portfolio_over p-0">
+                            <ul class="meta">
+                                <li><a href="#0"><i class="lni lni-link"></i></a></li>
+                            </ul>
+                            <h5 class="portfolio_title">Logo And Branding</h5>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-3 p-0 portfolio">
-                    <img src="images/portfolio-2.jpg" class="p-0 img-fluid" alt="portfolio">
-                    <div class="portfolio_over">
-                        <ul class="meta">
-                            <li><a href="#0"><i class="lni lni-link"></i></a></li>
-                        </ul>
-                        <h5 class="portfolio_title">Bootstrap 5 Project</h5>
+                    <div class="col-sm-3 p-0 portfolio">
+                        <img src="images/portfolio-2.jpg" class="img-fluid" alt="portfolio">
+                        <div class="portfolio_over">
+                            <ul class="meta">
+                                <li><a href="#0"><i class="lni lni-link"></i></a></li>
+                            </ul>
+                            <h5 class="portfolio_title">Bootstrap 5 Project</h5>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-3 p-0 portfolio">
-                    <img src="images/portfolio-3.jpg" class="p-0 img-fluid" alt="portfolio">
-                    <div class="portfolio_over">
-                        <ul class="meta">
-                            <li><a href="#0"><i class="lni lni-link"></i></a></li>
-                        </ul>
-                        <h5 class="portfolio_title">Creative Projects</h5>
+                    <div class="col-sm-3 p-0 portfolio">
+                        <img src="images/portfolio-3.jpg" class="img-fluid" alt="portfolio">
+                        <div class="portfolio_over">
+                            <ul class="meta">
+                                <li><a href="#0"><i class="lni lni-link"></i></a></li>
+                            </ul>
+                            <h5 class="portfolio_title">Creative Projects</h5>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-3 p-0 portfolio">
-                    <img src="images/portfolio-4.jpg" class="p-0 img-fluid" alt="portfolio">
-                    <div class="portfolio_over">
-                        <ul class="meta">
-                            <li><a href="#0"><i class="lni lni-link"></i></a></li>
-                        </ul>
-                        <h5 class="portfolio_title">UI/UX Projects</h5>
+                    <div class="col-sm-3 p-0 portfolio">
+                        <img src="images/portfolio-4.jpg" class="img-fluid" alt="portfolio">
+                        <div class="portfolio_over">
+                            <ul class="meta">
+                                <li><a href="#0"><i class="lni lni-link"></i></a></li>
+                            </ul>
+                            <h5 class="portfolio_title">UI/UX Projects</h5>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-3 p-0 portfolio">
-                    <img src="images/portfolio-5.jpg" class="p-0 img-fluid" alt="portfolio">
-                    <div class="portfolio_over">
-                        <ul class="meta">
-                            <li><a href="#0"><i class="lni lni-link"></i></a></li>
-                        </ul>
-                        <h5 class="portfolio_title">App Development</h5>
+                    <div class="col-sm-3 p-0 portfolio">
+                        <img src="images/portfolio-5.jpg" class="img-fluid" alt="portfolio">
+                        <div class="portfolio_over">
+                            <ul class="meta">
+                                <li><a href="#0"><i class="lni lni-link"></i></a></li>
+                            </ul>
+                            <h5 class="portfolio_title">App Development</h5>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-3 p-0 portfolio">
-                    <img src="images/portfolio-6.jpg" class="p-0 img-fluid" alt="portfolio">
-                    <div class="portfolio_over">
-                        <ul class="meta">
-                            <li><a href="#0"><i class="lni lni-link"></i></a></li>
-                        </ul>
-                        <h5 class="portfolio_title">Web Development</h5>
+                    <div class="col-sm-3 p-0 portfolio">
+                        <img src="images/portfolio-6.jpg" class="img-fluid" alt="portfolio">
+                        <div class="portfolio_over">
+                            <ul class="meta">
+                                <li><a href="#0"><i class="lni lni-link"></i></a></li>
+                            </ul>
+                            <h5 class="portfolio_title">Web Development</h5>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-3 p-0 portfolio">
-                    <img src="images/portfolio-7.jpg" class="p-0 img-fluid" alt="portfolio">
-                    <div class="portfolio_over">
-                        <ul class="meta">
-                            <li><a href="#0"><i class="lni lni-link"></i></a></li>
-                        </ul>
-                        <h5 class="portfolio_title">Business Card Design</h5>
+                    <div class="col-sm-3 p-0 portfolio">
+                        <img src="images/portfolio-7.jpg" class="img-fluid" alt="portfolio">
+                        <div class="portfolio_over">
+                            <ul class="meta">
+                                <li><a href="#0"><i class="lni lni-link"></i></a></li>
+                            </ul>
+                            <h5 class="portfolio_title">Business Card Design</h5>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-3 p-0 portfolio">
-                    <img src="images/portfolio-8.jpg" class="p-0 img-fluid" alt="portfolio">
-                    <div class="portfolio_over">
-                        <ul class="meta">
-                            <li><a href="#0"><i class="lni lni-link"></i></a></li>
-                        </ul>
-                        <h5 class="portfolio_title">Consulting Business</h5>
+                    <div class="col-sm-3 p-0 portfolio">
+                        <img src="images/portfolio-8.jpg" class="img-fluid" alt="portfolio">
+                        <div class="portfolio_over">
+                            <ul class="meta">
+                                <li><a href="#0"><i class="lni lni-link"></i></a></li>
+                            </ul>
+                            <h5 class="portfolio_title">Consulting Business</h5>
+                        </div>
                     </div>
-                </div>
-            </div> <!-- row -->
+                </div> <!-- row -->
+
+
+
+            </div>
+
+ 
+
         </section>
 
         <!-- princing -->
@@ -440,7 +443,7 @@
             </div> <!-- container -->
         </section>
 
-        <section id="contact" class="contact_area bg_cover pt-5 mt-5 pb-5">
+        <section id="contact" class="contact bg-cover pt-5 mt-5 pb-5">
             <div class="container">
                 <!-- <div class="row justify-content-center">
                 <div class="col-lg-6"> -->
@@ -495,7 +498,7 @@
         <!--- footer --->
 
         <!-- <footer id="footer" class="footer_area"> -->
-        <footer id="footer" class="footer_area mt-5 py-5">
+        <footer id="footer" class="footer_area mt-5 py-5 bg-cover">
             <div class="container">
                 <!-- <div class="footer_wrapper text-center d-lg-flex align-items-center justify-content-between"> -->
                 <div class="text-center d-lg-flex align-items-center justify-content-between">

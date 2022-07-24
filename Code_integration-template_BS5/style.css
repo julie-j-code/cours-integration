@@ -1,6 +1,13 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800");
 
+*, .container-fluid, .row{
+  margin: 0;
+  padding: 0;
+  box-sizing:border-box;
+}
+
 html {
+  /* on ne l'a pas vu en cours, ceci permet d'actionner des ancres de lien avec un effet de transition au scroll smooth */
   scroll-behavior: smooth;
 }
 
@@ -10,10 +17,9 @@ body {
 
 header {
   background-image: url('images/hero.jpg')!important;
-  background-size: cover;
 }
 
-.contact_area {
+.contact {
   background-image: url('images/contact_bg.jpg');
 }
 
@@ -28,15 +34,8 @@ a:hover {
   text-decoration: none;
 }
 
-/* i,
-span,
-a {
-  display: inline-block;
-  text-decoration: none;
-} */
 
 a{text-decoration: none;}
-
 
 h1,
 h2,
@@ -59,16 +58,18 @@ h3 {
   transition: all 0.3s ease-out 0s;
 }
 
-
 section p {
   font-weight: 400;
   color: #5A5872;
 }
 
+/* peut être utile pour imposer même paramétrage chaque fois qu'on a des background images, bien que toutes ces propriétés sont actionnables directement dans la balise des élémments via BS5 */
+
 .bg-cover {
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 /* --- buttons */
@@ -96,17 +97,17 @@ h4 {
 }
 
 /* navbar */
-.header_navbar {
+.navbar {
   padding: 0;
   z-index: 999;
   transition: all 0.3s ease-out 0s;
 }
 
 
-/* ces classes n'existent que pour permettre à javascript de swticher la couleur de fond au scroll de page */
+/* ces classes n'existent que pour permettre à javascript de swticher la couleur de fond au scroll de page, pour l'exercice. seuls les DUT sont concernés puisqu'ils sont censés savoir ce qu'est le DOM et connaitre l'utilisation de JS pour jouer sur ses éléments */
 
-.navbar-light .navbar-toggler .toggler-icon {
-  background-color: #222;
+.navbar-dark {
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .navbar-light .navbar-nav .nav-item a {
@@ -239,6 +240,8 @@ h1 {
 /* pour les effets d'animation du portfolio exclusivement */
 .portfolio {
   position: relative;
+  margin:0;
+  padding: 0;
 }
 
 .portfolio::before {
@@ -410,12 +413,12 @@ h1 {
 }
 
 /* contact ****************/
-.contact_area {
+.contact {
   position: relative;
   z-index: 5;
 }
 
-.contact_area::before {
+.contact::before {
   position: absolute;
   content: '';
   top: 0;
@@ -457,8 +460,6 @@ h1 {
 
 .footer_area {
   background-color: #E84E4E;
-  /* padding-top: 15px;
-  padding-bottom: 30px; */
 }
 
 .footer_menu ul li {
