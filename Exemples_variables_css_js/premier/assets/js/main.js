@@ -25,6 +25,14 @@ if(navClose){
 
 /*=============== CHANGE BACKGROUND HEADER ===============*/
 
+const scrollHeader = () =>{
+    const header = document.getElementById('header')
+    // Quand la poisition du scroll dépasse de 50 la hauteur du viewport, on ajoute la classe .scroll-header à l'élément header
+    this.scrollY >= 50 ? header.classList.add('bg-header') 
+                       : header.classList.remove('bg-header')
+}
+
+window.addEventListener('scroll', scrollHeader)
 
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
 
@@ -49,6 +57,7 @@ const sr=ScrollReveal(
 sr.reveal(`.home .container_data`)
 sr.reveal(`.container_image`, {delay:700,origin:'bottom' })
 sr.reveal(`.nav_logo`, {delay:100})
+sr.reveal(`.logos img`, {origin:'bottom', delay:800, interval:600})
 
 /*=============== CALCULATE JS ===============*/
 

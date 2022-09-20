@@ -43,8 +43,8 @@
   --z-fixed: 100;
 
   /*========== margins ==========*/
-  --section-margin: 2rem auto;
-  --z-fixed: 100;
+  --section-margin: 10vh auto;
+  --additional-margin: 5vh 0;
 }
 
 /* Responsive typography */
@@ -87,7 +87,8 @@ body {
 
 h1,
 h2,
-h3 {
+h3, 
+h4 {
   color: var(--title-color);
   font-weight: var(--font-bold);
 }
@@ -141,6 +142,7 @@ main {
   margin: auto;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
 }
 
 .container_data {
@@ -169,6 +171,10 @@ main {
   color: transparent;
 }
 
+section:not(.home) .section_subtitle, section:not(.home) .section_title {
+  margin:var(--additional-margin); text-align: center;
+}
+
 .color-red {
   color: hsl(0, 80%, 64%);
 }
@@ -177,8 +183,9 @@ main {
   color: var(--first-color);
 }
 
+
 /*=============== HEADER & NAV ===============*/
-/* nav{height: 2rem;} */
+
 nav {
   height: var(--header-height);
   font-weight: var(--font-bold);
@@ -219,6 +226,12 @@ nav ul {
 .nav_toggle,
 .nav_close {
   display: none;
+}
+
+/* Change background header */
+.bg-header{
+  background-color: var(--body-color);
+  box-shadow: 0 4px 8px hsla(180, 12%, 4%, 0.3);
 }
 
 /*=============== HOME ===============*/
@@ -267,7 +280,54 @@ nav ul {
   background-color: var(--first-color);
 }
 
-/*=============== LOGOS ===============*/
+/*=============== SECTION2 Cards ===============*/
+
+.card{
+  flex:1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  margin:var(--additional-margin);
+  background-color: hsl(180, 4%, 12%);
+  padding:1rem;
+  border:2px solid transparent;
+  transition: background 0.5s, border 0.5s;
+}
+
+.card_icons{
+  width:40%;
+  border-radius: 100px;
+  background-color: hsl(180, 4%, 65%);
+  padding: 1rem;
+  transition: background 0.5s;
+}
+
+.card h4{
+  font-size: var(--h3-font-size);
+}
+
+.card p{
+  font-size: var(--small-font-size);
+}
+
+.card h4, .card p{
+  transition: color 0.5s;
+}
+
+.card:hover{
+  background-color: var(--first-color);
+  border-color: var(--first-color-light);
+}
+
+.card:hover p{
+  color:var(--title-color-black)
+}
+
+.card:hover .card_icons{
+  background-color: var(--first-color-light);
+}
 
 /*=============== FOOTER ===============*/
 
@@ -294,14 +354,19 @@ nav ul {
   bottom: 3rem;
 }
 
+
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
 
 /* For medium devices */
 
 @media screen and (max-width: 750px) {
+  section{
+    margin-bottom: 6rem;
+  }
   .container {
     flex-wrap: wrap;
+    justify-content: center;
   }
 
   .home .container div {
@@ -346,6 +411,14 @@ nav ul {
   .nav_menu ul {
     flex-direction: column;
     gap: 2.5rem;
+  }
+
+  .logos .container{
+    row-gap: 2rem;
+  }
+
+ .logos .container img {
+    width: 40vw;
   }
 }
 
