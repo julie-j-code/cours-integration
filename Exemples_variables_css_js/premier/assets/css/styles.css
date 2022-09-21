@@ -329,6 +329,71 @@ nav ul {
   background-color: var(--first-color-light);
 }
 
+/*============== SECTION 3 Why ===============*/
+
+.section3 .container {
+  position: relative;
+  z-index: 5;
+  height: var(--home_section_height);
+}
+
+.section3 .container div {
+  flex: 1;
+}
+
+.section3 .container_data,
+.section3 .container_image {
+  z-index: 10;
+}
+
+.section3 .container_image img{
+  max-width: 400px;
+}
+
+.section3 .clip_triangle {
+  clip-path: polygon( 0 0 ,0 100%,100% 100%);
+  position: absolute;
+ left: 0;
+  bottom: 0;
+  height: calc(var(--home_section_height) - 100px);
+}
+
+.section3 .triangle1 {
+  width: 20vw;
+  background-color: var(--first-color);
+  z-index: 3;
+}
+
+.section3 .triangle2 {
+  width: 30vw;
+  background-color: var(--first-color-alt);
+  z-index: 2;
+}
+.triangle3 {
+  width: 40vw;
+  background-color: var(--first-color-dark);
+  z-index: 1;
+}
+
+.container_numbers{
+  display: flex;
+
+}
+
+.container_numbers>div{
+  text-align: center;
+
+}
+.container_numbers p{
+font-size: var(--small-font-size);
+}
+
+.numbers{
+  font-size: var(--big-font-size);
+  font-family: var(--second-font);
+  color: var(--title-color);
+}
+
 /*=============== FOOTER ===============*/
 
 /*=============== SCROLL UP ===============*/

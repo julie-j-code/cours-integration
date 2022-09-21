@@ -58,6 +58,8 @@ sr.reveal(`.home .container_data`)
 sr.reveal(`.container_image`, {delay:700,origin:'bottom' })
 sr.reveal(`.nav_logo`, {delay:100})
 sr.reveal(`.logos img`, {origin:'bottom', delay:800, interval:600})
+sr.reveal(`.section3 img`,{origin:'left'})
+sr.reveal(`.section3 .container_data`,{origin:'right'})
 
 /*=============== CALCULATE JS ===============*/
 
