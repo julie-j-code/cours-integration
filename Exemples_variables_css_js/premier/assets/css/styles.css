@@ -439,7 +439,7 @@ nav ul {
   max-width: none;
 }
 
-.calculate_form .message{
+.calculate_message{
   display: none;
   font-size: var(--small-font-size);
 }

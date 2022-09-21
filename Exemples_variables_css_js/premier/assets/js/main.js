@@ -63,5 +63,39 @@ sr.reveal(`.section3 .container_data`,{origin:'right'})
 
 /*=============== CALCULATE JS ===============*/
 
+const calculateForm=document.querySelector("#calculate-form")
+const inputHeight=document.querySelector("#calculate-cm")
+const inputWeight=document.querySelector("#calculate-kg")
+const calculateMessage=document.querySelector("#calculate-message")
+
+console.log(calculateForm);
+
+const calculateIbm=(e)=>{
+    e.preventDefault()
+    console.log(inputHeight.value);
+
+// verifie si les champs sont remplis
+if (inputHeight.value ==="" || inputWeight.value =="") {
+    calculateMessage.style.display="block" 
+    calculateMessage.classList.add("color-red")   
+    calculateMessage.textContent="Tous les champs n'ont pas été remplis"
+}
+else{
+    // se calcule en divisant le poids (en kg) par le carré de la taille (m). 
+    const kg=inputWeight.value
+    console.log(kg);
+    const cm=inputHeight.value/100
+    console.log(cm);
+    const ibm=Math.round(kg/(cm*cm))
+    calculateMessage.style.display="block"
+    calculateMessage.classList.add("color-green")
+    calculateMessage.textContent=ibm
+}
+
+}
+calculateForm.addEventListener('submit', calculateIbm)
+
+
+
 
 /*=============== EMAIL JS ===============*/
