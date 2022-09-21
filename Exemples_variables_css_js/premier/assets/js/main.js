@@ -83,14 +83,26 @@ if (inputHeight.value ==="" || inputWeight.value =="") {
 else{
     // se calcule en divisant le poids (en kg) par le carré de la taille (m). 
     const kg=inputWeight.value
-    console.log(kg);
     const cm=inputHeight.value/100
-    console.log(cm);
     const ibm=Math.round(kg/(cm*cm))
     calculateMessage.style.display="block"
-    calculateMessage.classList.add("color-green")
-    calculateMessage.textContent=ibm
+    // messages conditionnels
+    if (ibm<18.5) {
+        calculateMessage.classList.add("color-red")
+        calculateMessage.textContent=`Your IBM is ${ibm}. You are too skinny`
+    }else if (ibm<22.5) {
+        calculateMessage.classList.add("color-green")
+        calculateMessage.textContent=`Your IBM is ${ibm}. You are healthy`        
+    } else {
+        calculateMessage.classList.add("color-red")
+        calculateMessage.textContent=`Your IBM is ${ibm}. You must control your weight`        
+    }
 }
+
+setTimeout(()=>{
+    calculateMessage.textContent=""
+    calculateMessage.classList.remove("color-green", "color-red")
+},4000)
 
 }
 calculateForm.addEventListener('submit', calculateIbm)
