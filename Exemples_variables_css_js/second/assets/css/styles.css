@@ -96,6 +96,10 @@ nav ul,
   transition: box-shadow 0.4s;
 }
 
+.black {
+  background-color: #111111 !important;
+}
+
 /*===== HEADER & NAV =====*/
 header {
   width: 100%;
@@ -134,6 +138,7 @@ header {
   padding-top: var(--header-height);
   height: 80vh;
   flex-direction: column;
+  background-color: aquamarine;
 }
 
 /*===== Sneaker =====*/
