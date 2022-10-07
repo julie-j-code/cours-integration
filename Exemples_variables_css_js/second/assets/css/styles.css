@@ -138,7 +138,6 @@ header {
   padding-top: var(--header-height);
   height: 80vh;
   flex-direction: column;
-  background-color: aquamarine;
 }
 
 /*===== Sneaker =====*/
