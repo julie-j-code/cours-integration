@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <!-- versions simples -->
+    <h2>My first SVG</h2>
+    <svg width="100" height="100">
+        <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="#578aff" />
+    </svg>
+
+    <h2>Même chose en CSS avec un background - considérablement plus long</h2>
+    <p>Le cercle se trouve obligatoirement en position absolute avec toutes les propriétés additionnelles</p>
+
+    <div class="circle_container">
+        <div class="circle">
+        </div>
+    </div>
+
+    <!-- versions dégradées -->
+    <h1>Versions dégradées</h1>
+    <h2>My first SVG</h2>
+    <svg width="100" height="100">
+        <defs>
+            <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                <!-- équivalent d'un keyframe -->
+                <stop offset="0%" style="stop-color:rgb(255,255,255);
+      stop-opacity:0" />
+                <!-- un autre keyframe -->
+                <stop offset="100%" style="stop-color:rgb(0,0,255);stop-opacity:1" />
+            </radialGradient>
+        </defs>
+        <circle cx="50" cy="50" r="40" fill="url(#grad1)" />
+    </svg>
+
+    <h2>Même chose en CSS de base avec un background - plus simple pour le dégradé</h2>
+
+    <div class="circle_container">
+        <div class="radient_circle">
+        </div>
+    </div>
+
+    <!-- versions simples animées -->
+    <h1>Versions simples animées</h1>
+    <h2>Avec SVG</h2>
+    <pre>cliquer sur l'image pour modifier la couleur primaire</pre>
+    <svg width="100" height="100">
+        <circle cx="50" cy="50" r="40">
+            <animate id="julie" attributeName="fill" values="#adadad; #578aff; #adadad" dur="3s"
+                repeatCount="indefinite" />
+            </animate>
+        </circle>
+    </svg>
+
+    <h2>Même chose en CSS avec un background, des keyframes et la propriété animation - considérablement plus long</h2>
+    <pre>cliquer sur l'image pour modifier la couleur primaire</pre>
+    <div class="circle_container">
+        <div class="circle_animated">
+        </div>
+    </div>
+
+
+    <script>
+        function changeColor(event, color) {
+            // console.log(window.getComputedStyle(event.target).getPropertyValue('background-color'))
+            event.target.style.setProperty('--primary-color', color)
+        }
+        const itemToChange = document.querySelectorAll(".circle_animated")
+        for (let key of itemToChange) {
+            // console.log(key)
+            key.addEventListener("click", () => changeColor(event, "red"))
+        }
+
+        // Equivalent avec SVG et animate (?)
+        function changeSvgColor(event, color) {
+
+            // console.log(window.getComputedStyle(event.target).getPropertyValue('fill'))
+
+            // fontionne pour tous les svg sauf celui animé puisqu'il n'a pas d'attribut fill
+            // console.log(event.target.getAttribute("fill"));
+
+            var newValues = document.querySelector("animate").getAttribute("values").replace("#578aff", color)
+            document.querySelector("animate").setAttribute('values', newValues)
+        }
+
+        const svgToChange = document.querySelectorAll("circle")
+        console.log(svgToChange)
+
+        for (let svg of svgToChange) {
+            svg.addEventListener("click", () => changeSvgColor(event, "red"))
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>

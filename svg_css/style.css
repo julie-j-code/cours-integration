@@ -1,0 +1,70 @@
+:root {
+  --primary-color: #578aff;
+  --secondary-color: #adadad;
+}
+
+* {
+  margin: 0;
+  box-sizing: content-box;
+}
+
+/* pour tester la propriété stroke depuis css puisque les svg ignorent broder  */
+svg circle animate{
+  stroke-width: 4px;
+  stroke: darkblue!important;
+}
+
+.circle_container {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+.circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  border: 4px solid green;
+  /* le centre est à 50 donc son bord à 10 autrement dit left:10 */
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+.circle_animated {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  position: absolute;
+  /* background-color:#adadad; */
+  animation-name: animated_circle;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  left: 10px;
+  top: 10px;
+}
+
+@keyframes animated_circle {
+  /* mieux vaut recourir à des variables dans l'hypothèse de changements initiés via JS */
+
+  0% {
+    background-color: var(--secondary-color);
+  }
+  50.0% {
+    background-color: var(--primary-color);
+  }
+  100.0% {
+    background-color: var(--secondary-color);
+  }
+}
+
+.radient_circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-image: radial-gradient(rgba(255, 255, 255, 0), blue);
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}

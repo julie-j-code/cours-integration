@@ -23,6 +23,9 @@ const sneaker = document.querySelectorAll('.sneaker img');
 // pas besoin si on peut changer dynamiquement la variable primary
 // const figure = document.querySelector('#sneaker-figure');
 
+const primary=document.body.childNodes.forEach(f=>console.log(f.classList))
+
+
 
 
 // Get the root element
