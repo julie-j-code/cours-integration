@@ -113,7 +113,13 @@ svg circle animate{
   }
 }
 
-/* on va arrêter avec le  positionnement absolue  */
+/* Pour l'enchainement des cercles et la vague des transform-translate
+on va arrêter avec le  positionnement absolue  */
+
+.circle_block_container {
+  width: 800px;
+  height: 300px;
+}
 
 .circle-block-animated{
   display: inline-block;
