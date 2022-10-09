@@ -94,7 +94,67 @@
     </div>
 
 
-    
+    <hr>
+    <!-- on complique -->
+
+    <h1>On complique</h1>
+    <h2>Avec SVG</h2>
+    <p>Animation : animate attributeName="fill", comme vu précédemment + animateTransform attributeName="transform" de type="translate"</p>
+    <svg width="600" height="200">
+        <circle cx="50" cy="50" r="40">
+            <animate attributeName="fill" values="#adadad; #578aff; #adadad" dur="1s"
+                repeatCount="indefinite">
+            </animate>
+<animateTransform attributeName="transform" type="translate" values="0 0; 0 100; 0 0" dur="1.5s" repeatCount="indefinite"></animateTransform>
+        </circle>
+        <circle cx="150" cy="50" r="40">
+            <animate attributeName="fill" values="#adadad; #578aff; #adadad" dur="1s"
+                repeatCount="indefinite" begin="0.33s">
+            </animate>
+            <animateTransform attributeName="transform" type="translate" values="0 0; 0 100; 0 0" dur="1.5s" repeatCount="indefinite" begin="0.2s"></animateTransform>
+        </circle>
+        <circle cx="250" cy="50" r="40">
+            <animate attributeName="fill" values="#adadad; #578aff; #adadad" dur="1s"
+                repeatCount="indefinite" begin="0.66s">
+            </animate>
+            <animateTransform attributeName="transform" type="translate" values="0 0; 0 100; 0 0" dur="1.5s" repeatCount="indefinite" begin="0.4"></animateTransform>
+        </circle>
+        <circle cx="350" cy="50" r="40">
+            <animate attributeName="fill" values="#adadad; #578aff; #adadad" dur="1s"
+                repeatCount="indefinite" begin="1s">
+            </animate>
+            <animateTransform attributeName="transform" type="translate" values="0 0; 0 100; 0 0" dur="1.5s" repeatCount="indefinite" begin="0.6s"/>
+        </circle>
+        <circle cx="450" cy="50" r="40">
+            <animate attributeName="fill" values="#adadad; #578aff; #adadad" dur="1s"
+                repeatCount="indefinite" begin="1.33s">
+            </animate>
+            <animateTransform attributeName="transform" type="translate" values="0 0; 0 100; 0 0" dur="1.5s" repeatCount="indefinite" begin="0.8s" />
+        </circle>
+        <circle cx="550" cy="50" r="40">
+            <animate attributeName="fill" values="#adadad; #578aff; #adadad" dur="1s"
+                repeatCount="indefinite" begin="1.66s">
+            </animate>
+            <animateTransform attributeName="transform" type="translate" values="0 0; 0 100; 0 0" dur="1.5s" repeatCount="indefinite" begin="1s" />
+        </circle>
+    </svg>
+
+    <h2>Même chose en CSS avec un background, des keyframes et le cumul de deux animation dont la deuxième transform-translate avec un délai personnalisé là aussi en comptant 0.2s de délai supplémentaire d'un cercle à l'autre à compter du second. On arrive bien au même, mais c'est moins lisible et pratique selon moi </h2>
+
+    <div class="circle_container">
+        <div class="circle-block-animated">
+        </div>
+        <div class="circle-block-animated circle2">
+        </div>
+        <div class="circle-block-animated circle3">
+        </div>
+        <div class="circle-block-animated circle4">
+        </div>
+        <div class="circle-block-animated circle5">
+        </div>
+        <div class="circle-block-animated circle6">
+        </div>
+    </div>     
 
 
     <script>
