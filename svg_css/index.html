@@ -53,7 +53,7 @@
     <pre>cliquer sur l'image pour modifier la couleur primaire</pre>
     <svg width="100" height="100">
         <circle cx="50" cy="50" r="40">
-            <animate id="julie" attributeName="fill" values="#adadad; #578aff; #adadad" dur="3s"
+            <animate attributeName="fill" values="#adadad; #578aff; #adadad" dur="3s"
                 repeatCount="indefinite" />
             </animate>
         </circle>
@@ -64,7 +64,37 @@
     <div class="circle_container">
         <div class="circle_animated">
         </div>
+    </div>    
+    
+    <hr>
+    <!-- versions plusieurs animés avec un délai -->
+    <h1>Versions x3 animées avec interval différent</h1>
+    <h2>Avec SVG</h2>
+    <svg width="600" height="200">
+        <rect x="10" y="50" width="80" height="80" fill="#adadad">
+            <animate attributeName="fill" values="#adadad; #578aff; #adadad" dur="3s" repeatCount="indefinite"></animate>
+        </rect>
+        <rect x="120" y="50" width="80" height="80" fill="#adadad">
+            <animate attributeName="fill" values="#adadad; #578aff; #adadad" dur="3s" repeatCount="indefinite" begin="1s"></animate>
+        </rect>
+        <rect x="230" y="50" width="80" height="80" fill="#adadad">
+            <animate attributeName="fill" values="#adadad; #578aff; #adadad" dur="3s" repeatCount="indefinite" begin="2s"></animate>
+        </rect>
+    </svg>
+
+    <h2>Même chose en CSS avec un background, des keyframes, la propriété animation</h2>
+    <p>Il aura juste fallut rajouter une classe sur chacun pour les différencier si on souhaite les positionner en absolue et surtout pour initier un délai différent sur le premier, second, troisième</p>
+    <div class="circle_container">
+        <div class="rect_animated first">
+        </div>
+        <div class="rect_animated second">
+        </div>
+        <div class="rect_animated third">
+        </div>
     </div>
+
+
+    
 
 
     <script>
