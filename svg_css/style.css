@@ -75,7 +75,8 @@ svg circle animate{
   width: 80px;
   height: 80px;
   position: absolute;
-  /* background-color:#adadad; */
+  /* si on veut rigoureusement le même effet qu'avec les SVG */
+  background-color:#adadad;
   /* on peut garder le même animation-name pour cercles et rectangles */
   animation-name: animated_circle;
   animation-duration: 3s;
